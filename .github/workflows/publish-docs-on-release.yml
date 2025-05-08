@@ -1,0 +1,15 @@
+name: Deploy Documentation on Release
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  docs:
+    uses: Billingegroup/release-scripts/.github/workflows/_publish-docs-on-release.yml@v0
+    with:
+      project: Sangjoon Bob Lee personal website
+      c_extension: false
+      headless: false

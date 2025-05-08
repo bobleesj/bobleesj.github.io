@@ -1,0 +1,20 @@
+[
+  {
+    "date": "Apr 28, 2025",
+    "title": "Attending Solid State Materials Chemistry Hackathon",
+    "details": [
+      "I will be attending the Solid State and Materials Chemistry Collaboration Incubator (SSMC-CI) series at the University of Wisconsin–Madison.",
+      "The event will be held May 20–23, 2025.",
+      "More information: https://ssmcci.chem.wisc.edu/about/"
+    ]
+  },
+  {
+    "date": "Apr 20, 2025",
+    "title": "Published to JACS",
+    "details": [
+      "Collaborators from Hunter College (CUNY) and IIT published an article.",
+      "We applied unsupervised learning based on features generated with SAF, which I developed with Prof. Anton Oliynyk.",
+      "SAF was previously featured in *Digital Discovery*. My contribution was the development of SAF."
+    ]
+  }
+]
