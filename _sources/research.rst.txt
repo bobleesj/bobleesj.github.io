@@ -10,7 +10,7 @@ Research and software
 
 ⏩️ I'm a researcher. I want to **share scientific code** to amplify scientific impact, while spending less time on maintenance and development.
 
-    Read more: https://billingegroup.github.io/scikit-package
+    Read more: https://scikit-package.github.io/scikit-package
 
 ⏩️ I'm an experimentalist. I want to **adopt data-driven materials synthesis** to reduce the time and cost of experiments.
 
