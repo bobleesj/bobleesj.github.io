@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 
 def dot_product(a, b):
@@ -29,3 +30,11 @@ def dot_product(a, b):
     32.0
     """
     return float(np.dot(a, b))
+
+def plot_example_one():
+    plt.plot([1, 2, 3], [4, 5, 6])
+    plt.title("A plotting example 1")
+    
+def plot_example_two():
+    plt.plot([4, 5, 6], [1, 2, 3])
+    plt.title("A plotting example 2")
