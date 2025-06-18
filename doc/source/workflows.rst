@@ -25,7 +25,7 @@ Tools I use daily
 Make a pull request
 -------------------
 
-#. Type ``gsuo <branch-name>`` or ``gsob <branch-name>`` to sync with ``origin/main`` or ``upstream/main`` and create a new branch.
+#. Type ``gsub <branch-name>`` or ``gsob <branch-name>`` to sync with ``origin/main`` or ``upstream/main`` and create a new branch.
 
 #. Make changes to the codebase.
 
