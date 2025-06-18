@@ -75,7 +75,7 @@ community's install such as `conda-forge`.
 
 ```bash
 # Create an environment
-mamba create -n bobmamba <list of packages>
+mamba create -n package-env <list of packages>
 
 # Install a package
 mamba install "matplotlib"
