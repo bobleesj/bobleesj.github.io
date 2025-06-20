@@ -17,6 +17,9 @@ My name is Sangjoon Bob Lee. I am an incoming PhD student at Stanford University
 
 If you are a researcher, feel free to visit the :ref:`research` page to see if there is a way for us to collaborate or provide value to one another.
 
+.. note::
+   
+   This website is maintained with the help of ``scikit-package`` (https://scikit-package.github.io/scikit-package).
 
 .. toctree::
    :maxdepth: 2
