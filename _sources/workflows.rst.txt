@@ -16,7 +16,9 @@ Tools I use daily
     * - IDE
       - Visual Studio Code.
     * - Version control
-      - Git, GitHub CLI, GitHub.
+      - Git, GitHub CLI, GitHub
+    * - CLI
+      - Warp, Bash alias shortcuts
     * - Development productivity
       - `scikit-package <https://scikit-package.github.io/scikit-package/>`_, `bobleesj.utils <https://bobleesj.github.io/bobleesj.utils/>`_.
     * - CLI shortcuts
@@ -59,6 +61,11 @@ GitHub notifications workflow (TBA)
 
 Release workflow (TBA)
 ----------------------
+
+Update documentation workflow without a release
+-----------------------------------------------
+
+#. Tyep ``gdb``.
 
 How to use keyboard shortcuts in your CLI
 -----------------------------------------
