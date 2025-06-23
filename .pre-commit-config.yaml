@@ -11,7 +11,7 @@ ci:
   submodules: false
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.6.0
+    rev: v5.0.0
     hooks:
       - id: check-yaml
       - id: end-of-file-fixer
@@ -21,24 +21,24 @@ repos:
       - id: check-toml
       - id: check-added-large-files
   - repo: https://github.com/psf/black
-    rev: 24.4.2
+    rev: 25.1.0
     hooks:
       - id: black
   - repo: https://github.com/pycqa/flake8
-    rev: 7.0.0
+    rev: 7.3.0
     hooks:
       - id: flake8
   - repo: https://github.com/pycqa/isort
-    rev: 5.13.2
+    rev: 6.0.1
     hooks:
       - id: isort
         args: ["--profile", "black"]
   - repo: https://github.com/kynan/nbstripout
-    rev: 0.7.1
+    rev: 0.8.1
     hooks:
       - id: nbstripout
   - repo: https://github.com/codespell-project/codespell
-    rev: v2.3.0
+    rev: v2.4.1
     hooks:
       - id: codespell
         additional_dependencies:
@@ -52,7 +52,7 @@ repos:
           - "prettier@^3.2.4"
   # docformatter - PEP 257 compliant docstring formatter
   - repo: https://github.com/s-weigand/docformatter
-    rev: 5757c5190d95e5449f102ace83df92e7d3b06c6c
+    rev: 886a0329b3949dfb8be9f10f80bc96829923debe
     hooks:
       - id: docformatter
         additional_dependencies: [tomli]
