@@ -48,5 +48,6 @@ If you are a researcher, feel free to visit the :ref:`research` page to see if t
 
    news
    license
+   notes
 
 | Last updated: |today|.
