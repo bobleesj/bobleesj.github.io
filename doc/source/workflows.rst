@@ -3,7 +3,7 @@
 Development workflows
 =====================
 
-Here I document the workflows I use to develop and maintain software projects.
+Here I document the workflows and commands I use in practice to develop and maintain software projects.
 
 Tools I use daily
 -----------------
@@ -14,11 +14,11 @@ Tools I use daily
     * - Category
       - Tools
     * - IDE
-      - Visual Studio Code.
+      - Visual Studio Code
     * - Version control
       - Git, GitHub CLI, GitHub
     * - CLI
-      - Warp, Bash alias shortcuts
+      - Warp
     * - Development productivity
       - `scikit-package <https://scikit-package.github.io/scikit-package/>`_, `bobleesj.utils <https://bobleesj.github.io/bobleesj.utils/>`_.
     * - CLI shortcuts
@@ -56,7 +56,7 @@ Modify a pull request
 
 #. Type ``git push``.
 
-GitHub notifications workflow (TBA) 
+GitHub notifications workflow (TBA)
 -----------------------------------
 
 Release workflow (TBA)
@@ -66,6 +66,8 @@ Update documentation workflow without a release
 -----------------------------------------------
 
 #. Tyep ``gdb``.
+
+.. _keyboard-shortcuts-setup:
 
 How to use keyboard shortcuts in your CLI
 -----------------------------------------

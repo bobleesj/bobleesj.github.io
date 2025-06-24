@@ -7,4 +7,3 @@
 ### Acknowledgements
 
 This website is created using https://scikit-package.github.io/scikit-package.
-

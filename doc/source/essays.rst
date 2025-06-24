@@ -133,9 +133,10 @@ finite resources and perform at the highest level.
 July 8, 2024, 160 Claremont Ave, New York
 
 
+.. _essay-daily-work:
+
 My approach to daily work
 -------------------------
-
 
 “Slow but steady wins the race” is the moral of The Tale of the Turtle and the
 Rabbit. Unfortunately, the phrase is contradictory in practice. If we are slow
