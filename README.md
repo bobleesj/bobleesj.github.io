@@ -1,8 +1,6 @@
 # bobleesj.github.io
 
-### Notes
-
-- For this repo, upon `push` to `main`, the doc is deployed.
+Website URL: http://bobleesj.github.io/
 
 ### Acknowledgements
 
