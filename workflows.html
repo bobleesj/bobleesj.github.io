@@ -49,11 +49,11 @@
 <li class="toctree-l2"><a class="reference internal" href="#tools-i-use-daily">Tools I use daily</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#make-a-pull-request">Make a pull request</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#modify-a-pull-request">Modify a pull request</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#github-notifications-workflow-tba">GitHub notifications workflow (TBA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#github-notifications-workflow">GitHub notifications workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#github-issue-creation-workflow">GitHub issue creation workflow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#release-workflow-tba">Release workflow (TBA)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#update-documentation-workflow-without-a-release">Update documentation workflow without a release</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-to-use-keyboard-shortcuts-in-your-cli">How to use keyboard shortcuts in your CLI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#how-to-add-new-shortcuts">How to add new shortcuts</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="principles.html">My optimization principles</a></li>
@@ -94,7 +94,7 @@
              
   <section id="development-workflows">
 <span id="workflows"></span><h1>Development workflows<a class="headerlink" href="#development-workflows" title="Link to this heading"></a></h1>
-<p>Here I document the workflows and commands I use in practice to develop and maintain software projects.</p>
+<p>Here I document the workflows and commands I use in practice to develop and maintain software projects. Many of the commands are aliased to make them easier to remember and use. You can find the full list of commands in <a class="reference internal" href="#keyboard-shortcuts-setup"><span class="std std-ref">How to use keyboard shortcuts in your CLI</span></a>.</p>
 <section id="tools-i-use-daily">
 <h2>Tools I use daily<a class="headerlink" href="#tools-i-use-daily" title="Link to this heading"></a></h2>
 <table class="docutils align-default">
@@ -130,7 +130,7 @@
 <li><p>Type <code class="docutils literal notranslate"><span class="pre">gs</span></code> to see the overall changes.</p></li>
 <li><p>Type <code class="docutils literal notranslate"><span class="pre">gcam</span> <span class="pre">&quot;&lt;Add</span> <span class="pre">commit</span> <span class="pre">message&gt;&quot;</span></code> to commit files already tracked. If the files are not staged, run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">&lt;file-or-folder&gt;</span></code> then run <code class="docutils literal notranslate"><span class="pre">gcm</span> <span class="pre">&quot;&lt;Add</span> <span class="pre">commit</span> <span class="pre">message&gt;&quot;</span></code>.</p></li>
 <li><p>Type <code class="docutils literal notranslate"><span class="pre">ptc</span></code> to run <code class="docutils literal notranslate"><span class="pre">pytest</span></code> and <code class="docutils literal notranslate"><span class="pre">pre-commit</span> <span class="pre">run</span> <span class="pre">--all-files</span></code> to ensure everything is working correctly.</p></li>
-<li><p>Type <code class="docutils literal notranslate"><span class="pre">napr</span> <span class="pre">&quot;&lt;Add</span> <span class="pre">news</span> <span class="pre">file&gt;.&quot;</span></code> to create a new news entry in <code class="docutils literal notranslate"><span class="pre">news/&lt;branch-name&gt;</span></code>, make a commit, and create a PR to the remote default repository.</p></li>
+<li><p>Type <code class="docutils literal notranslate"><span class="pre">napr</span> <span class="pre">&quot;&lt;Add</span> <span class="pre">news</span> <span class="pre">file&gt;.&quot;</span></code> to create a new news entry in <code class="docutils literal notranslate"><span class="pre">news/&lt;branch-name&gt;</span></code>, stage, commit, and push the changes, and make the PR title the news content. To submit the PR right away, type <code class="docutils literal notranslate"><span class="pre">naprf</span> <span class="pre">&quot;&lt;Add</span> <span class="pre">news</span> <span class="pre">file&gt;.&quot;</span></code></p></li>
 </ol>
 </section>
 <section id="modify-a-pull-request">
@@ -145,16 +145,34 @@
 <li><p>Type <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code>.</p></li>
 </ol>
 </section>
-<section id="github-notifications-workflow-tba">
-<h2>GitHub notifications workflow (TBA)<a class="headerlink" href="#github-notifications-workflow-tba" title="Link to this heading"></a></h2>
+<section id="github-notifications-workflow">
+<h2>GitHub notifications workflow<a class="headerlink" href="#github-notifications-workflow" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>In your terminal, type <code class="docutils literal notranslate"><span class="pre">gn</span></code> to visit the GitHub notifications page. If you are already on GitHub, type <code class="docutils literal notranslate"><span class="pre">G-N</span></code> to visit the notifications page.</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">J</span></code> and <code class="docutils literal notranslate"><span class="pre">K</span></code> keys to navigate through the notifications. Press <code class="docutils literal notranslate"><span class="pre">o</span></code> to open a notification.</p></li>
+<li><p>To reply, press <code class="docutils literal notranslate"><span class="pre">R</span></code>. To submit the reply, press <code class="docutils literal notranslate"><span class="pre">cmd-enter</span></code>. Then, to mark the selected page (PR or issue) from the notification as <code class="docutils literal notranslate"><span class="pre">done</span></code>, press <code class="docutils literal notranslate"><span class="pre">E</span></code>.</p></li>
+<li><p>To select multiple notifications, use <code class="docutils literal notranslate"><span class="pre">J</span></code> and <code class="docutils literal notranslate"><span class="pre">K</span></code> to navigate and press <code class="docutils literal notranslate"><span class="pre">X</span></code> to select. Then, you may press <code class="docutils literal notranslate"><span class="pre">shift-U</span></code> to mark as unread and <code class="docutils literal notranslate"><span class="pre">shift-I</span></code> to mark as read.</p></li>
+</ol>
+</section>
+<section id="github-issue-creation-workflow">
+<h2>GitHub issue creation workflow<a class="headerlink" href="#github-issue-creation-workflow" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>If you are working alone and need to <strong>quickly create an issue</strong>, <code class="docutils literal notranslate"><span class="pre">cd</span></code> into the project directory and type <code class="docutils literal notranslate"><span class="pre">gi</span> <span class="pre">&lt;Descriptive</span> <span class="pre">issue</span> <span class="pre">title&gt;</span></code> to create and submit an empty issue with the given title. This is useful when the title is descriptive enough and a description is not required.</p></li>
+<li><p>If you need to submit the <strong>same issue across multiple GitHub repositories</strong>, type <code class="docutils literal notranslate"><span class="pre">bob</span> <span class="pre">create</span> <span class="pre">issues</span></code> to create an issue with a description. You need to define <code class="docutils literal notranslate"><span class="pre">dev_dir_path</span></code> in <code class="docutils literal notranslate"><span class="pre">~/.bobrc</span></code> to point to the directory containing your GitHub repositories. For more information, visit <a class="reference external" href="https://bobleesj.github.io/bobleesj.utils/cli.html">https://bobleesj.github.io/bobleesj.utils/cli.html</a>.</p></li>
+<li><p>If you want to <strong>submit a detailed issue</strong> to communicate and persuade your collaborators, if you are already on the project, type <code class="docutils literal notranslate"><span class="pre">ghbi</span></code> to visit the issues page. If you just opened your Terminal, type <code class="docutils literal notranslate"><span class="pre">g&lt;proj-name&gt;i</span></code> to open the GitHub issue page of the project. On the issue page, press <code class="docutils literal notranslate"><span class="pre">C</span></code> to create a new issue. Use the <code class="docutils literal notranslate"><span class="pre">tab</span></code> key to choose the template, then enter the title and description. Preview your rendered markdown using <code class="docutils literal notranslate"><span class="pre">shift-P</span></code>. To submit, press <code class="docutils literal notranslate"><span class="pre">shift-cmd-enter</span></code>.</p></li>
+</ol>
 </section>
 <section id="release-workflow-tba">
 <h2>Release workflow (TBA)<a class="headerlink" href="#release-workflow-tba" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>If you are working alone and want to make a quick edit directly to <code class="docutils literal notranslate"><span class="pre">main</span></code>, after you have staged and committed, type <code class="docutils literal notranslate"><span class="pre">pd</span></code> to push the changes to <code class="docutils literal notranslate"><span class="pre">main</span></code> and run the GitHub Actions workflow to update the documentation.</p></li>
+</ol>
 </section>
 <section id="update-documentation-workflow-without-a-release">
 <h2>Update documentation workflow without a release<a class="headerlink" href="#update-documentation-workflow-without-a-release" title="Link to this heading"></a></h2>
+<p>This is for <code class="docutils literal notranslate"><span class="pre">scikit-package</span></code> Level 5 projects.</p>
 <ol class="arabic simple">
-<li><p>Tyep <code class="docutils literal notranslate"><span class="pre">gdb</span></code>.</p></li>
+<li><p>Stage and commit the changes. Then run <code class="docutils literal notranslate"><span class="pre">gdb</span></code> to push the changes to <code class="docutils literal notranslate"><span class="pre">main</span></code> and run the GitHub Actions workflow to update the documentation.</p></li>
 </ol>
 </section>
 <section id="how-to-use-keyboard-shortcuts-in-your-cli">
@@ -167,6 +185,7 @@
 <li><p>Ensure you have <code class="docutils literal notranslate"><span class="pre">GitHub</span> <span class="pre">CLI</span></code> installed. Run <code class="docutils literal notranslate"><span class="pre">gh</span></code> to check if it is installed. If not, install it by following the instructions at <a class="reference external" href="https://cli.github.com/manual/installation">https://cli.github.com/manual/installation</a>.</p></li>
 <li><p>In Visual Studio Code, press <code class="docutils literal notranslate"><span class="pre">cmd-shift-p</span></code> and type <code class="docutils literal notranslate"><span class="pre">Shell</span> <span class="pre">Command:</span> <span class="pre">Install</span> <span class="pre">'code'</span> <span class="pre">command</span> <span class="pre">in</span> <span class="pre">PATH</span></code> to enable the <code class="docutils literal notranslate"><span class="pre">code</span></code> command in your terminal.</p></li>
 <li><p>Ensure you have <code class="docutils literal notranslate"><span class="pre">scikit-package</span></code> and <code class="docutils literal notranslate"><span class="pre">bobleesj.utils</span></code> installed.</p></li>
+<li><p>Type <code class="docutils literal notranslate"><span class="pre">code</span> <span class="pre">~/.bashrc</span></code> to open <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>.</p></li>
 <li><p>Copy and paste the following commands into your <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>.</p>
 <blockquote>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Navigate (Replace with your actual path and conda environment)</span>
@@ -230,9 +249,9 @@ git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </sp
 <span class="nv">BRANCH</span><span class="o">=</span><span class="k">$(</span>git<span class="w"> </span>rev-parse<span class="w"> </span>--abbrev-ref<span class="w"> </span>HEAD<span class="k">)</span>
 git<span class="w"> </span>push<span class="w"> </span>--set-upstream<span class="w"> </span>origin<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$BRANCH</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
 <span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$FILL_FLAG</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;fill&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span>gh<span class="w"> </span>pr<span class="w"> </span>create<span class="w"> </span>--title<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$TITLE</span><span class="s2">&quot;</span><span class="w"> </span>--fill
+<span class="w">  </span>gh<span class="w"> </span>pr<span class="w"> </span>create<span class="w"> </span>--title<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$TITLE</span><span class="s2">&quot;</span><span class="w"> </span>--fill
 <span class="k">else</span>
-<span class="w">    </span>gh<span class="w"> </span>pr<span class="w"> </span>create<span class="w"> </span>--title<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$TITLE</span><span class="s2">&quot;</span>
+<span class="w">  </span>gh<span class="w"> </span>pr<span class="w"> </span>create<span class="w"> </span>--title<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$TITLE</span><span class="s2">&quot;</span>
 <span class="k">fi</span>
 <span class="o">}</span>
 <span class="c1"># scikit-package</span>
@@ -259,27 +278,28 @@ gh<span class="w"> </span>issue<span class="w"> </span>create<span class="w"> </
 <span class="nb">alias</span><span class="w"> </span><span class="nv">pir</span><span class="o">=</span><span class="s1">&#39;pip install -r&#39;</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">pie</span><span class="o">=</span><span class="s1">&#39;pip install -e . &amp;&amp; pip install -r requirements/test.txt&#39;</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">mi</span><span class="o">=</span><span class="s1">&#39;mamba install \</span>
-<span class="s1">    --file requirements/test.txt \</span>
-<span class="s1">    --file requirements/conda.txt&#39;</span><span class="se">\</span>
+<span class="s1">  --file requirements/test.txt \</span>
+<span class="s1">  --file requirements/conda.txt&#39;</span><span class="se">\</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">ma</span><span class="o">=</span><span class="s1">&#39;mamba activate&#39;</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">mao</span><span class="o">=</span><span class="s1">&#39;mamba activate ophus-env&#39;</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">mab</span><span class="o">=</span><span class="s1">&#39;mamba activate bob-env&#39;</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">mcn</span><span class="o">=</span><span class="s1">&#39;mamba create -n&#39;</span>
 mce<span class="o">()</span><span class="w"> </span><span class="o">{</span>
-<span class="w">    </span><span class="nv">folder_name</span><span class="o">=</span><span class="k">$(</span>basename<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PWD</span><span class="s2">&quot;</span><span class="k">)</span>
-<span class="w">    </span><span class="nv">env_name</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">folder_name</span><span class="si">}</span><span class="s2">-env&quot;</span>
-<span class="w">    </span>mamba<span class="w"> </span>create<span class="w"> </span>-y<span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$env_name</span><span class="s2">&quot;</span><span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.13<span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>--file<span class="w"> </span>requirements/test.txt<span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>--file<span class="w"> </span>requirements/conda.txt<span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>--file<span class="w"> </span>requirements/docs.txt<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>mamba<span class="w"> </span>activate<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$env_name</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+<span class="w">  </span><span class="nv">folder_name</span><span class="o">=</span><span class="k">$(</span>basename<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PWD</span><span class="s2">&quot;</span><span class="k">)</span>
+<span class="w">  </span><span class="nv">env_name</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">folder_name</span><span class="si">}</span><span class="s2">-env&quot;</span>
+<span class="w">  </span>mamba<span class="w"> </span>create<span class="w"> </span>-y<span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$env_name</span><span class="s2">&quot;</span><span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.13<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--file<span class="w"> </span>requirements/test.txt<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--file<span class="w"> </span>requirements/conda.txt<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--file<span class="w"> </span>requirements/docs.txt<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>mamba<span class="w"> </span>activate<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$env_name</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
 <span class="o">}</span>
-<span class="c1"># Test</span>
+<span class="c1"># Combined</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">pt</span><span class="o">=</span><span class="s1">&#39;pytest&#39;</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">pc</span><span class="o">=</span><span class="s1">&#39;pre-commit run --all-files&#39;</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">ptc</span><span class="o">=</span><span class="s1">&#39;pytest &amp;&amp; pre-commit run --all-files&#39;</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">pb</span><span class="o">=</span><span class="s1">&#39;python -m build&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">pd</span><span class="o">=</span><span class="s1">&#39;git push &amp;&amp; gbd&#39;</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">doc</span><span class="o">=</span><span class="s1">&#39;sphinx-reload doc&#39;</span>
 <span class="c1"># VS Code</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">c</span><span class="o">=</span><span class="s1">&#39;code .&#39;</span>
@@ -290,11 +310,9 @@ mce<span class="o">()</span><span class="w"> </span><span class="o">{</span>
 </div></blockquote>
 </li>
 <li><p>Run <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">~/.bashrc</span></code> to apply the changes.</p></li>
+<li><p>To add or modify commands, type <code class="docutils literal notranslate"><span class="pre">sc</span></code> to open <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> in Visual Studio Code, make your changes, and save the file.</p></li>
+<li><p>To apply the changes, instead of running <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">~/.bashrc</span></code>, type <code class="docutils literal notranslate"><span class="pre">ss</span></code> to apply the changes to your current terminal session.</p></li>
 </ol>
-</section>
-<section id="how-to-add-new-shortcuts">
-<h2>How to add new shortcuts<a class="headerlink" href="#how-to-add-new-shortcuts" title="Link to this heading"></a></h2>
-<p>Type <code class="docutils literal notranslate"><span class="pre">sc</span></code> to open your <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> file in Visual Studio Code. Then modify the <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> file to add new shortcuts or modify existing ones. Thenm, type <code class="docutils literal notranslate"><span class="pre">ss</span></code> to apply the changes to your current terminal session.</p>
 </section>
 </section>
 

@@ -3,26 +3,26 @@
 Development workflows
 =====================
 
-Here I document the workflows and commands I use in practice to develop and maintain software projects.
+Here I document the workflows and commands I use in practice to develop and maintain software projects. Many of the commands are aliased to make them easier to remember and use. You can find the full list of commands in :ref:`keyboard-shortcuts-setup`.
 
 Tools I use daily
 -----------------
 
 .. list-table::
-    :header-rows: 1
+  :header-rows: 1
 
-    * - Category
-      - Tools
-    * - IDE
-      - Visual Studio Code
-    * - Version control
-      - Git, GitHub CLI, GitHub
-    * - CLI
-      - Warp
-    * - Development productivity
-      - `scikit-package <https://scikit-package.github.io/scikit-package/>`_, `bobleesj.utils <https://bobleesj.github.io/bobleesj.utils/>`_.
-    * - CLI shortcuts
-      - ``~/.bashrc`` for setting up aliases.
+  * - Category
+    - Tools
+  * - IDE
+    - Visual Studio Code
+  * - Version control
+    - Git, GitHub CLI, GitHub
+  * - CLI
+    - Warp
+  * - Development productivity
+    - `scikit-package <https://scikit-package.github.io/scikit-package/>`_, `bobleesj.utils <https://bobleesj.github.io/bobleesj.utils/>`_.
+  * - CLI shortcuts
+    - ``~/.bashrc`` for setting up aliases.
 
 Make a pull request
 -------------------
@@ -37,7 +37,7 @@ Make a pull request
 
 #. Type ``ptc`` to run ``pytest`` and ``pre-commit run --all-files`` to ensure everything is working correctly.
 
-#. Type ``napr "<Add news file>."`` to create a new news entry in ``news/<branch-name>``, make a commit, and create a PR to the remote default repository.
+#. Type ``napr "<Add news file>."`` to create a new news entry in ``news/<branch-name>``, stage, commit, and push the changes, and make the PR title the news content. To submit the PR right away, type ``naprf "<Add news file>."``
 
 Modify a pull request
 ---------------------
@@ -56,16 +56,37 @@ Modify a pull request
 
 #. Type ``git push``.
 
-GitHub notifications workflow (TBA)
------------------------------------
+GitHub notifications workflow
+-----------------------------
+
+#. In your terminal, type ``gn`` to visit the GitHub notifications page. If you are already on GitHub, type ``G-N`` to visit the notifications page.
+
+#. Use the ``J`` and ``K`` keys to navigate through the notifications. Press ``o`` to open a notification.
+
+#. To reply, press ``R``. To submit the reply, press ``cmd-enter``. Then, to mark the selected page (PR or issue) from the notification as ``done``, press ``E``.
+
+#. To select multiple notifications, use ``J`` and ``K`` to navigate and press ``X`` to select. Then, you may press ``shift-U`` to mark as unread and ``shift-I`` to mark as read.
+
+GitHub issue creation workflow
+------------------------------
+
+#. If you are working alone and need to **quickly create an issue**, ``cd`` into the project directory and type ``gi <Descriptive issue title>`` to create and submit an empty issue with the given title. This is useful when the title is descriptive enough and a description is not required.
+
+#. If you need to submit the **same issue across multiple GitHub repositories**, type ``bob create issues`` to create an issue with a description. You need to define ``dev_dir_path`` in ``~/.bobrc`` to point to the directory containing your GitHub repositories. For more information, visit https://bobleesj.github.io/bobleesj.utils/cli.html.
+
+#. If you want to **submit a detailed issue** to communicate and persuade your collaborators, if you are already on the project, type ``ghbi`` to visit the issues page. If you just opened your Terminal, type ``g<proj-name>i`` to open the GitHub issue page of the project. On the issue page, press ``C`` to create a new issue. Use the ``tab`` key to choose the template, then enter the title and description. Preview your rendered markdown using ``shift-P``. To submit, press ``shift-cmd-enter``.
 
 Release workflow (TBA)
 ----------------------
 
+#. If you are working alone and want to make a quick edit directly to ``main``, after you have staged and committed, type ``pd`` to push the changes to ``main`` and run the GitHub Actions workflow to update the documentation.
+
 Update documentation workflow without a release
 -----------------------------------------------
 
-#. Tyep ``gdb``.
+This is for ``scikit-package`` Level 5 projects.
+
+#. Stage and commit the changes. Then run ``gdb`` to push the changes to ``main`` and run the GitHub Actions workflow to update the documentation.
 
 .. _keyboard-shortcuts-setup:
 
@@ -74,13 +95,15 @@ How to use keyboard shortcuts in your CLI
 
 .. note::
 
-    If you are a Windows user, install "Git for Windows" from https://git-scm.com/download/win.
+  If you are a Windows user, install "Git for Windows" from https://git-scm.com/download/win.
 
 #. Ensure you have ``GitHub CLI`` installed. Run ``gh`` to check if it is installed. If not, install it by following the instructions at https://cli.github.com/manual/installation.
 
 #. In Visual Studio Code, press ``cmd-shift-p`` and type ``Shell Command: Install 'code' command in PATH`` to enable the ``code`` command in your terminal.
 
 #. Ensure you have ``scikit-package`` and ``bobleesj.utils`` installed.
+
+#. Type ``code ~/.bashrc`` to open ``~/.bashrc``.
 
 #. Copy and paste the following commands into your ``~/.bashrc``.
 
@@ -147,9 +170,9 @@ How to use keyboard shortcuts in your CLI
         BRANCH=$(git rev-parse --abbrev-ref HEAD)
         git push --set-upstream origin "$BRANCH" || return 1
         if [ "$FILL_FLAG" = "fill" ]; then
-            gh pr create --title "$TITLE" --fill
+          gh pr create --title "$TITLE" --fill
         else
-            gh pr create --title "$TITLE"
+          gh pr create --title "$TITLE"
         fi
         }
         # scikit-package
@@ -176,27 +199,28 @@ How to use keyboard shortcuts in your CLI
         alias pir='pip install -r'
         alias pie='pip install -e . && pip install -r requirements/test.txt'
         alias mi='mamba install \
-            --file requirements/test.txt \
-            --file requirements/conda.txt'\
+          --file requirements/test.txt \
+          --file requirements/conda.txt'\
         alias ma='mamba activate'
         alias mao='mamba activate ophus-env'
         alias mab='mamba activate bob-env'
         alias mcn='mamba create -n'
         mce() {
-            folder_name=$(basename "$PWD")
-            env_name="${folder_name}-env"
-            mamba create -y -n "$env_name" python=3.13 \
-                --file requirements/test.txt \
-                --file requirements/conda.txt \
-                --file requirements/docs.txt && \
-                mamba activate "$env_name" && \
-                pip install -e .
+          folder_name=$(basename "$PWD")
+          env_name="${folder_name}-env"
+          mamba create -y -n "$env_name" python=3.13 \
+            --file requirements/test.txt \
+            --file requirements/conda.txt \
+            --file requirements/docs.txt && \
+            mamba activate "$env_name" && \
+            pip install -e .
         }
-        # Test
+        # Combined
         alias pt='pytest'
         alias pc='pre-commit run --all-files'
         alias ptc='pytest && pre-commit run --all-files'
         alias pb='python -m build'
+        alias pd='git push && gbd'
         alias doc='sphinx-reload doc'
         # VS Code
         alias c='code .'
@@ -205,7 +229,6 @@ How to use keyboard shortcuts in your CLI
 
 #. Run ``source ~/.bashrc`` to apply the changes.
 
-How to add new shortcuts
-------------------------
+#. To add or modify commands, type ``sc`` to open ``~/.bashrc`` in Visual Studio Code, make your changes, and save the file.
 
-Type ``sc`` to open your ``~/.bashrc`` file in Visual Studio Code. Then modify the ``~/.bashrc`` file to add new shortcuts or modify existing ones. Thenm, type ``ss`` to apply the changes to your current terminal session.
+#. To apply the changes, instead of running ``source ~/.bashrc``, type ``ss`` to apply the changes to your current terminal session.
