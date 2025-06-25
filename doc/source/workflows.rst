@@ -99,11 +99,26 @@ GitHub notifications
 
 #. To select multiple notifications, use ``J`` and ``K`` to navigate and press ``X`` to select. Then, you may press ``shift-U`` to mark as unread and ``shift-I`` to mark as read.
 
+Release workflow
+----------------
 
-Release workflow (TBA)
-----------------------
+Assume forking workflow and you are doing the release on your own.
 
-#. If you are working alone and want to make a quick edit directly to ``main``, after you have staged and committed, type ``pd`` to push the changes to ``main`` and run the GitHub Actions workflow to update the documentation.
+#. Type ``m`` to switch to ``main`` and pull the latest change.
+
+#. Type ``gtu <version-rc.0>`` to upload a pre-release tag to ``upstream``.
+
+#. Type ``test <package-name> rc`` to install and test the pre-release version on PyPI.
+
+#. Type ``gtu <version>`` or ``gto <version>`` to release the package to ``upstream`` or ``origin``.
+
+#. Type ``test <package-name>`` to install the full release version from PyPI and run tests.
+
+#. Type ``package update conda-forge`` to update the feedstock ``meta.yaml``.
+
+#. Type ``testcf <package-name>`` to test the conda-forge package in a new conda environment.
+
+#. Close the release issue.
 
 Update documentation workflow without a release
 -----------------------------------------------
@@ -147,7 +162,7 @@ How to use keyboard shortcuts in your CLI
         alias g='open https://github.com'
         alias d='sphinx-reload doc'
         alias c='code .'
-        alias m='git checkout main && git pull'
+        alias m='git checkout main && git pull upstream main'
         # bashrc
         alias sc='code ~/.bashrc'
         alias ss='source ~/.bashrc'
@@ -225,7 +240,18 @@ How to use keyboard shortcuts in your CLI
         ndpr()  { _make_pr "nd" "$1" ""; }
         ndprf() { _make_pr "nd" "$1" "fill"; }
         gict() {
-        gh issue create -t "$1" -b ""
+          gh issue create -t "$1" -b ""
+        }
+        gi() {
+          gh issue create -t "$1" -b ""
+        }
+        gto() {
+          TAG="$1"
+          git tag "$TAG" && git push origin "$TAG"
+        }
+        gtu() {
+          TAG="$1"
+          git tag "$TAG" && git push upstream "$TAG"
         }
         # Python, pip, conda (mamba)
         alias pi='pip install'
@@ -256,6 +282,40 @@ How to use keyboard shortcuts in your CLI
         alias pd='git push && gbd'
         # cookiecutter
         alias cc='cookiecutter .'
+        # Test release proces
+        test() {
+          PKG="$1"
+          MODE="$2"
+          ENV_NAME="${PKG}-${MODE:-stable}"
+          echo "🔧 Creating environment: $ENV_NAME"
+          mamba create -y -n "$ENV_NAME" python=3.13 || return 1
+          echo "🚀 Activating environment..."
+          mamba activate "$ENV_NAME" || return 1
+          echo "📦 Installing $MODE version of $PKG..."
+          if [ "$MODE" = "rc" ]; then
+            pip install --pre "$PKG" || return 1
+          else
+            pip install "$PKG" || return 1
+          fi
+          echo "📄 Installing requirements/test.txt..."
+          mamba install -y --file requirements/test.txt || return 1
+          echo "🧪 Running tests with pytest..."
+          pytest
+        }
+        # Test conda-forge
+        testcf() {
+          PKG="$1"
+          MODE="$2"\
+          ENV_NAME="${PKG}-stable"
+          echo "🔧 Creating environment: $ENV_NAME"
+          mamba create -y "$ENV_NAME" PKG || return 1
+          echo "🚀 Activating environment..."
+          mamba activate "$ENV_NAME" || return 1
+          echo "📄 Installing requirements/test.txt..."
+          mamba install -y --file requirements/test.txt || return 1
+          echo "🧪 Running tests with pytest..."
+          pytest
+        }
 
 #. Run ``source ~/.bashrc`` to apply the changes.
 
