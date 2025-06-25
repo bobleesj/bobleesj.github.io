@@ -33,6 +33,35 @@ How to setup SSH for GitHub
 
 Ref: https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/GitHub-SSH-Key-Setup-Config-Ubuntu-Linux
 
-How to install ``mamba`` (TBA)
-------------------------------
+How to install ``mamba``
+------------------------
 
+This tutorial is for macOS. For other platforms, please refer to the official documentation at https://github.com/conda-forge/miniforge.
+
+#. Remove existing ``miniconda3`` and ``miniforge3`` directories if they exist:
+
+    .. code-block:: bash
+
+        rm -rf /Users/<macbook-username>/miniconda3
+        rm -rf /Users/<macbook-username>/miniforge3
+
+    Replace ``<macbook-username>`` with your actual username. You can see it after typing ``pwd`` in your terminal.
+
+#. Install ``mamba`` using the following commands:
+
+    .. code-block:: bash
+
+        $ curl -L -O "[https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$](https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$)(uname -m).sh"
+
+#. Make the script executable:
+
+    .. code-block:: bash
+
+        $ bash Miniforge3-$(uname)-$(uname -m).sh
+        $ mamba shell init
+
+#. Restart your terminal and type the following command to verify the installation:
+
+    .. code-block:: bash
+
+        $ mamba --version

@@ -46,7 +46,7 @@
 <li class="toctree-l1"><a class="reference internal" href="research.html">Research and software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="workflows.html">Development workflows</a></li>
 <li class="toctree-l1"><a class="reference internal" href="principles.html">My optimization principles</a></li>
-<li class="toctree-l1"><a class="reference internal" href="open-source-leadership.html">Guide for Leading Open-Source Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="open-source-leadership.html">Guide for leading open-source software</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">THOUGHTS</span></p>
 <ul>
@@ -59,7 +59,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Bob’s notes</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#how-to-add-jupyter-notebooks-to-sphinx">How to add Jupyter notebooks to Sphinx</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-to-setup-ssh-for-github">How to setup SSH for GitHub</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#how-to-install-mamba-tba">How to install <code class="docutils literal notranslate"><span class="pre">mamba</span></code> (TBA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-install-mamba">How to install <code class="docutils literal notranslate"><span class="pre">mamba</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -119,8 +119,42 @@ cat<span class="w"> </span>id_rsa.pub
 </ol>
 <p>Ref: <a class="reference external" href="https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/GitHub-SSH-Key-Setup-Config-Ubuntu-Linux">https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/GitHub-SSH-Key-Setup-Config-Ubuntu-Linux</a></p>
 </section>
-<section id="how-to-install-mamba-tba">
-<h2>How to install <code class="docutils literal notranslate"><span class="pre">mamba</span></code> (TBA)<a class="headerlink" href="#how-to-install-mamba-tba" title="Link to this heading"></a></h2>
+<section id="how-to-install-mamba">
+<h2>How to install <code class="docutils literal notranslate"><span class="pre">mamba</span></code><a class="headerlink" href="#how-to-install-mamba" title="Link to this heading"></a></h2>
+<p>This tutorial is for macOS. For other platforms, please refer to the official documentation at <a class="reference external" href="https://github.com/conda-forge/miniforge">https://github.com/conda-forge/miniforge</a>.</p>
+<ol class="arabic">
+<li><p>Remove existing <code class="docutils literal notranslate"><span class="pre">miniconda3</span></code> and <code class="docutils literal notranslate"><span class="pre">miniforge3</span></code> directories if they exist:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rm<span class="w"> </span>-rf<span class="w"> </span>/Users/&lt;macbook-username&gt;/miniconda3
+rm<span class="w"> </span>-rf<span class="w"> </span>/Users/&lt;macbook-username&gt;/miniforge3
+</pre></div>
+</div>
+<p>Replace <code class="docutils literal notranslate"><span class="pre">&lt;macbook-username&gt;</span></code> with your actual username. You can see it after typing <code class="docutils literal notranslate"><span class="pre">pwd</span></code> in your terminal.</p>
+</div></blockquote>
+</li>
+<li><p>Install <code class="docutils literal notranslate"><span class="pre">mamba</span></code> using the following commands:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>curl<span class="w"> </span>-L<span class="w"> </span>-O<span class="w"> </span><span class="s2">&quot;[https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-</span><span class="k">$(</span>uname<span class="k">)</span><span class="s2">-</span>$<span class="s2">](https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-</span><span class="k">$(</span>uname<span class="k">)</span><span class="s2">-</span>$<span class="s2">)(uname -m).sh&quot;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Make the script executable:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>bash<span class="w"> </span>Miniforge3-<span class="k">$(</span>uname<span class="k">)</span>-<span class="k">$(</span>uname<span class="w"> </span>-m<span class="k">)</span>.sh
+$<span class="w"> </span>mamba<span class="w"> </span>shell<span class="w"> </span>init
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Restart your terminal and type the following command to verify the installation:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mamba<span class="w"> </span>--version
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
 </section>
 </section>
 
