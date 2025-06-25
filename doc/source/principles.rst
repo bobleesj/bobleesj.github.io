@@ -45,3 +45,6 @@ Here are some questions I ask when I am about to embark on a new task or workflo
     - How can I reduce the effort required for the same task? (Principle #1)
     - How can I maximize impact with the same effort? (Principle #2)
     - How can I simplify the automation process? (Principle #3)
+
+
+*First draft on Jun 24, 2025 (Incheon, South Korea)*ork

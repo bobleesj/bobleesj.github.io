@@ -39,3 +39,6 @@ The leader should provide every resource to help spread via word-of-mouth
 -------------------------------------------------------------------------
 
 If useful, the software will be shared. GIFs can help, especially for interactive CLI tools and GUI-based applications. A simple list of selling points also helps with copy and paste via email when sharing with colleagues. If applicable, a URL link to Jupyter or web-based demos (for example, Google Colab) helps so people do not need to install anything to try it. The step-by-step “Getting Started” section should not be too long so first-time visitors are not overwhelmed. The path of least resistance is fundamental for early adopters.
+
+
+*First draft Jun 25, 2025 (Incheon, South Korea)*

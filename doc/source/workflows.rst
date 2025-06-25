@@ -24,8 +24,11 @@ Tools I use daily
   * - CLI shortcuts
     - ``~/.bashrc`` for setting up aliases.
 
-Make a pull request
+GitHub pull request
 -------------------
+
+Make a new pull request
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 #. Type ``gsub <branch-name>`` or ``gsob <branch-name>`` to sync with ``origin/main`` or ``upstream/main`` and create a new branch.
 
@@ -40,7 +43,9 @@ Make a pull request
 #. Type ``napr "<Add news file>."`` to create a new news entry in ``news/<branch-name>``, stage, commit, and push the changes, and make the PR title the news content. To submit the PR right away, type ``naprf "<Add news file>."``
 
 Modify a pull request
----------------------
+^^^^^^^^^^^^^^^^^^^^^^
+
+Imagine you have a pull request (PR) that has been created but needs some modifications or review comments addressed.
 
 #. Type ``gpl`` to list the PRs.
 
@@ -56,8 +61,35 @@ Modify a pull request
 
 #. Type ``git push``.
 
-GitHub notifications workflow
------------------------------
+Create a new branch after a pull request is merged
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Imagine the PR has been merged. Now you want to sync with the latest changes in ``main`` and create a new branch for the next feature or bug fix.
+
+#. Type ``gsub <branch-name>`` to sync with ``upstream/main`` and create a new branch. If you want to sync with ``origin/main``, type ``gsob <branch-name>``.
+
+GitHub task management
+----------------------
+
+Create issues
+^^^^^^^^^^^^^^
+
+#. If you are working alone and need to **quickly create an issue**, ``cd`` into the project directory and type ``gi <Descriptive issue title>`` to create and submit an empty issue with the given title. This is useful when the title is descriptive enough and a description is not required.
+
+#. If you need to submit the **same issue across multiple GitHub repositories**, type ``bci`` (``bob create issues``) to create an issue with a description. You need to define ``dev_dir_path`` in ``~/.bobrc`` to point to the directory containing your GitHub repositories. To set up ``~/.bobrc``, refer to the `Getting started <https://bobleesj.github.io/bobleesj.utils/cli.html#getting-started>`_ section of ``bobleesj.utils``
+
+#. If you want to **submit a detailed issue** to communicate and persuade your collaborators, if you are already on the project, type ``ghbi`` to visit the issues page. If you just opened your Terminal, type ``g<proj-name>i`` to open the GitHub issue page of the project. On the issue page, press ``C`` to create a new issue. Use the ``tab`` key to choose the template, then enter the title and description. Preview your rendered markdown using ``shift-P``. To submit, press ``shift-cmd-enter``.
+
+View issues
+^^^^^^^^^^^
+
+#. Type ``bli`` (``bob list issues``). You need to define ``dev_dir_path`` in ``~/.bobrc`` to point to the directory containing your GitHub repositories. To set up ``~/.bobrc``, refer to the `Getting started <https://bobleesj.github.io/bobleesj.utils/cli.html#getting-started>`_ section of ``bobleesj.utils``
+
+  .. image:: ./img/issue-list.png
+      :alt: List of issues by running bob list issues
+
+GitHub notifications
+^^^^^^^^^^^^^^^^^^^^
 
 #. In your terminal, type ``gn`` to visit the GitHub notifications page. If you are already on GitHub, type ``G-N`` to visit the notifications page.
 
@@ -67,14 +99,6 @@ GitHub notifications workflow
 
 #. To select multiple notifications, use ``J`` and ``K`` to navigate and press ``X`` to select. Then, you may press ``shift-U`` to mark as unread and ``shift-I`` to mark as read.
 
-GitHub issue creation workflow
-------------------------------
-
-#. If you are working alone and need to **quickly create an issue**, ``cd`` into the project directory and type ``gi <Descriptive issue title>`` to create and submit an empty issue with the given title. This is useful when the title is descriptive enough and a description is not required.
-
-#. If you need to submit the **same issue across multiple GitHub repositories**, type ``bob create issues`` to create an issue with a description. You need to define ``dev_dir_path`` in ``~/.bobrc`` to point to the directory containing your GitHub repositories. For more information, visit https://bobleesj.github.io/bobleesj.utils/cli.html.
-
-#. If you want to **submit a detailed issue** to communicate and persuade your collaborators, if you are already on the project, type ``ghbi`` to visit the issues page. If you just opened your Terminal, type ``g<proj-name>i`` to open the GitHub issue page of the project. On the issue page, press ``C`` to create a new issue. Use the ``tab`` key to choose the template, then enter the title and description. Preview your rendered markdown using ``shift-P``. To submit, press ``shift-cmd-enter``.
 
 Release workflow (TBA)
 ----------------------
@@ -86,7 +110,7 @@ Update documentation workflow without a release
 
 This is for ``scikit-package`` Level 5 projects.
 
-#. Stage and commit the changes. Then run ``gdb`` to push the changes to ``main`` and run the GitHub Actions workflow to update the documentation.
+#. Stage and commit the changes. Then run ``gd`` to push the changes to ``main`` and run the GitHub Actions workflow to update the documentation.
 
 .. _keyboard-shortcuts-setup:
 
@@ -111,13 +135,20 @@ How to use keyboard shortcuts in your CLI
 
         # Navigate (Replace with your actual path and conda environment)
         alias dev='cd <path-to-the-directory> && mamba activate <env-name>'
-        alias g='open https://github.com'
         alias gn='open https://github.com/notifications'
         # bobleesj.utils
         alias bdlb='bob delete local-branches'
-        # Visual Studio
+        alias bci='bob create issues'
+        alias bli='bob list issues'
+        # One letter commands
         alias c='code .'
-        # Shortcuts
+        alias l='git log'
+        alias b='git branch'
+        alias g='open https://github.com'
+        alias d='sphinx-reload doc'
+        alias c='code .'
+        alias m='git checkout main && git pull'
+        # bashrc
         alias sc='code ~/.bashrc'
         alias ss='source ~/.bashrc'
         # git
@@ -144,8 +175,10 @@ How to use keyboard shortcuts in your CLI
         # For a new branch, set upstream to origin and push
         alias gpsuo='git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)'
         # Sync with main and create a new branch
-        alias gsub='gc main && git pull upstream main && gcb'
-        alias gsob='gc main && git pull && gcb'
+        alias gsub='gc main && git pull upstream main && gcb && c .'
+        alias gsob='gc main && git pull && gcb && c .'
+        alias gdsub='gc main && bdlb && git pull upstream main && gcb'
+        alias gdsob='gc main && bdlb && git pull && gcb'
         # GitHub CLI
         alias gpcr='gh pr create'
         alias gpl='gh pr list'
@@ -221,9 +254,6 @@ How to use keyboard shortcuts in your CLI
         alias ptc='pytest && pre-commit run --all-files'
         alias pb='python -m build'
         alias pd='git push && gbd'
-        alias doc='sphinx-reload doc'
-        # VS Code
-        alias c='code .'
         # cookiecutter
         alias cc='cookiecutter .'
 
