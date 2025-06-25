@@ -1,0 +1,147 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guide for Leading Open-Source Software &mdash; Sangjoon Bob Lee  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8a448e45"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Essays" href="essays.html" />
+    <link rel="prev" title="My optimization principles" href="principles.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Sangjoon Bob Lee
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">RESEARCH</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="research.html">Research and software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflows.html">Development workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="principles.html">My optimization principles</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Guide for Leading Open-Source Software</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">THOUGHTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="essays.html">Essays</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">REFERENCE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notes.html">Bob’s notes</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Sangjoon Bob Lee</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Guide for Leading Open-Source Software</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/open-source-leadership.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="guide-for-leading-open-source-software">
+<span id="open-source-leadership"></span><h1>Guide for Leading Open-Source Software<a class="headerlink" href="#guide-for-leading-open-source-software" title="Link to this heading"></a></h1>
+<p>About 10 years ago, I started using GitHub to distribute tutorial source code for the Swift programming language. As I take on leadership roles, I document the principles I strive to follow. Many of these were learned from <code class="docutils literal notranslate"><span class="pre">scikit-package</span></code> (<a class="reference external" href="https://scikit-package.github.io/scikit-package/">https://scikit-package.github.io/scikit-package/</a>), where I learned from Prof. Simon Billinge.</p>
+<p><strong>Core Principles in Open-Source Leadership</strong></p>
+<ol class="arabic simple">
+<li><p>The path of <strong>least resistance (pain) guides human behavior</strong>. It is the leader’s responsibility to provide this path for contributors in every aspect of the project, from installation and tutorials to documentation and development guides.</p></li>
+<li><p><strong>Joy is the driving force.</strong> Participation is often <strong>volunteer-based</strong>. Contributors seek joy and meaning in exchange for their time. The leader must recognize that time and effort are valuable and treat them with respect.</p></li>
+<li><p><strong>No contributor wants to sabotage the project</strong>. Everyone joins with good intentions but may have different experiences. This is especially true in life sciences, where contributors have diverse backgrounds. The leader must ensure that even those with the least experience can contribute and find joy.</p></li>
+<li><p><strong>How we work is often more important than what we work on</strong>. What we work on is temporary, but how we work forms the <em>culture</em> and is lasting. There are many ways to achieve the same goal, but the process defines us. The leader must ensure the process is enjoyable and rewarding. Without joy, there is no reason to contribute.</p></li>
+</ol>
+<p>Using the principles above, let us answer important questions that arise in open-source leadership.</p>
+<p><strong>Am I providing the path of least resistance for contributors?</strong></p>
+<p>Contributors have different levels of training, especially in scientific software projects. Automated tools help ensure uniformity. <code class="docutils literal notranslate"><span class="pre">pre-commit</span> <span class="pre">CI</span></code> is a solution. Intermediate and advanced programmers should use <code class="docutils literal notranslate"><span class="pre">pre-commit</span> <span class="pre">install</span></code> or run <code class="docutils literal notranslate"><span class="pre">pre-commit</span> <span class="pre">run</span> <span class="pre">--all-files</span></code> locally, while novice contributors can fix and improve wording directly from the GitHub interface without knowing about <code class="docutils literal notranslate"><span class="pre">pre-commit</span></code> or linting. In the end, <code class="docutils literal notranslate"><span class="pre">pre-commit</span> <span class="pre">CI</span></code> ensures uniformity of the final source code for incoming PRs.</p>
+<p><strong>Is joy generated? How we work matters.</strong></p>
+<p>When I wake up, the first app I use is the GitHub mobile app. I am excited to see how my PRs and issues are doing for projects such as <code class="docutils literal notranslate"><span class="pre">scikit-package</span></code>. What makes me smile is the <strong>purple color indicating my pull request has been merged.</strong> We watch movies and play sports because we find joy. The goal is to make contribution enjoyable. When we communicate, the main goal is to maintain joy in the process. Thanks to Git and GitHub, anything can be reverted, and it probably has not been merged to <code class="docutils literal notranslate"><span class="pre">main</span></code>. First-time contributors may not follow standard practices. While it is the leader’s failure to provide the path of least resistance, <strong>the worst scenario is removing joy from the process</strong>. From the principle of joy being the driving force, we lose potential value from willing contributors. How we work matters, not just what we work on, because how we work determines the degree of joy in the process.</p>
+<p><strong>How can I help potential contributors suggest new ideas, features, and report bugs?</strong></p>
+<p>To lower the barrier for first-time contributors, I ensure the GitHub issue template is simple. For example, the issue template at <a class="reference external" href="https://github.com/scikit-package/scikit-package/issues/515">https://github.com/scikit-package/scikit-package/issues/515</a> is sufficient. It consists of “Problem” and “Proposed solution.” The “Proposed solution” section encourages the issue writer to think about the issue, explore, and develop a sense of ownership. It is like building IKEA furniture: as we spend more time with the tool, we own the process and the final product.</p>
+<p><strong>How can I help with word-of-mouth?</strong></p>
+<p>It is important to market the project. In other words, it needs to be shared and adopted. GIFs can help, especially for interactive CLI tools and GUI-based applications. A simple list of features also helps with copy and paste via email when sharing with colleagues. If applicable, a URL link to Jupyter or web-based demos (for example, Google Colab) helps so people do not need to install anything to try it. The step-by-step “Getting Started” section should not be too long so first-time visitors are not overwhelmed. The path of least resistance is fundamental for early adopters.</p>
+<p><strong>Daily Checklist</strong></p>
+<p>Many of these guides should be practiced daily. Here are items to do almost every day:</p>
+<ul class="simple">
+<li><p>Recognize and compliment incoming code, especially from first-time contributors, as well as issues and each PR review iteration.</p></li>
+<li><p>Provide step-by-step guides and write them out after explaining why a certain practice is beneficial for the overall project goal, aiming to persuade and not dictate. People want to be persuaded because it implies there is no right or wrong way, but a well-thought-out way to do things.</p></li>
+<li><p>Ensure that when new contributions are created, relevant documentation is updated to recognize the contributor’s work.</p></li>
+<li><p>Actively look for volunteers so that we communicate the importance of tasks for the project.</p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="principles.html" class="btn btn-neutral float-left" title="My optimization principles" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="essays.html" class="btn btn-neutral float-right" title="Essays" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Sangjoon Lee.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
