@@ -1,8 +1,6 @@
 Essays
 ======
 
-
-
 The value of poster presentations in scientific conferences
 -----------------------------------------------------------
 
