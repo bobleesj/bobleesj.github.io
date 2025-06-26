@@ -282,7 +282,7 @@ How to use keyboard shortcuts in your CLI
         alias pd='git push && gbd'
         # cookiecutter
         alias cc='cookiecutter .'
-        # Test release proces
+        # Test release process
         test() {
           PKG="$1"
           MODE="$2"
