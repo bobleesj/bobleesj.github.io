@@ -14,15 +14,19 @@ Tools I use daily
   * - Category
     - Tools
   * - IDE
-    - Visual Studio Code
+    - Visual Studio Code (Copilot)
   * - Version control
     - Git, GitHub CLI, GitHub
-  * - CLI
-    - Warp
+  * - Command line interface (CLI)
+    - `Warp <https://www.warp.dev//>`_
   * - Development productivity
-    - `scikit-package <https://scikit-package.github.io/scikit-package/>`_, `bobleesj.utils <https://bobleesj.github.io/bobleesj.utils/>`_.
+    - `scikit-package <https://scikit-package.github.io/scikit-package/>`_, `bobleesj.utils <https://bobleesj.github.io/bobleesj.utils/>`_
   * - CLI shortcuts
     - ``~/.bashrc`` for setting up aliases.
+  * - Text expander/shortcut
+    - `espanso <https://espanso.org/>`_
+  * - Browser
+    - `Brave <https://brave.com/>`_
 
 GitHub pull request
 -------------------
@@ -282,6 +286,7 @@ How to use keyboard shortcuts in your CLI
         alias pd='git push && gbd'
         # cookiecutter
         alias cc='cookiecutter .'
+        alias ec='code /Users/imac/Library/Application\ Support/espanso'
         # Test release process
         test() {
           PKG="$1"
@@ -322,3 +327,138 @@ How to use keyboard shortcuts in your CLI
 #. To add or modify commands, type ``sc`` to open ``~/.bashrc`` in Visual Studio Code, make your changes, and save the file.
 
 #. To apply the changes, instead of running ``source ~/.bashrc``, type ``ss`` to apply the changes to your current terminal session.
+
+.. _text-expander-with-espanso:
+
+Text expander with espanso
+---------------------------
+
+The goal is to **minimize the amount of typing** by setting custom aliases for nouns, pharses, and sentences. This aligns with :ref:`principle-minimum-effort-same-output`.
+
+The following instructions are tested on macOS.
+
+#. Install `espanso <https://espanso.org/>`_.
+
+#. Type ``ec`` defined in :ref:`keyboard-shortcuts-setup` to open the espanso configuration file in Visual Studio Code.
+
+#. Copy and paste the following configuration into the espanso configuration file within ``match/base.yml``:
+
+    .. code-block:: yaml
+
+      # espanso match file
+      # For a complete introduction, visit the official docs at: https://espanso.org/docs/
+      matches:
+        # GitHub
+        - trigger: "lgtm"
+          replace: "Looks good to me!"
+        - trigger: "prr"
+          replace: "This is ready for review."
+        - trigger: "prc1"
+          replace: "Great start! Please see my in-line comments." 
+        - trigger: "prc2"
+          replace: "Almost there... just a few more tweaks needed."
+        - trigger: "prm"
+          replace: "Looking good. Merging this PR!"
+        - trigger: "g1"
+          replace: "I think this is a great idea. I have a few thoughts."
+        - trigger: "g2"
+          replace: "This is great. Could you please implement this?"
+        - trigger: "c1"
+          replace: "Sorry I am a bit confused by this section because "
+        - trigger: "c2"
+          replace: "I might be missing something. Do you mind explaining "
+        - trigger: "i1"
+          replace: "Closes "
+        - trigger: "i2"
+          replace: "Closed by issue "
+        # Appreciate
+        - trigger: "a1"
+          replace: "Thanks!"
+        - trigger: "a2"
+          replace: "Thanks a lot!"
+        - trigger: "a3"
+          replace: "Thank you so much!"
+        - trigger: "a4"
+          replace: "Wow, this is awesome. Thank you so much!"
+        - trigger: "gbl"
+          replace: "@bobleesj "
+        # Billinge
+        - trigger: "gsb"
+          replace: "@sbillinge "
+        - trigger: "gtz"
+          replace: "@Tieqiong "
+        - trigger: "gcm"
+          replace: "@cadenmyers13 "
+        - trigger: "gyx"
+          replace: "@ycexiao "
+        - trigger: "gem"
+          replace: "@EmilJaffal "
+        # Oliynyk
+        - trigger: "gbs"
+          replace: "@balaranjan "
+        - trigger: "gds"
+          replace: "@dshirya "
+        # Projects
+        - trigger: "butils"
+          replace: "`bobleesj.utils` "
+        - trigger: "skpkgn"
+          replace: "`scikit-package` "
+        - trigger: "skpkgc"
+          replace: "`scikit-package-conda-forge` "
+        - trigger: "skpkgm"
+          replace: "`scikit-package-manuscript` "
+        - trigger: "skpkgs"
+          replace: "`scikit-package-system` "
+        - trigger: "skpkgw"
+          replace: "`scikit-package-workspace` "  
+        # Checklist & pomodoro
+        - trigger: "po1"
+          replace: "Pomodoro #1 "
+        - trigger: "po2"
+          replace: "Pomodoro #2 "
+        - trigger: "po3"
+          replace: "Pomodoro #3 "
+        - trigger: "po4"
+          replace: "Pomodoro #4 "
+        - trigger: "po5"
+          replace: "Pomodoro #5 "
+        - trigger: "po6"
+          replace: "Pomodoro #6 "
+        - trigger: "po7"
+          replace: "Pomodoro #7 "
+        - trigger: "po8"
+          replace: "Pomodoro #8 "
+        - trigger: "po9"
+          replace: "Pomodoro #9 "
+        - trigger: "po10"
+          replace: "Pomodoro #10 "
+        - trigger: "poc"
+          replace: "[ ] "
+        - trigger: "pod"
+          replace: "[x] "
+        # Date, time
+        - trigger: ":date"
+          replace: "{{mydate}}"
+          vars:
+            - name: mydate
+              type: date
+              params:
+                format: "%b %-d, %Y"
+        - trigger: ":time"
+          replace: "{{mytime}}"
+          vars:
+            - name: mytime
+              type: date
+              params:
+                format: "%I:%M %p"
+        # Print the output of a shell command
+        - trigger: ":shell"
+          replace: "{{output}}"
+          vars:
+            - name: output
+              type: shell
+              params:
+                cmd: "echo 'Hello from your shell'"
+
+#. To turn off/on espanso, in ``config/default.yml``, uncomment ``toggle_key: ALT``. Now, you can toggle espanso on and off by pressing ``ALT`` twice.
+

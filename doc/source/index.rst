@@ -4,12 +4,8 @@
 
 .. |title| replace:: Welcome to Bob's website!
 
-=====
-About
-=====
-
 .. image:: ./img/bob-profile-cropped.jpg
-    :alt: Bob's profile picture
+    :alt: Sangjoon Bob Lee's profile picture
     :width: 250px
     :align: left
 
