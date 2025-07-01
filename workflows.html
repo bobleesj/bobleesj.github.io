@@ -62,6 +62,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#release-workflow">Release workflow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#update-documentation-workflow-without-a-release">Update documentation workflow without a release</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-to-use-keyboard-shortcuts-in-your-cli">How to use keyboard shortcuts in your CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#text-expander-with-espanso">Text expander with espanso</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="principles.html">My optimization principles</a></li>
@@ -116,19 +117,25 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p>IDE</p></td>
-<td><p>Visual Studio Code</p></td>
+<td><p>Visual Studio Code (Copilot)</p></td>
 </tr>
 <tr class="row-odd"><td><p>Version control</p></td>
 <td><p>Git, GitHub CLI, GitHub</p></td>
 </tr>
-<tr class="row-even"><td><p>CLI</p></td>
-<td><p>Warp</p></td>
+<tr class="row-even"><td><p>Command line interface (CLI)</p></td>
+<td><p><a class="reference external" href="https://www.warp.dev//">Warp</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>Development productivity</p></td>
-<td><p><a class="reference external" href="https://scikit-package.github.io/scikit-package/">scikit-package</a>, <a class="reference external" href="https://bobleesj.github.io/bobleesj.utils/">bobleesj.utils</a>.</p></td>
+<td><p><a class="reference external" href="https://scikit-package.github.io/scikit-package/">scikit-package</a>, <a class="reference external" href="https://bobleesj.github.io/bobleesj.utils/">bobleesj.utils</a></p></td>
 </tr>
 <tr class="row-even"><td><p>CLI shortcuts</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> for setting up aliases.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Text expander/shortcut</p></td>
+<td><p><a class="reference external" href="https://espanso.org/">espanso</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Browser</p></td>
+<td><p><a class="reference external" href="https://brave.com/">Brave</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -364,6 +371,7 @@ mce<span class="o">()</span><span class="w"> </span><span class="o">{</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">pd</span><span class="o">=</span><span class="s1">&#39;git push &amp;&amp; gbd&#39;</span>
 <span class="c1"># cookiecutter</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">cc</span><span class="o">=</span><span class="s1">&#39;cookiecutter .&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">ec</span><span class="o">=</span><span class="s1">&#39;code /Users/imac/Library/Application\ Support/espanso&#39;</span>
 <span class="c1"># Test release process</span>
 test<span class="o">()</span><span class="w"> </span><span class="o">{</span>
 <span class="w">  </span><span class="nv">PKG</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
@@ -405,6 +413,136 @@ testcf<span class="o">()</span><span class="w"> </span><span class="o">{</span>
 <li><p>Run <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">~/.bashrc</span></code> to apply the changes.</p></li>
 <li><p>To add or modify commands, type <code class="docutils literal notranslate"><span class="pre">sc</span></code> to open <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> in Visual Studio Code, make your changes, and save the file.</p></li>
 <li><p>To apply the changes, instead of running <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">~/.bashrc</span></code>, type <code class="docutils literal notranslate"><span class="pre">ss</span></code> to apply the changes to your current terminal session.</p></li>
+</ol>
+</section>
+<section id="text-expander-with-espanso">
+<span id="id2"></span><h2>Text expander with espanso<a class="headerlink" href="#text-expander-with-espanso" title="Link to this heading"></a></h2>
+<p>The goal is to <strong>minimize the amount of typing</strong> by setting custom aliases for nouns, pharses, and sentences. This aligns with <a class="reference internal" href="principles.html#principle-minimum-effort-same-output"><span class="std std-ref">Principle 1. Use minimum effort (input) to attain the same result (output)</span></a>.</p>
+<p>The following instructions are tested on macOS.</p>
+<ol class="arabic">
+<li><p>Install <a class="reference external" href="https://espanso.org/">espanso</a>.</p></li>
+<li><p>Type <code class="docutils literal notranslate"><span class="pre">ec</span></code> defined in <a class="reference internal" href="#keyboard-shortcuts-setup"><span class="std std-ref">How to use keyboard shortcuts in your CLI</span></a> to open the espanso configuration file in Visual Studio Code.</p></li>
+<li><p>Copy and paste the following configuration into the espanso configuration file within <code class="docutils literal notranslate"><span class="pre">match/base.yml</span></code>:</p>
+<blockquote>
+<div><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># espanso match file</span>
+<span class="c1"># For a complete introduction, visit the official docs at: https://espanso.org/docs/</span>
+<span class="nt">matches</span><span class="p">:</span>
+<span class="w">  </span><span class="c1"># GitHub</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;lgtm&quot;</span>
+<span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Looks</span><span class="nv"> </span><span class="s">good</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">me!&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;prr&quot;</span>
+<span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;This</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">ready</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">review.&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;prc1&quot;</span>
+<span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Great</span><span class="nv"> </span><span class="s">start!</span><span class="nv"> </span><span class="s">Please</span><span class="nv"> </span><span class="s">see</span><span class="nv"> </span><span class="s">my</span><span class="nv"> </span><span class="s">in-line</span><span class="nv"> </span><span class="s">comments.&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;prc2&quot;</span>
+<span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Almost</span><span class="nv"> </span><span class="s">there...</span><span class="nv"> </span><span class="s">just</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">few</span><span class="nv"> </span><span class="s">more</span><span class="nv"> </span><span class="s">tweaks</span><span class="nv"> </span><span class="s">needed.&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;prm&quot;</span>
+<span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Looking</span><span class="nv"> </span><span class="s">good.</span><span class="nv"> </span><span class="s">Merging</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">PR!&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;g1&quot;</span>
+<span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;I</span><span class="nv"> </span><span class="s">think</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">great</span><span class="nv"> </span><span class="s">idea.</span><span class="nv"> </span><span class="s">I</span><span class="nv"> </span><span class="s">have</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">few</span><span class="nv"> </span><span class="s">thoughts.&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;g2&quot;</span>
+<span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;This</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">great.</span><span class="nv"> </span><span class="s">Could</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">implement</span><span class="nv"> </span><span class="s">this?&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;c1&quot;</span>
+<span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Sorry</span><span class="nv"> </span><span class="s">I</span><span class="nv"> </span><span class="s">am</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">bit</span><span class="nv"> </span><span class="s">confused</span><span class="nv"> </span><span class="s">by</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">section</span><span class="nv"> </span><span class="s">because</span><span class="nv"> </span><span class="s">&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;c2&quot;</span>
+<span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;I</span><span class="nv"> </span><span class="s">might</span><span class="nv"> </span><span class="s">be</span><span class="nv"> </span><span class="s">missing</span><span class="nv"> </span><span class="s">something.</span><span class="nv"> </span><span class="s">Do</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">mind</span><span class="nv"> </span><span class="s">explaining</span><span class="nv"> </span><span class="s">&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;i1&quot;</span>
+<span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Closes</span><span class="nv"> </span><span class="s">&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;i2&quot;</span>
+<span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Closed</span><span class="nv"> </span><span class="s">by</span><span class="nv"> </span><span class="s">issue</span><span class="nv"> </span><span class="s">&quot;</span>
+<span class="w">  </span><span class="c1"># Appreciate</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;a1&quot;</span>
+<span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Thanks!&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;a2&quot;</span>
+<span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Thanks</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">lot!&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;a3&quot;</span>
+<span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Thank</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">so</span><span class="nv"> </span><span class="s">much!&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;a4&quot;</span>
+<span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Wow,</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">awesome.</span><span class="nv"> </span><span class="s">Thank</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">so</span><span class="nv"> </span><span class="s">much!&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;gbl&quot;</span>
+<span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;@bobleesj</span><span class="nv"> </span><span class="s">&quot;</span>
+<span class="w">  </span><span class="c1"># Billinge</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;gsb&quot;</span>
+<span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;@sbillinge</span><span class="nv"> </span><span class="s">&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;gtz&quot;</span>
+<span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;@Tieqiong</span><span class="nv"> </span><span class="s">&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;gcm&quot;</span>
+<span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;@cadenmyers13</span><span class="nv"> </span><span class="s">&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;gyx&quot;</span>
+<span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;@ycexiao</span><span class="nv"> </span><span class="s">&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;gem&quot;</span>
+<span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;@EmilJaffal</span><span class="nv"> </span><span class="s">&quot;</span>
+<span class="w">  </span><span class="c1"># Oliynyk</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;gbs&quot;</span>
+<span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;@balaranjan</span><span class="nv"> </span><span class="s">&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;gds&quot;</span>
+<span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;@dshirya</span><span class="nv"> </span><span class="s">&quot;</span>
+<span class="w">  </span><span class="c1"># Projects</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;butils&quot;</span>
+<span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;`bobleesj.utils`</span><span class="nv"> </span><span class="s">&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;skpkgn&quot;</span>
+<span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;`scikit-package`</span><span class="nv"> </span><span class="s">&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;skpkgc&quot;</span>
+<span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;`scikit-package-conda-forge`</span><span class="nv"> </span><span class="s">&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;skpkgm&quot;</span>
+<span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;`scikit-package-manuscript`</span><span class="nv"> </span><span class="s">&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;skpkgs&quot;</span>
+<span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;`scikit-package-system`</span><span class="nv"> </span><span class="s">&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;skpkgw&quot;</span>
+<span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;`scikit-package-workspace`</span><span class="nv"> </span><span class="s">&quot;</span>
+<span class="w">  </span><span class="c1"># Checklist &amp; pomodoro</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;po1&quot;</span>
+<span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Pomodoro</span><span class="nv"> </span><span class="s">#1</span><span class="nv"> </span><span class="s">&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;po2&quot;</span>
+<span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Pomodoro</span><span class="nv"> </span><span class="s">#2</span><span class="nv"> </span><span class="s">&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;po3&quot;</span>
+<span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Pomodoro</span><span class="nv"> </span><span class="s">#3</span><span class="nv"> </span><span class="s">&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;po4&quot;</span>
+<span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Pomodoro</span><span class="nv"> </span><span class="s">#4</span><span class="nv"> </span><span class="s">&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;po5&quot;</span>
+<span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Pomodoro</span><span class="nv"> </span><span class="s">#5</span><span class="nv"> </span><span class="s">&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;po6&quot;</span>
+<span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Pomodoro</span><span class="nv"> </span><span class="s">#6</span><span class="nv"> </span><span class="s">&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;po7&quot;</span>
+<span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Pomodoro</span><span class="nv"> </span><span class="s">#7</span><span class="nv"> </span><span class="s">&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;po8&quot;</span>
+<span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Pomodoro</span><span class="nv"> </span><span class="s">#8</span><span class="nv"> </span><span class="s">&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;po9&quot;</span>
+<span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Pomodoro</span><span class="nv"> </span><span class="s">#9</span><span class="nv"> </span><span class="s">&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;po10&quot;</span>
+<span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Pomodoro</span><span class="nv"> </span><span class="s">#10</span><span class="nv"> </span><span class="s">&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;poc&quot;</span>
+<span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;[</span><span class="nv"> </span><span class="s">]</span><span class="nv"> </span><span class="s">&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;pod&quot;</span>
+<span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;[x]</span><span class="nv"> </span><span class="s">&quot;</span>
+<span class="w">  </span><span class="c1"># Date, time</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;:date&quot;</span>
+<span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{mydate}}&quot;</span>
+<span class="w">    </span><span class="nt">vars</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mydate</span>
+<span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">date</span>
+<span class="w">        </span><span class="nt">params</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;%b</span><span class="nv"> </span><span class="s">%-d,</span><span class="nv"> </span><span class="s">%Y&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;:time&quot;</span>
+<span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{mytime}}&quot;</span>
+<span class="w">    </span><span class="nt">vars</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mytime</span>
+<span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">date</span>
+<span class="w">        </span><span class="nt">params</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;%I:%M</span><span class="nv"> </span><span class="s">%p&quot;</span>
+<span class="w">  </span><span class="c1"># Print the output of a shell command</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;:shell&quot;</span>
+<span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{output}}&quot;</span>
+<span class="w">    </span><span class="nt">vars</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">output</span>
+<span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shell</span>
+<span class="w">        </span><span class="nt">params</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">cmd</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;echo</span><span class="nv"> </span><span class="s">&#39;Hello</span><span class="nv"> </span><span class="s">from</span><span class="nv"> </span><span class="s">your</span><span class="nv"> </span><span class="s">shell&#39;&quot;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>To turn off/on espanso, in <code class="docutils literal notranslate"><span class="pre">config/default.yml</span></code>, uncomment <code class="docutils literal notranslate"><span class="pre">toggle_key:</span> <span class="pre">ALT</span></code>. Now, you can toggle espanso on and off by pressing <code class="docutils literal notranslate"><span class="pre">ALT</span></code> twice.</p></li>
 </ol>
 </section>
 </section>
