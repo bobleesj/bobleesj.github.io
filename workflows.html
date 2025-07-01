@@ -62,7 +62,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#release-workflow">Release workflow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#update-documentation-workflow-without-a-release">Update documentation workflow without a release</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-to-use-keyboard-shortcuts-in-your-cli">How to use keyboard shortcuts in your CLI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#text-expander-with-espanso">Text expander with espanso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#use-text-expander-to-prevent-typing-the-same-text">Use text expander to prevent typing the same text</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="principles.html">My optimization principles</a></li>
@@ -108,40 +108,57 @@
 <span id="workflows"></span><h1>Development workflows<a class="headerlink" href="#development-workflows" title="Link to this heading"></a></h1>
 <p>Here I document the workflows and commands I use in practice to develop and maintain software projects. Many of the commands are aliased to make them easier to remember and use. You can find the full list of commands in <a class="reference internal" href="#keyboard-shortcuts-setup"><span class="std std-ref">How to use keyboard shortcuts in your CLI</span></a>.</p>
 <section id="tools-i-use-daily">
-<h2>Tools I use daily<a class="headerlink" href="#tools-i-use-daily" title="Link to this heading"></a></h2>
+<span id="tools-used-daily"></span><h2>Tools I use daily<a class="headerlink" href="#tools-i-use-daily" title="Link to this heading"></a></h2>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Category</p></th>
 <th class="head"><p>Tools</p></th>
+<th class="head"><p>URL</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>IDE</p></td>
 <td><p>Visual Studio Code (Copilot)</p></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>Version control</p></td>
 <td><p>Git, GitHub CLI, GitHub</p></td>
+<td><p><a class="reference external" href="https://scikit-package.github.io/scikit-package/support/frequently-asked-questions.html#github-workflow">Tutorial on GitHub workflow for beginners</a></p></td>
 </tr>
 <tr class="row-even"><td><p>Command line interface (CLI)</p></td>
 <td><p><a class="reference external" href="https://www.warp.dev//">Warp</a></p></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>Development productivity</p></td>
 <td><p><a class="reference external" href="https://scikit-package.github.io/scikit-package/">scikit-package</a>, <a class="reference external" href="https://bobleesj.github.io/bobleesj.utils/">bobleesj.utils</a></p></td>
+<td></td>
 </tr>
 <tr class="row-even"><td><p>CLI shortcuts</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> for setting up aliases.</p></td>
+<td><p>Bash shell</p></td>
+<td><p><a class="reference internal" href="#keyboard-shortcuts-setup"><span class="std std-ref">How to use keyboard shortcuts in your CLI</span></a></p></td>
 </tr>
 <tr class="row-odd"><td><p>Text expander/shortcut</p></td>
 <td><p><a class="reference external" href="https://espanso.org/">espanso</a></p></td>
+<td><p><a class="reference internal" href="#text-expander-with-espanso"><span class="std std-ref">Use text expander to prevent typing the same text</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p>Browser</p></td>
+<tr class="row-even"><td><p>Web browser</p></td>
 <td><p><a class="reference external" href="https://brave.com/">Brave</a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Documentation</p></td>
+<td><p><a class="reference external" href="https://www.sphinx-doc.org/">Sphinx</a></p></td>
+<td></td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="github-pull-request">
 <h2>GitHub pull request<a class="headerlink" href="#github-pull-request" title="Link to this heading"></a></h2>
+<p>If you are not familiar with GitHub, please first read my guide on the <a class="reference external" href="https://scikit-package.github.io/scikit-package/support/frequently-asked-questions.html#github-workflow">GitHub workflow</a>. I also recommend starting with the <a class="reference external" href="https://scikit-package.github.io/scikit-package/tutorials/tutorial-level-4.html">Level 4 tutorial</a> of <code class="docutils literal notranslate"><span class="pre">scikit-package</span></code> to actually use GitHub, GitHub Actions, and the GitHub pull request workflow using your own project. Then you should be able to utilize the commands in this section.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The alias commands like <code class="docutils literal notranslate"><span class="pre">gsub</span></code> are defined in <a class="reference internal" href="#keyboard-shortcuts-setup"><span class="std std-ref">How to use keyboard shortcuts in your CLI</span></a>.</p>
+</div>
 <section id="make-a-new-pull-request">
 <h3>Make a new pull request<a class="headerlink" href="#make-a-new-pull-request" title="Link to this heading"></a></h3>
 <ol class="arabic simple">
@@ -415,14 +432,14 @@ testcf<span class="o">()</span><span class="w"> </span><span class="o">{</span>
 <li><p>To apply the changes, instead of running <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">~/.bashrc</span></code>, type <code class="docutils literal notranslate"><span class="pre">ss</span></code> to apply the changes to your current terminal session.</p></li>
 </ol>
 </section>
-<section id="text-expander-with-espanso">
-<span id="id2"></span><h2>Text expander with espanso<a class="headerlink" href="#text-expander-with-espanso" title="Link to this heading"></a></h2>
-<p>The goal is to <strong>minimize the amount of typing</strong> by setting custom aliases for nouns, pharses, and sentences. This aligns with <a class="reference internal" href="principles.html#principle-minimum-effort-same-output"><span class="std std-ref">Principle 1. Use minimum effort (input) to attain the same result (output)</span></a>.</p>
+<section id="use-text-expander-to-prevent-typing-the-same-text">
+<span id="text-expander-with-espanso"></span><h2>Use text expander to prevent typing the same text<a class="headerlink" href="#use-text-expander-to-prevent-typing-the-same-text" title="Link to this heading"></a></h2>
+<p>The goal is to <strong>minimize the amount of typing</strong> by setting custom aliases for nouns, pharses, and sentences. This aligns with <a class="reference internal" href="principles.html#principle-minimum-effort-same-output"><span class="std std-ref">Principle 1. Use minimum input to attain the same output</span></a>.</p>
 <p>The following instructions are tested on macOS.</p>
 <ol class="arabic">
 <li><p>Install <a class="reference external" href="https://espanso.org/">espanso</a>.</p></li>
-<li><p>Type <code class="docutils literal notranslate"><span class="pre">ec</span></code> defined in <a class="reference internal" href="#keyboard-shortcuts-setup"><span class="std std-ref">How to use keyboard shortcuts in your CLI</span></a> to open the espanso configuration file in Visual Studio Code.</p></li>
-<li><p>Copy and paste the following configuration into the espanso configuration file within <code class="docutils literal notranslate"><span class="pre">match/base.yml</span></code>:</p>
+<li><p>Type <code class="docutils literal notranslate"><span class="pre">ec</span></code> defined in <a class="reference internal" href="#keyboard-shortcuts-setup"><span class="std std-ref">How to use keyboard shortcuts in your CLI</span></a> to open the espanso configuration folder.</p></li>
+<li><p>In <code class="docutils literal notranslate"><span class="pre">match/base.yml</span></code>, copy and paste the following configuration into the espanso configuration file</p>
 <blockquote>
 <div><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># espanso match file</span>
 <span class="c1"># For a complete introduction, visit the official docs at: https://espanso.org/docs/</span>
@@ -542,8 +559,14 @@ testcf<span class="o">()</span><span class="w"> </span><span class="o">{</span>
 </div>
 </div></blockquote>
 </li>
-<li><p>To turn off/on espanso, in <code class="docutils literal notranslate"><span class="pre">config/default.yml</span></code>, uncomment <code class="docutils literal notranslate"><span class="pre">toggle_key:</span> <span class="pre">ALT</span></code>. Now, you can toggle espanso on and off by pressing <code class="docutils literal notranslate"><span class="pre">ALT</span></code> twice.</p></li>
+<li><p>Now, you can use the defined triggers in any application. For example, typing <code class="docutils literal notranslate"><span class="pre">lgtm</span></code> will replace it with <code class="docutils literal notranslate"><span class="pre">Looks</span> <span class="pre">good</span> <span class="pre">to</span> <span class="pre">me!</span></code>.</p></li>
 </ol>
+<blockquote>
+<div><ul class="simple">
+<li><p>To turn off/on espanso, in <code class="docutils literal notranslate"><span class="pre">config/default.yml</span></code>, uncomment <code class="docutils literal notranslate"><span class="pre">toggle_key:</span> <span class="pre">ALT</span></code>. Now, you can toggle espanso on and off by pressing the <code class="docutils literal notranslate"><span class="pre">Opt</span></code> key twice.</p></li>
+<li><p>To see the list of matches, presss the <code class="docutils literal notranslate"><span class="pre">Opt-Space</span></code> keys together.</p></li>
+</ul>
+</div></blockquote>
 </section>
 </section>
 

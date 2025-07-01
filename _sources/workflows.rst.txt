@@ -5,6 +5,8 @@ Development workflows
 
 Here I document the workflows and commands I use in practice to develop and maintain software projects. Many of the commands are aliased to make them easier to remember and use. You can find the full list of commands in :ref:`keyboard-shortcuts-setup`.
 
+.. _tools-used-daily:
+
 Tools I use daily
 -----------------
 
@@ -13,23 +15,40 @@ Tools I use daily
 
   * - Category
     - Tools
+    - URL
   * - IDE
     - Visual Studio Code (Copilot)
+    - 
   * - Version control
     - Git, GitHub CLI, GitHub
+    - `Tutorial on GitHub workflow for beginners <https://scikit-package.github.io/scikit-package/support/frequently-asked-questions.html#github-workflow>`_
   * - Command line interface (CLI)
     - `Warp <https://www.warp.dev//>`_
+    - 
   * - Development productivity
     - `scikit-package <https://scikit-package.github.io/scikit-package/>`_, `bobleesj.utils <https://bobleesj.github.io/bobleesj.utils/>`_
+    - 
   * - CLI shortcuts
-    - ``~/.bashrc`` for setting up aliases.
+    - Bash shell
+    - :ref:`keyboard-shortcuts-setup`
   * - Text expander/shortcut
     - `espanso <https://espanso.org/>`_
-  * - Browser
+    - :ref:`text-expander-with-espanso`
+  * - Web browser
     - `Brave <https://brave.com/>`_
+    - 
+  * - Documentation
+    - `Sphinx <https://www.sphinx-doc.org/>`_
+    - 
 
 GitHub pull request
 -------------------
+
+If you are not familiar with GitHub, please first read my guide on the `GitHub workflow <https://scikit-package.github.io/scikit-package/support/frequently-asked-questions.html#github-workflow>`_. I also recommend starting with the `Level 4 tutorial <https://scikit-package.github.io/scikit-package/tutorials/tutorial-level-4.html>`_ of ``scikit-package`` to actually use GitHub, GitHub Actions, and the GitHub pull request workflow using your own project. Then you should be able to utilize the commands in this section.
+
+.. note::
+  
+  The alias commands like ``gsub`` are defined in :ref:`keyboard-shortcuts-setup`.
 
 Make a new pull request
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -330,8 +349,8 @@ How to use keyboard shortcuts in your CLI
 
 .. _text-expander-with-espanso:
 
-Text expander with espanso
----------------------------
+Use text expander to prevent typing the same text
+-------------------------------------------------
 
 The goal is to **minimize the amount of typing** by setting custom aliases for nouns, pharses, and sentences. This aligns with :ref:`principle-minimum-effort-same-output`.
 
@@ -339,9 +358,9 @@ The following instructions are tested on macOS.
 
 #. Install `espanso <https://espanso.org/>`_.
 
-#. Type ``ec`` defined in :ref:`keyboard-shortcuts-setup` to open the espanso configuration file in Visual Studio Code.
+#. Type ``ec`` defined in :ref:`keyboard-shortcuts-setup` to open the espanso configuration folder.
 
-#. Copy and paste the following configuration into the espanso configuration file within ``match/base.yml``:
+#. In ``match/base.yml``, copy and paste the following configuration into the espanso configuration file 
 
     .. code-block:: yaml
 
@@ -460,5 +479,8 @@ The following instructions are tested on macOS.
               params:
                 cmd: "echo 'Hello from your shell'"
 
-#. To turn off/on espanso, in ``config/default.yml``, uncomment ``toggle_key: ALT``. Now, you can toggle espanso on and off by pressing ``ALT`` twice.
+#. Now, you can use the defined triggers in any application. For example, typing ``lgtm`` will replace it with ``Looks good to me!``.
+
+  - To turn off/on espanso, in ``config/default.yml``, uncomment ``toggle_key: ALT``. Now, you can toggle espanso on and off by pressing the ``Opt`` key twice.
+  - To see the list of matches, presss the ``Opt-Space`` keys together.
 
