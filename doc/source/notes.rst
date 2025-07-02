@@ -4,9 +4,23 @@ Bob's notes
 How to add Jupyter notebooks to Sphinx
 --------------------------------------
 
-1. Add ``ipykernal`` and ``nbsphinx`` and remove ``m2r`` under ``requirements.docs.txt`` .
+1. Add ``ipykereal`` and ``nbsphinx`` and remove ``m2r`` under ``requirements.docs.txt`` .
 2. Add  ``nbsphinx_allow_errors = True`` in ``conf.py``.
-3. Cross check with ``bobleesj.utils`` (http://github.com/bobleesj/bobleesj.utils).
+3. Add ``nbsphinx`` to ``extensions`` in ``conf.py``:
+
+    .. code-block:: python
+
+        extensions = [
+            "nbsphinx",
+            "sphinx.ext.autodoc",
+            "sphinx.ext.napoleon",
+            "sphinx.ext.todo",
+            "sphinx.ext.viewcode",
+            "sphinx.ext.intersphinx",
+            "sphinx_rtd_theme",
+        ]
+
+4. Cross check with ``bobleesj.utils`` (http://github.com/bobleesj/bobleesj.utils).
 
 How to setup SSH for GitHub
 ---------------------------

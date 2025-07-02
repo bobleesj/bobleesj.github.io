@@ -36,6 +36,7 @@ ab_authors = "Sangjoon Lee"
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    "nbsphinx",
     "sphinx.ext.autodoc",
     "sphinx.ext.napoleon",
     "sphinx.ext.todo",
@@ -44,6 +45,7 @@ extensions = [
     "sphinx_rtd_theme",
 ]
 
+nbsphinx_allow_errors = True
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]
 

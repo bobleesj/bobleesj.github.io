@@ -35,10 +35,14 @@ If you are a researcher, feel free to visit the :ref:`research` page to see if t
    :caption: THOUGHTS
 
    essays
-   .. science/pdf
-   .. science/electron-ptychography
-   .. science/crystallography
 
+.. toctree::
+   :maxdepth: 2
+   :hidden:
+   :caption: DATA SOURCES
+
+   notebooks/fourier-transform
+   notebooks/image-processing
 
 .. toctree::
    :maxdepth: 2
