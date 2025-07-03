@@ -37,6 +37,8 @@ Another reason we want to use a minimum process is that automation and processes
 
 Another example is that I consider "time" as part of the process. So, instead of using the input ``conda install``, I started using ``mamba install`` to install packages to reduce installation time. I use a web browser that does automatic ad blocking. I find the `Brave browser <https://brave.com/>`_ to be the best for this purpose, as it saves time in loading and also prevents me from using my consciousness on inadvertently reading ads.
 
+FIXME: add Bala's example of using vectorization operation in NumPy to speed up distance calculations.
+
 Exceptions and questions
 ------------------------
 

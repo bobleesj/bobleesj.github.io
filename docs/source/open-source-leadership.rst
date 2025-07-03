@@ -43,7 +43,7 @@ In fact, contributors are often excited to learn highly optimized practices. The
 
 
 3. The leader should **acknowledge every contributor**'s idea, bug finding, and feature in detail.
----------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 
 To lower the barrier for first-time contributors, we kept the GitHub issue and pull request template as simple as possible. For example, the issue template at https://github.com/scikit-package/scikit-package/blob/main/.github/ISSUE_TEMPLATE/bug_feature.md is sufficient. It consists of “Problem” and “Proposed solution.” The “Proposed solution” section encourages the issue writer to think about the issue, explore, and develop a sense of ownership. It is like building IKEA furniture: as we spend more time with the tool, we own the process and the final product.
 
@@ -51,7 +51,7 @@ When a bug is reported in a project and I fix it, in the pull request descriptio
 
 (FIXME: - Here mention how I congratulated Bala for his first PR contribution in ``cifkit``.)
 
-4. The leader should provide **every resource to help spread** via word-of-mouth.
+1. The leader should provide **every resource to help spread** via word-of-mouth.
 ---------------------------------------------------------------------------------
 
 If useful, the software will be shared. GIFs can help, especially for interactive CLI tools and GUI-based applications. A simple list of selling points also helps with copy and paste via email when sharing with colleagues. If applicable, a URL link to Jupyter or web-based demos (for example, Google Colab) helps so people do not need to install anything to try it. The step-by-step “Getting Started” section should not be too long so first-time visitors are not overwhelmed. The path of least resistance is fundamental for early adopters.
