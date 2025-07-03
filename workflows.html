@@ -66,7 +66,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="principles.html">My optimization principles</a></li>
-<li class="toctree-l1"><a class="reference internal" href="open-source-leadership.html">Guide for leading open-source software.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="open-source-leadership.html">Guide for leading open-source software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="writing.html">Guide for written communication</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">THOUGHTS</span></p>
@@ -254,53 +254,114 @@
 <li><p>Type <code class="docutils literal notranslate"><span class="pre">code</span> <span class="pre">~/.bashrc</span></code> to open <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>.</p></li>
 <li><p>Copy and paste the following commands into your <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>.</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Navigate (Replace with your actual path and conda environment)</span>
-<span class="nb">alias</span><span class="w"> </span><span class="nv">dev</span><span class="o">=</span><span class="s1">&#39;cd &lt;path-to-the-directory&gt; &amp;&amp; mamba activate &lt;env-name&gt;&#39;</span>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Word letter shortcuts</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">g</span><span class="o">=</span><span class="s1">&#39;open https://github.com&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">m</span><span class="o">=</span><span class="s1">&#39;git checkout main &amp;&amp; git pull&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">b</span><span class="o">=</span><span class="s1">&#39;git branch&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">c</span><span class="o">=</span><span class="s1">&#39;code .&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">d</span><span class="o">=</span><span class="s1">&#39;sphinx-reload docs&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">l</span><span class="o">=</span><span class="s1">&#39;git log&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">o</span><span class="o">=</span><span class="s1">&#39;open .&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">cl</span><span class="o">=</span><span class="s1">&#39;clear&#39;</span>
+<span class="c1"># Set the &quot;dev&quot; path based on the hostname</span>
+<span class="c1"># Type hostname in your commad-line and replace imacs-iMac.local, imac*, and macbook* with your own hostnames.</span>
+<span class="c1"># The reason there are multiple is that I have different names for my laptop and desktop.</span>
+<span class="k">case</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>hostname<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="k">in</span>
+<span class="w">  </span>imacs-iMac.local<span class="w"> </span><span class="p">|</span><span class="w"> </span>imac*<span class="w"> </span><span class="o">)</span>
+<span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">DEVROOT</span><span class="o">=</span><span class="s2">&quot;/Users/imac/downloads/dev/bob&quot;</span>
+<span class="w">    </span><span class="p">;;</span>
+<span class="w">  </span>macbook*<span class="w"> </span><span class="o">)</span>
+<span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">DEVROOT</span><span class="o">=</span><span class="s2">&quot;/Users/macbook/downloads/dev/bob&quot;</span>
+<span class="w">    </span><span class="p">;;</span>
+<span class="k">esac</span>
+
+<span class="c1"># File navigations using functions</span>
+dev<span class="o">()</span><span class="w">        </span><span class="o">{</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$DEVROOT</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
+<span class="c1"># skpkg-related directories</span>
+skpkg<span class="o">()</span><span class="w">   </span><span class="o">{</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$DEVROOT</span><span class="s2">/skpkg&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mamba<span class="w"> </span>activate<span class="w"> </span>skpkg-env<span class="p">;</span><span class="w"> </span><span class="o">}</span>
+skpkgw<span class="o">()</span><span class="w">  </span><span class="o">{</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$DEVROOT</span><span class="s2">/skpkg-baby/skpkg-workspace&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mamba<span class="w"> </span>activate<span class="w"> </span>skpkg-env<span class="p">;</span><span class="w"> </span><span class="o">}</span>
+skpkgs<span class="o">()</span><span class="w">  </span><span class="o">{</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$DEVROOT</span><span class="s2">/skpkg-baby/skpkg-system&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mamba<span class="w"> </span>activate<span class="w"> </span>skpkg-env<span class="p">;</span><span class="w"> </span><span class="o">}</span>
+skpkgc<span class="o">()</span><span class="w">  </span><span class="o">{</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$DEVROOT</span><span class="s2">/skpkg-baby/skpkg-conda-forge&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mamba<span class="w"> </span>activate<span class="w"> </span>skpkg-env<span class="p">;</span><span class="w"> </span><span class="o">}</span>
+skpkgm<span class="o">()</span><span class="w">  </span><span class="o">{</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$DEVROOT</span><span class="s2">/skpkg-baby/skpkg-manuscript&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mamba<span class="w"> </span>activate<span class="w"> </span>skpkg-env<span class="p">;</span><span class="w"> </span><span class="o">}</span>
+skpkgr<span class="o">()</span><span class="w">  </span><span class="o">{</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$DEVROOT</span><span class="s2">/skpkg-baby/release-scripts&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mamba<span class="w"> </span>activate<span class="w"> </span>skpkg-env<span class="p">;</span><span class="w"> </span><span class="o">}</span>
+<span class="c1"># bob-env projects</span>
+but<span class="o">()</span><span class="w">     </span><span class="o">{</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$DEVROOT</span><span class="s2">/my-package/bobleesj.utils&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mamba<span class="w"> </span>activate<span class="w"> </span>bob-env<span class="p">;</span><span class="w"> </span><span class="o">}</span>
+bweb<span class="o">()</span><span class="w">    </span><span class="o">{</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$DEVROOT</span><span class="s2">/bobleesj.github.io&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mamba<span class="w"> </span>activate<span class="w"> </span>bob-env<span class="p">;</span><span class="w"> </span><span class="o">}</span>
+<span class="c1"># cifkit-env projects</span>
+caf<span class="o">()</span><span class="w">     </span><span class="o">{</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$DEVROOT</span><span class="s2">/my-package/CAF&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mamba<span class="w"> </span>activate<span class="w"> </span>cifkit-env<span class="p">;</span><span class="w"> </span><span class="o">}</span>
+cba<span class="o">()</span><span class="w">     </span><span class="o">{</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$DEVROOT</span><span class="s2">/my-package/CBA&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mamba<span class="w"> </span>activate<span class="w"> </span>cifkit-env<span class="p">;</span><span class="w"> </span><span class="o">}</span>
+saf<span class="o">()</span><span class="w">     </span><span class="o">{</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$DEVROOT</span><span class="s2">/my-package/SAF&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mamba<span class="w"> </span>activate<span class="w"> </span>cifkit-env<span class="p">;</span><span class="w"> </span><span class="o">}</span>
+cifkit<span class="o">()</span><span class="w">  </span><span class="o">{</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$DEVROOT</span><span class="s2">/my-package/cifkit&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mamba<span class="w"> </span>activate<span class="w"> </span>cifkit-env<span class="p">;</span><span class="w"> </span><span class="o">}</span>
+cif<span class="o">()</span><span class="w">     </span><span class="o">{</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$DEVROOT</span><span class="s2">/my-package/cifkit&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mamba<span class="w"> </span>activate<span class="w"> </span>cifkit-env<span class="p">;</span><span class="w"> </span><span class="o">}</span>
+cifc<span class="o">()</span><span class="w">    </span><span class="o">{</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$DEVROOT</span><span class="s2">/cif-cleaner&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mamba<span class="w"> </span>activate<span class="w"> </span>cifkit-env<span class="p">;</span><span class="w"> </span><span class="o">}</span>
+cafapp<span class="o">()</span><span class="w">  </span><span class="o">{</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$DEVROOT</span><span class="s2">/CAF-app&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mamba<span class="w"> </span>activate<span class="w"> </span>cifkit-env<span class="p">;</span><span class="w"> </span><span class="o">}</span>
+
+<span class="c1"># Editable installs</span>
+iskpkg<span class="o">()</span><span class="w">  </span><span class="o">{</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$DEVROOT</span><span class="s2">/skpkg&quot;</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
+ibut<span class="o">()</span><span class="w">    </span><span class="o">{</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$DEVROOT</span><span class="s2">/my-package/bobleesj.utils&quot;</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
+
+
+<span class="c1"># URL navigations</span>
+<span class="c1"># (add those here if needed)</span>
+
+<span class="c1"># URL navigations</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">ggl</span><span class="o">=</span><span class="s1">&#39;function _ggl() { open &quot;https://www.google.com/search?q=$(echo &quot;$*&quot; | sed &quot;s/ /+/g&quot;)&quot;; }; _ggl &quot;$@&quot;&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">g</span><span class="o">=</span><span class="s1">&#39;open https://github.com/bobleesj&#39;</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">gn</span><span class="o">=</span><span class="s1">&#39;open https://github.com/notifications&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">gpt</span><span class="o">=</span><span class="s1">&#39;open https://chatgpt.com&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">gcifkit</span><span class="o">=</span><span class="s1">&#39;open https://github.com/bobleesj/cifkit&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">gsaf</span><span class="o">=</span><span class="s1">&#39;open https://github.com/bobleesj/structure-analyzer-featurizer&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">gcaf</span><span class="o">=</span><span class="s1">&#39;open https://github.com/bobleesj/composition-analyzer-featurizer&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">gcba</span><span class="o">=</span><span class="s1">&#39;open https://github.com/bobleesj/cif-bond-analyzer&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">gskpkg</span><span class="o">=</span><span class="s1">&#39;open https://github.com/scikit-package/scikit-package&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">gskpkgi</span><span class="o">=</span><span class="s1">&#39;open https://github.com/scikit-package/scikit-package/issues&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">gskpkgp</span><span class="o">=</span><span class="s1">&#39;open https://github.com/scikit-package/scikit-package/pulls&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">gbutils</span><span class="o">=</span><span class="s1">&#39;open https://github.com/bobleesj/bobleesj.utils&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">gbweb</span><span class="o">=</span><span class="s1">&#39;open https://github.com/bobleesj/bobleesj.github.io&#39;</span>
+<span class="c1"># Single letter aliases</span>
+
+<span class="c1"># CV</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">cv</span><span class="o">=</span><span class="s1">&#39;nodemon --exec python cv.py --watch . --ext py,json&#39;</span>
 <span class="c1"># bobleesj.utils</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">bdlb</span><span class="o">=</span><span class="s1">&#39;bob delete local-branches&#39;</span>
-<span class="nb">alias</span><span class="w"> </span><span class="nv">bci</span><span class="o">=</span><span class="s1">&#39;bob create issues&#39;</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">bli</span><span class="o">=</span><span class="s1">&#39;bob list issues&#39;</span>
-<span class="c1"># One letter commands</span>
-<span class="nb">alias</span><span class="w"> </span><span class="nv">c</span><span class="o">=</span><span class="s1">&#39;code .&#39;</span>
-<span class="nb">alias</span><span class="w"> </span><span class="nv">l</span><span class="o">=</span><span class="s1">&#39;git log&#39;</span>
-<span class="nb">alias</span><span class="w"> </span><span class="nv">b</span><span class="o">=</span><span class="s1">&#39;git branch&#39;</span>
-<span class="nb">alias</span><span class="w"> </span><span class="nv">g</span><span class="o">=</span><span class="s1">&#39;open https://github.com&#39;</span>
-<span class="nb">alias</span><span class="w"> </span><span class="nv">d</span><span class="o">=</span><span class="s1">&#39;sphinx-reload doc&#39;</span>
-<span class="nb">alias</span><span class="w"> </span><span class="nv">c</span><span class="o">=</span><span class="s1">&#39;code .&#39;</span>
-<span class="nb">alias</span><span class="w"> </span><span class="nv">m</span><span class="o">=</span><span class="s1">&#39;git checkout main &amp;&amp; git pull upstream main&#39;</span>
-<span class="c1"># bashrc</span>
-<span class="nb">alias</span><span class="w"> </span><span class="nv">sc</span><span class="o">=</span><span class="s1">&#39;code ~/.bashrc&#39;</span>
-<span class="nb">alias</span><span class="w"> </span><span class="nv">ss</span><span class="o">=</span><span class="s1">&#39;source ~/.bashrc&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">sc</span><span class="o">=</span><span class="s1">&#39;code . ~/.zshrc&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">bc</span><span class="o">=</span><span class="s1">&#39;code . ~/.bobrc&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">spc</span><span class="o">=</span><span class="s1">&#39;code . ~/.skpkgrc&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">ss</span><span class="o">=</span><span class="s1">&#39;source ~/.zshrc&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">ec</span><span class="o">=</span><span class="s1">&#39;code /Users/imac/Library/Application\ Support/espanso&#39;</span>
 <span class="c1"># git</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">ga</span><span class="o">=</span><span class="s1">&#39;git add&#39;</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">gc</span><span class="o">=</span><span class="s1">&#39;git checkout&#39;</span>
-<span class="nb">alias</span><span class="w"> </span><span class="nv">gpsh</span><span class="o">=</span><span class="s1">&#39;git push&#39;</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">gp</span><span class="o">=</span><span class="s1">&#39;git pull&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">p</span><span class="o">=</span><span class="s1">&#39;git push&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">pd</span><span class="o">=</span><span class="s1">&#39;git push &amp;&amp; gbd&#39;</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">grau</span><span class="o">=</span><span class="s1">&#39;git remote add upstream&#39;</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">grao</span><span class="o">=</span><span class="s1">&#39;git remote add origin&#39;</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">gpso</span><span class="o">=</span><span class="s1">&#39;git push --set-upstream origin&#39;</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">gfa</span><span class="o">=</span><span class="s1">&#39;git fetch --all&#39;</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">grv</span><span class="o">=</span><span class="s1">&#39;git remote -v&#39;</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">gcm</span><span class="o">=</span><span class="s1">&#39;git commit -m&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">gac</span><span class="o">=</span><span class="s1">&#39;git add . &amp;&amp; git commit -a -m&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">gacp</span><span class="o">=</span><span class="s1">&#39;git add . &amp;&amp; git commit -a -m &quot;test commit&quot; &amp;&amp; git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)&#39;</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">gcam</span><span class="o">=</span><span class="s1">&#39;git commit -a -m&#39;</span>
+gcamp<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span>git<span class="w"> </span>commit<span class="w"> </span>-a<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>gpsuo
+<span class="o">}</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">gce</span><span class="o">=</span><span class="s1">&#39;git commit --allow-empty -m &quot;ci: re-run CI with empty commit&quot;&#39;</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">gcb</span><span class="o">=</span><span class="s1">&#39;git checkout -b&#39;</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">gpum</span><span class="o">=</span><span class="s1">&#39;git pull upstream main&#39;</span>
-<span class="nb">alias</span><span class="w"> </span><span class="nv">gpo</span><span class="o">=</span><span class="s1">&#39;git push origin&#39;</span>
-<span class="nb">alias</span><span class="w"> </span><span class="nv">gl</span><span class="o">=</span><span class="s1">&#39;git log&#39;</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">gs</span><span class="o">=</span><span class="s1">&#39;git status&#39;</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">gd</span><span class="o">=</span><span class="s1">&#39;git diff&#39;</span>
-<span class="nb">alias</span><span class="w"> </span><span class="nv">gb</span><span class="o">=</span><span class="s1">&#39;git branch&#39;</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">gr</span><span class="o">=</span><span class="s1">&#39;git restore&#39;</span>
-<span class="c1"># For a new branch, set upstream to origin and push</span>
+<span class="c1"># for a new branch, set upstream to origin and push</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">gpsuo</span><span class="o">=</span><span class="s1">&#39;git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)&#39;</span>
 <span class="c1"># Sync with main and create a new branch</span>
-<span class="nb">alias</span><span class="w"> </span><span class="nv">gsub</span><span class="o">=</span><span class="s1">&#39;gc main &amp;&amp; git pull upstream main &amp;&amp; gcb &amp;&amp; c .&#39;</span>
-<span class="nb">alias</span><span class="w"> </span><span class="nv">gsob</span><span class="o">=</span><span class="s1">&#39;gc main &amp;&amp; git pull &amp;&amp; gcb &amp;&amp; c .&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">gsub</span><span class="o">=</span><span class="s1">&#39;gc main &amp;&amp; git pull upstream main &amp;&amp; gcb&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">gsob</span><span class="o">=</span><span class="s1">&#39;gc main &amp;&amp; git pull &amp;&amp; gcb&#39;</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">gdsub</span><span class="o">=</span><span class="s1">&#39;gc main &amp;&amp; bdlb &amp;&amp; git pull upstream main &amp;&amp; gcb&#39;</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">gdsob</span><span class="o">=</span><span class="s1">&#39;gc main &amp;&amp; bdlb &amp;&amp; git pull &amp;&amp; gcb&#39;</span>
-<span class="c1"># GitHub CLI</span>
+<span class="c1"># github CLI</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">gpcr</span><span class="o">=</span><span class="s1">&#39;gh pr create&#39;</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">gpl</span><span class="o">=</span><span class="s1">&#39;gh pr list&#39;</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">gpch</span><span class="o">=</span><span class="s1">&#39;gh pr checkout&#39;</span>
@@ -311,23 +372,25 @@
 <span class="nb">alias</span><span class="w"> </span><span class="nv">gpv</span><span class="o">=</span><span class="s1">&#39;gh pr view&#39;</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">gbd</span><span class="o">=</span><span class="s1">&#39;gh workflow run publish-docs-on-release.yml&#39;</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">gbds</span><span class="o">=</span><span class="s1">&#39;gh run list --workflow=publish-docs-on-release.yml&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">grsd</span><span class="o">=</span><span class="s1">&#39;gh repo set-default&#39;</span>
 <span class="c1"># Combined</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">gpsuop</span><span class="o">=</span><span class="s1">&#39;gpsuo &amp;&amp; gpcr&#39;</span>
 <span class="c1"># Create news file, add, commit, push, and create PR with the same news title.</span>
 _make_pr<span class="o">()</span><span class="w"> </span><span class="o">{</span>
-<span class="nv">TOOL</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w">        </span><span class="c1"># e.g. &quot;na&quot; (which is aliased to a full package command)</span>
-<span class="nv">TITLE</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span><span class="w">       </span><span class="c1"># PR title</span>
-<span class="nv">FILL_FLAG</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$3</span><span class="s2">&quot;</span><span class="w">   </span><span class="c1"># &quot;fill&quot; or empty</span>
-<span class="nb">eval</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$TOOL</span><span class="s2"> \&quot;</span><span class="nv">$TITLE</span><span class="s2">\&quot;&quot;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
-git<span class="w"> </span>add<span class="w"> </span>news/<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
-git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;news: </span><span class="nv">$TITLE</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
-<span class="nv">BRANCH</span><span class="o">=</span><span class="k">$(</span>git<span class="w"> </span>rev-parse<span class="w"> </span>--abbrev-ref<span class="w"> </span>HEAD<span class="k">)</span>
-git<span class="w"> </span>push<span class="w"> </span>--set-upstream<span class="w"> </span>origin<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$BRANCH</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
-<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$FILL_FLAG</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;fill&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">  </span>gh<span class="w"> </span>pr<span class="w"> </span>create<span class="w"> </span>--title<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$TITLE</span><span class="s2">&quot;</span><span class="w"> </span>--fill
-<span class="k">else</span>
-<span class="w">  </span>gh<span class="w"> </span>pr<span class="w"> </span>create<span class="w"> </span>--title<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$TITLE</span><span class="s2">&quot;</span>
-<span class="k">fi</span>
+<span class="w">  </span><span class="nv">TOOL</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w">        </span><span class="c1"># e.g. &quot;na&quot; (which is aliased to a full package command)</span>
+<span class="w">  </span><span class="nv">TITLE</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span><span class="w">       </span><span class="c1"># PR title</span>
+<span class="w">  </span><span class="nv">FILL_FLAG</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$3</span><span class="s2">&quot;</span><span class="w">   </span><span class="c1"># &quot;fill&quot; or empty</span>
+<span class="w">  </span><span class="nb">eval</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$TOOL</span><span class="s2"> \&quot;</span><span class="nv">$TITLE</span><span class="s2">\&quot;&quot;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
+<span class="w">  </span>git<span class="w"> </span>add<span class="w"> </span>news/<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
+<span class="w">  </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;news: </span><span class="nv">$TITLE</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
+<span class="w">  </span><span class="nv">BRANCH</span><span class="o">=</span><span class="k">$(</span>git<span class="w"> </span>rev-parse<span class="w"> </span>--abbrev-ref<span class="w"> </span>HEAD<span class="k">)</span>
+<span class="w">  </span>git<span class="w"> </span>push<span class="w"> </span>--set-upstream<span class="w"> </span>origin<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$BRANCH</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$FILL_FLAG</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;fill&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nv">PR_URL</span><span class="o">=</span><span class="k">$(</span>gh<span class="w"> </span>pr<span class="w"> </span>create<span class="w"> </span>--title<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$TITLE</span><span class="s2">&quot;</span><span class="w"> </span>--fill<span class="k">)</span>
+<span class="w">    </span>open<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PR_URL</span><span class="s2">&quot;</span>
+<span class="w">  </span><span class="k">else</span>
+<span class="w">    </span>gh<span class="w"> </span>pr<span class="w"> </span>create<span class="w"> </span>--title<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$TITLE</span><span class="s2">&quot;</span>
+<span class="w">  </span><span class="k">fi</span>
 <span class="o">}</span>
 <span class="c1"># scikit-package</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">na</span><span class="o">=</span><span class="s1">&#39;package add news -a -m&#39;</span>
@@ -335,16 +398,53 @@ git<span class="w"> </span>push<span class="w"> </span>--set-upstream<span class
 <span class="nb">alias</span><span class="w"> </span><span class="nv">nc</span><span class="o">=</span><span class="s1">&#39;package add news -c -m&#39;</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">nr</span><span class="o">=</span><span class="s1">&#39;package add news -r -m&#39;</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">nd</span><span class="o">=</span><span class="s1">&#39;package add news -d -m&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">nn</span><span class="o">=</span><span class="s1">&#39;package add news -n -m&#39;</span>
 napr<span class="o">()</span><span class="w">  </span><span class="o">{</span><span class="w"> </span>_make_pr<span class="w"> </span><span class="s2">&quot;na&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
 naprf<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>_make_pr<span class="w"> </span><span class="s2">&quot;na&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;fill&quot;</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
+nfpr<span class="o">()</span><span class="w">  </span><span class="o">{</span><span class="w"> </span>_make_pr<span class="w"> </span><span class="s2">&quot;nf&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
+nfprf<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>_make_pr<span class="w"> </span><span class="s2">&quot;nf&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;fill&quot;</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
 nrpr<span class="o">()</span><span class="w">  </span><span class="o">{</span><span class="w"> </span>_make_pr<span class="w"> </span><span class="s2">&quot;nr&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
 nrprf<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>_make_pr<span class="w"> </span><span class="s2">&quot;nr&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;fill&quot;</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
 nspr<span class="o">()</span><span class="w">  </span><span class="o">{</span><span class="w"> </span>_make_pr<span class="w"> </span><span class="s2">&quot;ns&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
 nsprf<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>_make_pr<span class="w"> </span><span class="s2">&quot;ns&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;fill&quot;</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
-ncpr<span class="o">()</span><span class="w">  </span><span class="o">{</span><span class="w"> </span>_make_pr<span class="w"> </span><span class="s2">&quot;na&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
-ncprf<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>_make_pr<span class="w"> </span><span class="s2">&quot;na&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;fill&quot;</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
+ncpr<span class="o">()</span><span class="w">  </span><span class="o">{</span><span class="w"> </span>_make_pr<span class="w"> </span><span class="s2">&quot;nc&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
+ncprf<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>_make_pr<span class="w"> </span><span class="s2">&quot;nc&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;fill&quot;</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
 ndpr<span class="o">()</span><span class="w">  </span><span class="o">{</span><span class="w"> </span>_make_pr<span class="w"> </span><span class="s2">&quot;nd&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
 ndprf<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>_make_pr<span class="w"> </span><span class="s2">&quot;nd&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;fill&quot;</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
+nnpr<span class="o">()</span><span class="w">  </span><span class="o">{</span><span class="w"> </span>_make_pr<span class="w"> </span><span class="s2">&quot;nn&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
+nnprf<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>_make_pr<span class="w"> </span><span class="s2">&quot;nn&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;fill&quot;</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
+<span class="c1"># Use a single PR title for the commit msg, PR title at once</span>
+_add_make_pr<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span><span class="nv">TOOL</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w">        </span><span class="c1"># e.g. &quot;na&quot; (which is aliased to a full package command)</span>
+<span class="w">  </span><span class="nv">TITLE</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span><span class="w">       </span><span class="c1"># PR title</span>
+<span class="w">  </span><span class="nv">FILL_FLAG</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$3</span><span class="s2">&quot;</span><span class="w">   </span><span class="c1"># &quot;fill&quot; or empty</span>
+<span class="w">  </span><span class="nb">eval</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$TOOL</span><span class="s2"> \&quot;</span><span class="nv">$TITLE</span><span class="s2">\&quot;&quot;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
+<span class="w">  </span><span class="c1"># Add all files (not just news)</span>
+<span class="w">  </span>git<span class="w"> </span>add<span class="w"> </span>.<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
+<span class="w">  </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: </span><span class="nv">$TITLE</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
+<span class="w">  </span><span class="nv">BRANCH</span><span class="o">=</span><span class="k">$(</span>git<span class="w"> </span>rev-parse<span class="w"> </span>--abbrev-ref<span class="w"> </span>HEAD<span class="k">)</span>
+<span class="w">  </span>git<span class="w"> </span>push<span class="w"> </span>--set-upstream<span class="w"> </span>origin<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$BRANCH</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$FILL_FLAG</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;fill&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nv">PR_URL</span><span class="o">=</span><span class="k">$(</span>gh<span class="w"> </span>pr<span class="w"> </span>create<span class="w"> </span>--title<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$TITLE</span><span class="s2">&quot;</span><span class="w"> </span>--fill<span class="k">)</span>
+<span class="w">    </span>open<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PR_URL</span><span class="s2">&quot;</span>
+<span class="w">  </span><span class="k">else</span>
+<span class="w">    </span>gh<span class="w"> </span>pr<span class="w"> </span>create<span class="w"> </span>--title<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$TITLE</span><span class="s2">&quot;</span>
+<span class="w">  </span><span class="k">fi</span>
+<span class="o">}</span>
+gnapr<span class="o">()</span><span class="w">  </span><span class="o">{</span><span class="w"> </span>_add_make_pr<span class="w"> </span><span class="s2">&quot;na&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
+gnaprf<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>_add_make_pr<span class="w"> </span><span class="s2">&quot;na&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;fill&quot;</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
+gnfpr<span class="o">()</span><span class="w">  </span><span class="o">{</span><span class="w"> </span>_add_make_pr<span class="w"> </span><span class="s2">&quot;nf&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
+gnfprf<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>_add_make_pr<span class="w"> </span><span class="s2">&quot;nf&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;fill&quot;</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
+gnrpr<span class="o">()</span><span class="w">  </span><span class="o">{</span><span class="w"> </span>_add_make_pr<span class="w"> </span><span class="s2">&quot;nr&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
+gnrprf<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>_add_make_pr<span class="w"> </span><span class="s2">&quot;nr&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;fill&quot;</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
+gnspr<span class="o">()</span><span class="w">  </span><span class="o">{</span><span class="w"> </span>_add_make_pr<span class="w"> </span><span class="s2">&quot;ns&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
+gnsprf<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>_add_make_pr<span class="w"> </span><span class="s2">&quot;ns&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;fill&quot;</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
+gncpr<span class="o">()</span><span class="w">  </span><span class="o">{</span><span class="w"> </span>_add_make_pr<span class="w"> </span><span class="s2">&quot;nc&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
+gncprf<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>_add_make_pr<span class="w"> </span><span class="s2">&quot;nc&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;fill&quot;</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
+gndpr<span class="o">()</span><span class="w">  </span><span class="o">{</span><span class="w"> </span>_add_make_pr<span class="w"> </span><span class="s2">&quot;nd&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
+gndprf<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>_add_make_pr<span class="w"> </span><span class="s2">&quot;nd&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;fill&quot;</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
+gnnpr<span class="o">()</span><span class="w">  </span><span class="o">{</span><span class="w"> </span>_add_make_pr<span class="w"> </span><span class="s2">&quot;nn&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
+gnnprf<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>_add_make_pr<span class="w"> </span><span class="s2">&quot;nn&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;fill&quot;</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
 gict<span class="o">()</span><span class="w"> </span><span class="o">{</span>
 <span class="w">  </span>gh<span class="w"> </span>issue<span class="w"> </span>create<span class="w"> </span>-t<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span>-b<span class="w"> </span><span class="s2">&quot;&quot;</span>
 <span class="o">}</span>
@@ -359,67 +459,100 @@ gtu<span class="o">()</span><span class="w"> </span><span class="o">{</span>
 <span class="w">  </span><span class="nv">TAG</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
 <span class="w">  </span>git<span class="w"> </span>tag<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$TAG</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>push<span class="w"> </span>upstream<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$TAG</span><span class="s2">&quot;</span>
 <span class="o">}</span>
+
+<span class="c1"># Edit news file for the current branch</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">ne</span><span class="o">=</span><span class="s1">&#39;vim news/$(git rev-parse --abbrev-ref HEAD).rst&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">api</span><span class="o">=</span><span class="s1">&#39;package build api-doc&#39;</span>
 <span class="c1"># Python, pip, conda (mamba)</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">pi</span><span class="o">=</span><span class="s1">&#39;pip install&#39;</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">pir</span><span class="o">=</span><span class="s1">&#39;pip install -r&#39;</span>
-<span class="nb">alias</span><span class="w"> </span><span class="nv">pie</span><span class="o">=</span><span class="s1">&#39;pip install -e . &amp;&amp; pip install -r requirements/test.txt&#39;</span>
-<span class="nb">alias</span><span class="w"> </span><span class="nv">mi</span><span class="o">=</span><span class="s1">&#39;mamba install \</span>
-<span class="s1">  --file requirements/test.txt \</span>
-<span class="s1">  --file requirements/conda.txt&#39;</span><span class="se">\</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">pie</span><span class="o">=</span><span class="s1">&#39;pip install -e . &amp;&amp; pip install -r requirements/tests.txt&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">mc</span><span class="o">=</span><span class="s1">&#39;mamba create -y -n&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">mi</span><span class="o">=</span><span class="s1">&#39;mamba install -y \</span>
+<span class="s1">    --file requirements/tests.txt \</span>
+<span class="s1">    --file requirements/conda.txt \</span>
+<span class="s1">    --file requirements/docs.txt &amp;&amp; \</span>
+<span class="s1">    pip install -e . --no-deps &amp;&amp; \</span>
+<span class="s1">    pip install sphinx-reload pre-commit&#39;</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">ma</span><span class="o">=</span><span class="s1">&#39;mamba activate&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">mif</span><span class="o">=</span><span class="s1">&#39;mamba info&#39;</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">mao</span><span class="o">=</span><span class="s1">&#39;mamba activate ophus-env&#39;</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">mab</span><span class="o">=</span><span class="s1">&#39;mamba activate bob-env&#39;</span>
-<span class="nb">alias</span><span class="w"> </span><span class="nv">mcn</span><span class="o">=</span><span class="s1">&#39;mamba create -n&#39;</span>
 mce<span class="o">()</span><span class="w"> </span><span class="o">{</span>
-<span class="w">  </span><span class="nv">folder_name</span><span class="o">=</span><span class="k">$(</span>basename<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PWD</span><span class="s2">&quot;</span><span class="k">)</span>
-<span class="w">  </span><span class="nv">env_name</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">folder_name</span><span class="si">}</span><span class="s2">-env&quot;</span>
-<span class="w">  </span>mamba<span class="w"> </span>create<span class="w"> </span>-y<span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$env_name</span><span class="s2">&quot;</span><span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.13<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--file<span class="w"> </span>requirements/test.txt<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--file<span class="w"> </span>requirements/conda.txt<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--file<span class="w"> </span>requirements/docs.txt<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>mamba<span class="w"> </span>activate<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$env_name</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+<span class="w">    </span><span class="nv">folder_name</span><span class="o">=</span><span class="k">$(</span>basename<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PWD</span><span class="s2">&quot;</span><span class="k">)</span>
+<span class="w">    </span><span class="nv">env_name</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">folder_name</span><span class="si">}</span><span class="s2">-env&quot;</span>
+<span class="w">    </span>mamba<span class="w"> </span>create<span class="w"> </span>-y<span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$env_name</span><span class="s2">&quot;</span><span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.13<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--file<span class="w"> </span>requirements/tests.txt<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--file<span class="w"> </span>requirements/conda.txt<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--file<span class="w"> </span>requirements/docs.txt<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>mamba<span class="w"> </span>activate<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$env_name</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
 <span class="o">}</span>
-<span class="c1"># Combined</span>
+<span class="c1"># Jupyter Lab</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">ji</span><span class="o">=</span><span class="s1">&#39;jupyter lab&#39;</span>
+<span class="c1"># Test</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">pt</span><span class="o">=</span><span class="s1">&#39;pytest&#39;</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">pc</span><span class="o">=</span><span class="s1">&#39;pre-commit run --all-files&#39;</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">ptc</span><span class="o">=</span><span class="s1">&#39;pytest &amp;&amp; pre-commit run --all-files&#39;</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">pb</span><span class="o">=</span><span class="s1">&#39;python -m build&#39;</span>
-<span class="nb">alias</span><span class="w"> </span><span class="nv">pd</span><span class="o">=</span><span class="s1">&#39;git push &amp;&amp; gbd&#39;</span>
 <span class="c1"># cookiecutter</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">cc</span><span class="o">=</span><span class="s1">&#39;cookiecutter .&#39;</span>
-<span class="nb">alias</span><span class="w"> </span><span class="nv">ec</span><span class="o">=</span><span class="s1">&#39;code /Users/imac/Library/Application\ Support/espanso&#39;</span>
-<span class="c1"># Test release process</span>
-test<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+
+<span class="c1"># Test whether the wheel and sdist can be built and checked</span>
+pypi_check<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;📦 Installing build and twine...&quot;</span>
+<span class="w">  </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>build<span class="w"> </span>twine<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;🧹 Cleaning previous builds...&quot;</span>
+<span class="w">  </span>rm<span class="w"> </span>-rf<span class="w"> </span>dist/<span class="w"> </span>build/<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">true</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;🛠 Building package...&quot;</span>
+<span class="w">  </span>python<span class="w"> </span>-m<span class="w"> </span>build<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;🔍 Checking package with twine...&quot;</span>
+<span class="w">  </span>twine<span class="w"> </span>check<span class="w"> </span>dist/*<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;✅ Build and check successful!&quot;</span>
+<span class="o">}</span>
+
+<span class="c1"># Usage 1: testpypi &lt;package-name&gt; rc</span>
+<span class="c1"># Usage 2: testpypi &lt;package-name&gt;</span>
+testpypi<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;❌ Error: Package name is required&quot;</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Usage: test &lt;package-name&gt; [rc]&quot;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
+<span class="w">  </span><span class="k">fi</span>
 <span class="w">  </span><span class="nv">PKG</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
 <span class="w">  </span><span class="nv">MODE</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span>
 <span class="w">  </span><span class="nv">ENV_NAME</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">PKG</span><span class="si">}</span><span class="s2">-</span><span class="si">${</span><span class="nv">MODE</span><span class="k">:-</span><span class="nv">stable</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;🔧 Creating environment: </span><span class="nv">$ENV_NAME</span><span class="s2">&quot;</span>
 <span class="w">  </span>mamba<span class="w"> </span>create<span class="w"> </span>-y<span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$ENV_NAME</span><span class="s2">&quot;</span><span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.13<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
 <span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;🚀 Activating environment...&quot;</span>
-<span class="w">  </span>mamba<span class="w"> </span>activate<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$ENV_NAME</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
+<span class="w">  </span><span class="nb">source</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>conda<span class="w"> </span>info<span class="w"> </span>--base<span class="k">)</span><span class="s2">/etc/profile.d/conda.sh&quot;</span>
+<span class="w">  </span>conda<span class="w"> </span>activate<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$ENV_NAME</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
 <span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;📦 Installing </span><span class="nv">$MODE</span><span class="s2"> version of </span><span class="nv">$PKG</span><span class="s2">...&quot;</span>
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$MODE</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;rc&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
 <span class="w">    </span>pip<span class="w"> </span>install<span class="w"> </span>--pre<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PKG</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
 <span class="w">  </span><span class="k">else</span>
 <span class="w">    </span>pip<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PKG</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
 <span class="w">  </span><span class="k">fi</span>
-<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;📄 Installing requirements/test.txt...&quot;</span>
-<span class="w">  </span>mamba<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>--file<span class="w"> </span>requirements/test.txt<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;📄 Installing requirements/tests.txt...&quot;</span>
+<span class="w">  </span>mamba<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>--file<span class="w"> </span>requirements/tests.txt<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
 <span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;🧪 Running tests with pytest...&quot;</span>
 <span class="w">  </span>pytest
 <span class="o">}</span>
-<span class="c1"># Test conda-forge</span>
+
+<span class="c1"># Usage 1: testcf &lt;package-name&gt;</span>
 testcf<span class="o">()</span><span class="w"> </span><span class="o">{</span>
 <span class="w">  </span><span class="nv">PKG</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
-<span class="w">  </span><span class="nv">MODE</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span><span class="se">\</span>
-<span class="w">  </span><span class="nv">ENV_NAME</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">PKG</span><span class="si">}</span><span class="s2">-stable&quot;</span>
+<span class="w">  </span><span class="nv">ENV_NAME</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">PKG</span><span class="si">}</span><span class="s2">-cf&quot;</span>
 <span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;🔧 Creating environment: </span><span class="nv">$ENV_NAME</span><span class="s2">&quot;</span>
-<span class="w">  </span>mamba<span class="w"> </span>create<span class="w"> </span>-y<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$ENV_NAME</span><span class="s2">&quot;</span><span class="w"> </span>PKG<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
+<span class="w">  </span>mamba<span class="w"> </span>create<span class="w"> </span>-y<span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$ENV_NAME</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PKG</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
+
 <span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;🚀 Activating environment...&quot;</span>
-<span class="w">  </span>mamba<span class="w"> </span>activate<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$ENV_NAME</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
-<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;📄 Installing requirements/test.txt...&quot;</span>
-<span class="w">  </span>mamba<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>--file<span class="w"> </span>requirements/test.txt<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
+<span class="w">  </span><span class="nb">source</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>conda<span class="w"> </span>info<span class="w"> </span>--base<span class="k">)</span><span class="s2">/etc/profile.d/conda.sh&quot;</span>
+<span class="w">  </span>conda<span class="w"> </span>activate<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$ENV_NAME</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
+
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;📄 Installing requirements/tests.txt...&quot;</span>
+<span class="w">  </span>mamba<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>--file<span class="w"> </span>requirements/tests.txt<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
+
 <span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;🧪 Running tests with pytest...&quot;</span>
 <span class="w">  </span>pytest
 <span class="o">}</span>

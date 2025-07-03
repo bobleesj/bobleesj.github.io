@@ -1,6 +1,6 @@
 .. _open-source-leadership:
 
-Guide for leading open-source software.
+Guide for leading open-source software
 =======================================
 
 About 10 years ago, I started using GitHub to distribute tutorial source code for the Swift programming language. Here I document open-source software development leadership lessons. Many are learned from building ``scikit-package`` (https://scikit-package.github.io/scikit-package/) as a contributor and maintainer with Prof. Simon Billinge. It first begins with the **core principles**, followed by practices.
