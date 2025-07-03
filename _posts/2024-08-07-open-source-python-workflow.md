@@ -129,10 +129,10 @@ You may need to copy files systematically. See the details.
 
 ```bash
 # Copy the content of "source"
-cp -n -r ../doc/source/* <destination-path>
+cp -n -r ../docs/source/* <destination-path>
 
 # Copy the folder of "source"
-cp -n -r ../doc/source <destination-path>
+cp -n -r ../docs/source <destination-path>
 ```
 
 - `n` "no-clobber" is used to prevent overwriting existing files, `r` refers to
