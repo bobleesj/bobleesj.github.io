@@ -49,6 +49,8 @@ To lower the barrier for first-time contributors, we kept the GitHub issue and p
 
 When a bug is reported in a project and I fix it, in the pull request description, I thank the contributor for reporting the bug and explain in detail how it was fixed. This way, we keep contributors engaged. When a contributor suggests or implements a new feature, first, acknowledge that on the first page of the documentation and also, from time to time, tag the contributor when the feature is used so that we engage the contributor. The goal is to communicate their value and shore appreciation for their contributions. That's the least we can do. It must come from the leader of the project.
 
+(FIXME: - Here mention how I congratulated Bala for his first PR contribution in ``cifkit``.)
+
 4. The leader should provide **every resource to help spread** via word-of-mouth.
 ---------------------------------------------------------------------------------
 
