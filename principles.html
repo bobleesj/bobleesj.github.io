@@ -9,6 +9,7 @@
   <title>My optimization principles &mdash; Sangjoon Bob Lee  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
@@ -16,6 +17,8 @@
       <script src="_static/documentation_options.js?v=8a448e45"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -59,6 +62,10 @@
 <p class="caption" role="heading"><span class="caption-text">THOUGHTS</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="essays.html">Essays</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">PRACTICES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="python-practices.html">Python</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">REFERENCE</span></p>
 <ul>
@@ -119,6 +126,7 @@
 <h2>Principle 3. <strong>Minimum process</strong> with the <strong>same input and ouput</strong><a class="headerlink" href="#principle-3-minimum-process-with-the-same-input-and-ouput" title="Link to this heading"></a></h2>
 <p>Another reason we want to use a minimum process is that automation and processes are often maintained and developed by a team of people. A simple process means less maintenance and development effort is required. Hence, while inputs and outputs are the priority, the process is also important when it comes to long-term maintenance, where changes are inevitable. For example, we have Python version 3.13 hard-coded in our <code class="docutils literal notranslate"><span class="pre">scikit-package</span></code> <a class="reference external" href="https://github.com/scikit-package/release-scripts/blob/main/.github/workflows/_tests-on-pr.yml">GitHub Actions workflows</a>. The simpler it is to maintain these Python versions across multiple files when a new Python version is released, the more time and effort it saves the team in maintaining the codebase.</p>
 <p>Another example is that I consider “time” as part of the process. So, instead of using the input <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code>, I started using <code class="docutils literal notranslate"><span class="pre">mamba</span> <span class="pre">install</span></code> to install packages to reduce installation time. I use a web browser that does automatic ad blocking. I find the <a class="reference external" href="https://brave.com/">Brave browser</a> to be the best for this purpose, as it saves time in loading and also prevents me from using my consciousness on inadvertently reading ads.</p>
+<p>FIXME: add Bala’s example of using vectorization operation in NumPy to speed up distance calculations.</p>
 </section>
 <section id="exceptions-and-questions">
 <h2>Exceptions and questions<a class="headerlink" href="#exceptions-and-questions" title="Link to this heading"></a></h2>

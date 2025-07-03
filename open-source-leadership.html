@@ -9,6 +9,7 @@
   <title>Guide for leading open-source software &mdash; Sangjoon Bob Lee  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
@@ -16,6 +17,8 @@
       <script src="_static/documentation_options.js?v=8a448e45"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -52,7 +55,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#the-path-with-the-least-physical-and-cognitive-resistance-is-what-the-leader-should-provide">1. <strong>The path with the least physical and cognitive resistance</strong> is what the leader should provide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-we-work-is-often-more-important-than-what-we-work-on-at-the-moment">2. <strong>How we work is often more important</strong> than what we work on at the moment.</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#the-leader-should-acknowledge-every-contributor-s-idea-bug-finding-and-feature-in-detail">3. The leader should <strong>acknowledge every contributor</strong>’s idea, bug finding, and feature in detail.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#the-leader-should-provide-every-resource-to-help-spread-via-word-of-mouth">4. The leader should provide <strong>every resource to help spread</strong> via word-of-mouth.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-leader-should-provide-every-resource-to-help-spread-via-word-of-mouth">1. The leader should provide <strong>every resource to help spread</strong> via word-of-mouth.</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="writing.html">Guide for written communication</a></li>
@@ -60,6 +63,10 @@
 <p class="caption" role="heading"><span class="caption-text">THOUGHTS</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="essays.html">Essays</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">PRACTICES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="python-practices.html">Python</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">REFERENCE</span></p>
 <ul>
@@ -125,9 +132,10 @@
 <h2>3. The leader should <strong>acknowledge every contributor</strong>’s idea, bug finding, and feature in detail.<a class="headerlink" href="#the-leader-should-acknowledge-every-contributor-s-idea-bug-finding-and-feature-in-detail" title="Link to this heading"></a></h2>
 <p>To lower the barrier for first-time contributors, we kept the GitHub issue and pull request template as simple as possible. For example, the issue template at <a class="reference external" href="https://github.com/scikit-package/scikit-package/blob/main/.github/ISSUE_TEMPLATE/bug_feature.md">https://github.com/scikit-package/scikit-package/blob/main/.github/ISSUE_TEMPLATE/bug_feature.md</a> is sufficient. It consists of “Problem” and “Proposed solution.” The “Proposed solution” section encourages the issue writer to think about the issue, explore, and develop a sense of ownership. It is like building IKEA furniture: as we spend more time with the tool, we own the process and the final product.</p>
 <p>When a bug is reported in a project and I fix it, in the pull request description, I thank the contributor for reporting the bug and explain in detail how it was fixed. This way, we keep contributors engaged. When a contributor suggests or implements a new feature, first, acknowledge that on the first page of the documentation and also, from time to time, tag the contributor when the feature is used so that we engage the contributor. The goal is to communicate their value and shore appreciation for their contributions. That’s the least we can do. It must come from the leader of the project.</p>
+<p>(FIXME: - Here mention how I congratulated Bala for his first PR contribution in <code class="docutils literal notranslate"><span class="pre">cifkit</span></code>.)</p>
 </section>
 <section id="the-leader-should-provide-every-resource-to-help-spread-via-word-of-mouth">
-<h2>4. The leader should provide <strong>every resource to help spread</strong> via word-of-mouth.<a class="headerlink" href="#the-leader-should-provide-every-resource-to-help-spread-via-word-of-mouth" title="Link to this heading"></a></h2>
+<h2>1. The leader should provide <strong>every resource to help spread</strong> via word-of-mouth.<a class="headerlink" href="#the-leader-should-provide-every-resource-to-help-spread-via-word-of-mouth" title="Link to this heading"></a></h2>
 <p>If useful, the software will be shared. GIFs can help, especially for interactive CLI tools and GUI-based applications. A simple list of selling points also helps with copy and paste via email when sharing with colleagues. If applicable, a URL link to Jupyter or web-based demos (for example, Google Colab) helps so people do not need to install anything to try it. The step-by-step “Getting Started” section should not be too long so first-time visitors are not overwhelmed. The path of least resistance is fundamental for early adopters.</p>
 <p><em>First draft Jun 25, 2025 (Incheon, South Korea)</em></p>
 </section>

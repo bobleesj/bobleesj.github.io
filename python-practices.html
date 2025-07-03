@@ -1,0 +1,272 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Python &mdash; Sangjoon Bob Lee  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8a448e45"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="News" href="news.html" />
+    <link rel="prev" title="Essays" href="essays.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Sangjoon Bob Lee
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">RESEARCH</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="research.html">Research and software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflows.html">Development workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="principles.html">My optimization principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="open-source-leadership.html">Guide for leading open-source software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="writing.html">Guide for written communication</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">THOUGHTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="essays.html">Essays</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">PRACTICES</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#argparse-tba">argparse (TBA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pytest">pytest</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#locating-files-and-folders-in-the-project-directory">Locating files and folders in the project directory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#working-with-temporary-files-using-tmpdir-and-tmp-path">Working with temporary files using <code class="docutils literal notranslate"><span class="pre">tmpdir</span></code> and <code class="docutils literal notranslate"><span class="pre">tmp_path</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#testing-an-argument-parser">Testing an argument parser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mocking-a-simple-variable">Mocking a simple variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mocking-a-function">Mocking a function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mocking-http-requests-and-capturing-print-output">Mocking HTTP requests and capturing print output</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">REFERENCE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notes.html">Bob’s notes</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Sangjoon Bob Lee</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Python</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/python-practices.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="python">
+<h1>Python<a class="headerlink" href="#python" title="Link to this heading"></a></h1>
+<p>Here I document Python practices I have learned while developing packages like <code class="docutils literal notranslate"><span class="pre">scikit-package</span></code> and <code class="docutils literal notranslate"><span class="pre">cifkit</span></code>. These practices are not exhaustive, but I hope they can guide you in your own projects. <code class="docutils literal notranslate"><span class="pre">pytest</span></code> is used for testing.</p>
+<section id="argparse-tba">
+<h2>argparse (TBA)<a class="headerlink" href="#argparse-tba" title="Link to this heading"></a></h2>
+</section>
+<section id="pytest">
+<h2>pytest<a class="headerlink" href="#pytest" title="Link to this heading"></a></h2>
+<p>To get started, ensure you have installed <code class="docutils literal notranslate"><span class="pre">pytest</span></code> and <code class="docutils literal notranslate"><span class="pre">pytest-mock</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>pytest<span class="w"> </span>pytest-mock
+</pre></div>
+</div>
+<section id="locating-files-and-folders-in-the-project-directory">
+<h3>Locating files and folders in the project directory<a class="headerlink" href="#locating-files-and-folders-in-the-project-directory" title="Link to this heading"></a></h3>
+<p>To locate a file in your project directory, such as <code class="docutils literal notranslate"><span class="pre">TEMPLATE.rst</span></code> in the <code class="docutils literal notranslate"><span class="pre">news</span></code> folder, you can use the following approach:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">project_root</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span><span class="o">.</span><span class="n">parents</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">real_template_path</span> <span class="o">=</span> <span class="n">project_root</span> <span class="o">/</span> <span class="s2">&quot;news&quot;</span> <span class="o">/</span> <span class="s2">&quot;TEMPLATE.rst&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="working-with-temporary-files-using-tmpdir-and-tmp-path">
+<h3>Working with temporary files using <code class="docutils literal notranslate"><span class="pre">tmpdir</span></code> and <code class="docutils literal notranslate"><span class="pre">tmp_path</span></code><a class="headerlink" href="#working-with-temporary-files-using-tmpdir-and-tmp-path" title="Link to this heading"></a></h3>
+<p>To create a custom temporary folder using <code class="docutils literal notranslate"><span class="pre">tmp_path</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">setup_custom_folder</span><span class="p">(</span><span class="n">tmp_path</span><span class="p">):</span>
+    <span class="n">my_dir</span> <span class="o">=</span> <span class="n">tmp_path</span> <span class="o">/</span> <span class="s2">&quot;&lt;folder-name&gt;&quot;</span>
+    <span class="n">my_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">my_dir</span>
+</pre></div>
+</div>
+<p>To create a text file within a temporary folder using <code class="docutils literal notranslate"><span class="pre">tmpdir</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">setup_custom_file</span><span class="p">(</span><span class="n">tmpdir</span><span class="p">):</span>
+    <span class="n">my_text</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;{</span><span class="si">%- s</span><span class="s2">et version = &quot;1.1.1&quot; -%}</span>
+<span class="s2">name: cifkit</span>
+<span class="s2">&quot;&quot;&quot;</span>
+    <span class="n">my_file</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">tmpdir</span><span class="p">)</span> <span class="o">/</span> <span class="s2">&quot;&lt;file-name-with-extension&gt;&quot;</span>
+    <span class="n">my_file</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="n">my_text</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">my_file</span><span class="o">.</span><span class="n">read_text</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="testing-an-argument-parser">
+<h3>Testing an argument parser<a class="headerlink" href="#testing-an-argument-parser" title="Link to this heading"></a></h3>
+<p>To test a function that expects an <code class="docutils literal notranslate"><span class="pre">args</span></code> object (as used with <code class="docutils literal notranslate"><span class="pre">argparse</span></code>), you can use <code class="docutils literal notranslate"><span class="pre">SimpleNamespace</span></code> to mimic CLI arguments in your tests. For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">types</span><span class="w"> </span><span class="kn">import</span> <span class="n">SimpleNamespace</span>
+
+<span class="n">args1</span> <span class="o">=</span> <span class="n">SimpleNamespace</span><span class="p">(</span>
+    <span class="n">add</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">change</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">deprecate</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">remove</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">fix</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">security</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Add first news.&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">news_item</span><span class="p">(</span><span class="n">args1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Assume <code class="docutils literal notranslate"><span class="pre">news_item</span></code> creates an <code class="docutils literal notranslate"><span class="pre">.rst</span></code> file in the <code class="docutils literal notranslate"><span class="pre">news</span></code> folder. The function might look like:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">news_item</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">message</span>
+    <span class="c1"># Implementation here</span>
+</pre></div>
+</div>
+<p>You can set up your argument parser to use this function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parser_news</span><span class="o">.</span><span class="n">set_defaults</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="n">add</span><span class="o">.</span><span class="n">news_item</span><span class="p">,</span> <span class="n">subcommand</span><span class="o">=</span><span class="s2">&quot;news&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This allows you to call the CLI as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>package<span class="w"> </span>add<span class="w"> </span>news<span class="w"> </span>-a<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add first news.&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="mocking-a-simple-variable">
+<h3>Mocking a simple variable<a class="headerlink" href="#mocking-a-simple-variable" title="Link to this heading"></a></h3>
+<p>To mock a simple variable, such as a directory path, use <code class="docutils literal notranslate"><span class="pre">mocker.patch</span></code>. For example, to mock the <code class="docutils literal notranslate"><span class="pre">NEWS_DIR</span></code> variable in the <code class="docutils literal notranslate"><span class="pre">scikit_package.cli.add</span></code> module:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">test_mocker_variable</span><span class="p">(</span><span class="n">mocker</span><span class="p">):</span>
+    <span class="n">mocker</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="s2">&quot;scikit_package.cli.add.NEWS_DIR&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">test_news_dir</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="mocking-a-function">
+<h3>Mocking a function<a class="headerlink" href="#mocking-a-function" title="Link to this heading"></a></h3>
+<p>To mock a function, such as <code class="docutils literal notranslate"><span class="pre">scikit_package.cli.add.get_news_files</span></code>, use:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">test_mocker_function</span><span class="p">(</span><span class="n">mocker</span><span class="p">):</span>
+    <span class="n">mocker</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="s2">&quot;scikit_package.cli.add.get_news_files&quot;</span><span class="p">,</span> <span class="n">return_value</span><span class="o">=</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">test_news_file</span><span class="p">)])</span>
+</pre></div>
+</div>
+</section>
+<section id="mocking-http-requests-and-capturing-print-output">
+<h3>Mocking HTTP requests and capturing print output<a class="headerlink" href="#mocking-http-requests-and-capturing-print-output" title="Link to this heading"></a></h3>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">pytest-mock</span></code> to replace the <code class="docutils literal notranslate"><span class="pre">requests.get</span></code> function with a mock object. This is useful for unit testing code that makes HTTP requests. The following example mocks the HTTP request to PyPI, captures the print output, and confirms that the mock was called with the expected URL.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">check_pypi_package_exists</span><span class="p">(</span><span class="n">package</span><span class="p">):</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;https://pypi.org/pypi/</span><span class="si">{</span><span class="n">package</span><span class="si">}</span><span class="s2">/json&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+        <span class="n">version</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">][</span><span class="s2">&quot;version&quot;</span><span class="p">]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&gt; </span><span class="si">{</span><span class="n">package</span><span class="si">}</span><span class="s2"> is available on PyPI (latest version: </span><span class="si">{</span><span class="n">version</span><span class="si">}</span><span class="s2">).&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;&lt;error-message&gt;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here is the test code (in <code class="docutils literal notranslate"><span class="pre">test_pypi.py</span></code>):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">test_check_pypi_package_exists</span><span class="p">(</span><span class="n">mocker</span><span class="p">,</span> <span class="n">capsys</span><span class="p">):</span>
+    <span class="n">mock_response</span> <span class="o">=</span> <span class="n">mocker</span><span class="o">.</span><span class="n">Mock</span><span class="p">()</span>
+    <span class="n">mock_response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">=</span> <span class="mi">200</span>
+    <span class="n">mock_response</span><span class="o">.</span><span class="n">json</span><span class="o">.</span><span class="n">return_value</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;info&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.2.3&quot;</span><span class="p">}}</span>
+    <span class="n">mock_get</span> <span class="o">=</span> <span class="n">mocker</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span>
+        <span class="s2">&quot;scikit_package.utils.pypi.requests.get&quot;</span><span class="p">,</span> <span class="n">return_value</span><span class="o">=</span><span class="n">mock_response</span>
+    <span class="p">)</span>
+    <span class="n">check_pypi_package_exists</span><span class="p">(</span><span class="s2">&quot;my-package&quot;</span><span class="p">)</span>
+    <span class="n">captured</span> <span class="o">=</span> <span class="n">capsys</span><span class="o">.</span><span class="n">readouterr</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="p">(</span>
+        <span class="s2">&quot;&gt; my-package is available on PyPI (latest version: 1.2.3).&quot;</span>
+        <span class="ow">in</span> <span class="n">captured</span><span class="o">.</span><span class="n">out</span>
+    <span class="p">)</span>
+    <span class="n">mock_get</span><span class="o">.</span><span class="n">assert_called_once_with</span><span class="p">(</span><span class="s2">&quot;https://pypi.org/pypi/my-package/json&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Explanation:</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">scikit_package.utils.pypi.requests.get</span></code> function is patched to return <code class="docutils literal notranslate"><span class="pre">mock_response</span></code> instead of making an actual HTTP request.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">capsys</span></code> fixture captures the output printed by the function.</p></li>
+<li><p>The test confirms that <code class="docutils literal notranslate"><span class="pre">requests.get</span></code> was called once with the expected URL.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="essays.html" class="btn btn-neutral float-left" title="Essays" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="news.html" class="btn btn-neutral float-right" title="News" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Sangjoon Lee.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

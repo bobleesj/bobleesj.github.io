@@ -130,6 +130,7 @@ finite resources and perform at the highest level.
 
 July 8, 2024, 160 Claremont Ave, New York
 
+Update: I have written a guide on :ref:`principles` that reflects this short essay.
 
 .. _essay-daily-work:
 
@@ -712,11 +713,9 @@ the noun-verb pair adequately conveys the meaning.
 A sentence should not start with symbols. If an acronym is unfamiliar to the
 audience, the full name should be used multiple times.
 
-A sentence must be clear, descriptive, and concise in that order.
+A sentence must be clear, simple, and concise in that order. Refer to :ref:`writing`.
 
-I do not connect two or more full sentences with conjunctions. A single sentence
-is easier to read. A conjunction should be used sparingly. "Less is more," Steve
-Jobs said.
+A sequence of single sentences is easier to read. A conjunction should be used sparingly.
 
 In programming, we refactor comments, names, and structures after the function
 is implemented. In writing, words, sentences, paragraphs, and outlines are
@@ -724,10 +723,10 @@ refactored after the meaning is conveyed.
 
 Repetition is not harmful if it enhances clarity.
 
-I avoid using adjectives and adverbs to prevent miscommunication between
-colleagues and readers. These parts of speech are immeasurable.
+Be extremely careful using adjectives and adverbs to prevent miscommunication. These parts of speech are often immeasurable, hence subjective. 
 
-A “significant” problem may not be a significant to another. Instead state what is a significant factually with numbers when available.
+    - A “significant” problem may not be a significant to another. Rather use countable nouns and use analogy for comparision.
+    - "Failure" is also a subjective term because it is determined by the expected outcome, which differs for each person. It is better to state what was not achieved based on the expected outcome of the individual or the organization's expectation.
 
 Sentences without axioms or facts have limited persuasive power in scientific writing.
 
