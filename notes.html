@@ -71,6 +71,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#set-vim-as-the-default-editor">Set <code class="docutils literal notranslate"><span class="pre">VIM</span></code> as the default editor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#keyboard-shortcuts-in-visual-studio-code">Keyboard shortcuts in Visual Studio Code</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#vim">Vim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#some-other-decisions-to-speed-my-development-workflow">Some other decisions to speed my development workflow</a></li>
 </ul>
 </li>
 </ul>
@@ -183,12 +184,12 @@ $<span class="w"> </span>mamba<span class="w"> </span>shell<span class="w"> </sp
 <section id="keyboard-shortcuts-in-visual-studio-code">
 <h2>Keyboard shortcuts in Visual Studio Code<a class="headerlink" href="#keyboard-shortcuts-in-visual-studio-code" title="Link to this heading"></a></h2>
 <ul class="simple">
-<li><p>Fix multiple lines at once? Press <code class="docutils literal notranslate"><span class="pre">opt-cmd-up/down</span></code>.</p></li>
-<li><p>View other parts of the file? Press <code class="docutils literal notranslate"><span class="pre">cmd-PageUp/PageDown</span></code>. Press <code class="docutils literal notranslate"><span class="pre">ctrl-g</span></code> to move the cursor.</p></li>
-<li><p>View recently closed file? Use <code class="docutils literal notranslate"><span class="pre">ctrl-tab</span></code>. This mimics the way you switch recent applications using <code class="docutils literal notranslate"><span class="pre">cmd-tab</span></code>.</p></li>
-<li><p>Switch between tabs in the current window? Press <code class="docutils literal notranslate"><span class="pre">opt-cmd-left/right</span></code>.</p></li>
-<li><p>Go to the file after <code class="docutils literal notranslate"><span class="pre">cmd-shift-F</span></code>? Press <code class="docutils literal notranslate"><span class="pre">F4</span></code> and <code class="docutils literal notranslate"><span class="pre">shift-F4</span></code>. This allows you to quickly jump to the next or previous search result.</p></li>
-<li><p>Globally replace a text? Press <code class="docutils literal notranslate"><span class="pre">cmd-shift-H</span></code>.</p></li>
+<li><p>Fix multiple lines at once? Press <code class="docutils literal notranslate"><span class="pre">opt</span> <span class="pre">+</span> <span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">up/down</span></code>.</p></li>
+<li><p>View other parts of the file? Press <code class="docutils literal notranslate"><span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">PageUp/PageDown</span></code>. Press <code class="docutils literal notranslate"><span class="pre">ctrl</span> <span class="pre">+</span> <span class="pre">g</span></code> to move the cursor.</p></li>
+<li><p>View recently closed file? Use <code class="docutils literal notranslate"><span class="pre">ctrl</span> <span class="pre">+</span> <span class="pre">tab</span></code>. This mimics the way you switch recent applications using <code class="docutils literal notranslate"><span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">tab</span></code>.</p></li>
+<li><p>Switch between tabs in the current window? Press <code class="docutils literal notranslate"><span class="pre">opt</span> <span class="pre">+</span> <span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">left/right</span></code>.</p></li>
+<li><p>Go to the file after <code class="docutils literal notranslate"><span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">shift</span> <span class="pre">+</span> <span class="pre">F</span></code>? Press <code class="docutils literal notranslate"><span class="pre">F4</span></code> and <code class="docutils literal notranslate"><span class="pre">shift</span> <span class="pre">+</span> <span class="pre">F4</span></code>. This allows you to quickly jump to the next or previous search result.</p></li>
+<li><p>Globally replace a text? Press <code class="docutils literal notranslate"><span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">shift</span> <span class="pre">+</span> <span class="pre">H</span></code>.</p></li>
 </ul>
 </section>
 <section id="vim">
@@ -203,6 +204,17 @@ $<span class="w"> </span>mamba<span class="w"> </span>shell<span class="w"> </sp
 <li><p><strong>Want to copy and paste?</strong> Press <code class="docutils literal notranslate"><span class="pre">yy</span></code> to copy the line, and <code class="docutils literal notranslate"><span class="pre">p</span></code> or <code class="docutils literal notranslate"><span class="pre">P</span></code> to paste below or above the cursor.</p></li>
 <li><p><strong>Made a mistake?</strong> Use <code class="docutils literal notranslate"><span class="pre">u</span></code> to undo and <code class="docutils literal notranslate"><span class="pre">ctrl-r</span></code> to redo. To undo multiple times, use <code class="docutils literal notranslate"><span class="pre">&lt;number&gt;u</span></code>. For example, <code class="docutils literal notranslate"><span class="pre">3u</span></code> will undo the last three changes.</p></li>
 </ul>
+</section>
+<section id="some-other-decisions-to-speed-my-development-workflow">
+<h2>Some other decisions to speed my development workflow<a class="headerlink" href="#some-other-decisions-to-speed-my-development-workflow" title="Link to this heading"></a></h2>
+<p>Using Visual Studio Code’s built-in terminal</p>
+<blockquote>
+<div><p><strong>While developing</strong> software—such as adding new content to my personal website—I prefer using Visual Studio Code’s built-in terminal instead of an external terminal. There are a few reasons for this.</p>
+<p>First, I can open the terminal within VS Code by pressing <code class="docutils literal notranslate"><span class="pre">ctrl</span> <span class="pre">+</span> <span class="pre">`</span></code> the first time, and then <code class="docutils literal notranslate"><span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">j</span></code> for subsequent uses, which is much more convenient ergonomically. In contrast, accessing an external terminal requires <code class="docutils literal notranslate"><span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">tab</span></code> or using Spotlight search. Often, it is necessary to press <code class="docutils literal notranslate"><span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">tab</span></code> multiple times to find the terminal application. For Spotlight search, I have to type the first letter of the terminal application, which adds both physical and cognitive overhead. Using the principle of “same output, minimum input,” the <code class="docutils literal notranslate"><span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">j</span></code> shortcut in VS Code requires the least effort (Principle #1).</p>
+<p>Second, the external terminal window is often positioned differently or displayed alongside other applications, requiring me to constantly switch focus between the terminal and the VS Code editor. This increases my cognitive load (Principle #1).</p>
+<p>Third, reading GitHub issues is much easier in full-screen mode within VS Code. In contrast, the external terminal usually opens in a smaller window to work side by side with other applications like Visual Studio or when hosting a server, which often requires resizing to match the content. This adds both physical effort and additional mental overhead (Principle #1).</p>
+<p>Fourth, I use <code class="docutils literal notranslate"><span class="pre">sc</span></code> and <code class="docutils literal notranslate"><span class="pre">ec</span></code> alias shortcuts to open Visual Studio Code to modify configuration files. Running these commands opens the configuration file within the current VS Code editor, so it saves time (Principle #3) and reduces cognitive overload since my brain doesn’t have to process a new window being created or require me to type an extra shortcut to adjust the window size (Principle #1).</p>
+</div></blockquote>
 </section>
 </section>
 
