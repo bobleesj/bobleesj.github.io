@@ -86,12 +86,12 @@ If above does not work, set it globally by running the following command in your
 Keyboard shortcuts in Visual Studio Code
 ----------------------------------------
 
-- Fix multiple lines at once? Press ``opt-cmd-up/down``.
-- View other parts of the file? Press ``cmd-PageUp/PageDown``. Press ``ctrl-g`` to move the cursor.
-- View recently closed file? Use ``ctrl-tab``. This mimics the way you switch recent applications using ``cmd-tab``. 
-- Switch between tabs in the current window? Press ``opt-cmd-left/right``.
-- Go to the file after ``cmd-shift-F``? Press ``F4`` and ``shift-F4``. This allows you to quickly jump to the next or previous search result.
-- Globally replace a text? Press ``cmd-shift-H``.
+- Fix multiple lines at once? Press ``opt + cmd + up/down``.
+- View other parts of the file? Press ``cmd + PageUp/PageDown``. Press ``ctrl + g`` to move the cursor.
+- View recently closed file? Use ``ctrl + tab``. This mimics the way you switch recent applications using ``cmd + tab``. 
+- Switch between tabs in the current window? Press ``opt + cmd + left/right``.
+- Go to the file after ``cmd + shift + F``? Press ``F4`` and ``shift + F4``. This allows you to quickly jump to the next or previous search result.
+- Globally replace a text? Press ``cmd + shift + H``.
 
 Vim 
 ---
@@ -104,3 +104,18 @@ Vim
 - **Tired of counting the number of characters?** You can simply identify start of the word you want to modify. The key commands are ``f`` and ``t``. ``f<char>`` moves the cursor to the next ``<char>`` on the right. ``t<char>`` moves the cursor to the character before the next ``<char>`` on the right. ``F<char>`` and ``T<char>`` do the same in the opposite direction. This is useful when you need to delete a few characters using ``df<char>`` or ``dt<char>``. To repeat the last command, use ``;``. To repeat in the opposite direction, use ``,``.
 - **Want to copy and paste?** Press ``yy`` to copy the line, and ``p`` or ``P`` to paste below or above the cursor.
 - **Made a mistake?** Use ``u`` to undo and ``ctrl-r`` to redo. To undo multiple times, use ``<number>u``. For example, ``3u`` will undo the last three changes.
+
+Some other decisions to speed my development workflow
+-----------------------------------------------------
+
+Using Visual Studio Code's built-in terminal
+
+    **While developing** software—such as adding new content to my personal website—I prefer using Visual Studio Code's built-in terminal instead of an external terminal. There are a few reasons for this.
+
+    First, I can open the terminal within VS Code by pressing ``ctrl + ``` the first time, and then ``cmd + j`` for subsequent uses, which is much more convenient ergonomically. In contrast, accessing an external terminal requires ``cmd + tab`` or using Spotlight search. Often, it is necessary to press ``cmd + tab`` multiple times to find the terminal application. For Spotlight search, I have to type the first letter of the terminal application, which adds both physical and cognitive overhead. Using the principle of "same output, minimum input," the ``cmd + j`` shortcut in VS Code requires the least effort (Principle #1).
+
+    Second, the external terminal window is often positioned differently or displayed alongside other applications, requiring me to constantly switch focus between the terminal and the VS Code editor. This increases my cognitive load (Principle #1).
+
+    Third, reading GitHub issues is much easier in full-screen mode within VS Code. In contrast, the external terminal usually opens in a smaller window to work side by side with other applications like Visual Studio or when hosting a server, which often requires resizing to match the content. This adds both physical effort and additional mental overhead (Principle #1).
+
+    Fourth, I use ``sc`` and ``ec`` alias shortcuts to open Visual Studio Code to modify configuration files. Running these commands opens the configuration file within the current VS Code editor, so it saves time (Principle #3) and reduces cognitive overload since my brain doesn't have to process a new window being created or require me to type an extra shortcut to adjust the window size (Principle #1).
