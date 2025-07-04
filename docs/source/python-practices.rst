@@ -155,4 +155,3 @@ Explanation:
 - The ``scikit_package.utils.pypi.requests.get`` function is patched to return ``mock_response`` instead of making an actual HTTP request.
 - The ``capsys`` fixture captures the output printed by the function.
 - The test confirms that ``requests.get`` was called once with the expected URL.
-
