@@ -77,7 +77,7 @@ In ``.zshrc`` or ``.bashrc``, add the following lines:
     export VISUAL=vim
     export EDITOR=vim
 
-If above does not work, set it globally by running the following command in your terminal:
+If the above does not work, set it globally by running the following command in your terminal:
 
 .. code-block:: bash
 
@@ -88,25 +88,25 @@ Keyboard shortcuts in Visual Studio Code
 
 - Fix multiple lines at once? Press ``opt + cmd + up/down``.
 - View other parts of the file? Press ``cmd + PageUp/PageDown``. Press ``ctrl + g`` to move the cursor.
-- View recently closed file? Use ``ctrl + tab``. This mimics the way you switch recent applications using ``cmd + tab``. 
+- View recently closed files? Use ``ctrl + tab``. This mimics the way you switch recent applications using ``cmd + tab``. 
 - Switch between tabs in the current window? Press ``opt + cmd + left/right``.
 - Go to the file after ``cmd + shift + F``? Press ``F4`` and ``shift + F4``. This allows you to quickly jump to the next or previous search result.
-- Globally replace a text? Press ``cmd + shift + H``.
+- Globally replace text? Press ``cmd + shift + H``.
 
 Vim 
 ---
 
 - When writing a GitHub issue, you may want to write under each header. A simple way is to go to the line with ``<line-number>G`` and then press ``o``. If you want to append text at the end of the file or in the middle, use ``G`` or ``L``, and then press ``o``. To modify the title, use ``gg`` to go to the first line and press ``A`` to append text at the end of the line.
-- To navigate easily, use the arrow replacements: ``h``, ``j``, ``k``, and ``l``. Use ``w`` and ``e`` to move forward by word, and ``b`` and ``ge`` to move backward. But of often, we don't want to count every punctuation mark or space, then you can use ``W``, ``E``, ``B``, and ``gE`` to move by word without counting punctuation marks or spaces.
+- To navigate easily, use the arrow replacements: ``h``, ``j``, ``k``, and ``l``. Use ``w`` and ``e`` to move forward by word, and ``b`` and ``ge`` to move backward. If you don't want to count every punctuation mark or space, use ``W``, ``E``, ``B``, and ``gE`` to move by word without counting punctuation marks or spaces.
 - To insert before the cursor, use ``i``; after the cursor, use ``a``. To insert at the beginning of the line, use ``I``. To insert at the end of the line, use ``A``.
 - **Fix quick typos?** Press ``x`` to delete the character under the cursor or ``r`` to replace the character. Use ``X`` to delete the character before the cursor. To delete more than one character, use ``<number>x`` or ``<number>r``. For example, to delete 3 characters, use ``3x`` or ``3r``. To delete 3 characters to the left of the cursor, use ``3X``.
 - **Want to make bigger fixes?** Use ``dd`` to delete the current line, or ``D`` to delete from the cursor to the end of the line. To change a word, use ``cw`` (deletes the word from the cursor to the right and enters insert mode). Use ``cc`` to delete the current line and enter insert mode.
-- **Tired of counting the number of characters?** You can simply identify start of the word you want to modify. The key commands are ``f`` and ``t``. ``f<char>`` moves the cursor to the next ``<char>`` on the right. ``t<char>`` moves the cursor to the character before the next ``<char>`` on the right. ``F<char>`` and ``T<char>`` do the same in the opposite direction. This is useful when you need to delete a few characters using ``df<char>`` or ``dt<char>``. To repeat the last command, use ``;``. To repeat in the opposite direction, use ``,``.
+- **Tired of counting the number of characters?** You can simply identify the start of the word you want to modify. The key commands are ``f`` and ``t``. ``f<char>`` moves the cursor to the next ``<char>`` on the right. ``t<char>`` moves the cursor to the character before the next ``<char>`` on the right. ``F<char>`` and ``T<char>`` do the same in the opposite direction. This is useful when you need to delete a few characters using ``df<char>`` or ``dt<char>``. To repeat the last command, use ``;``. To repeat in the opposite direction, use ``,``.
 - **Want to copy and paste?** Press ``yy`` to copy the line, and ``p`` or ``P`` to paste below or above the cursor.
 - **Made a mistake?** Use ``u`` to undo and ``ctrl-r`` to redo. To undo multiple times, use ``<number>u``. For example, ``3u`` will undo the last three changes.
 
-Some other decisions to speed my development workflow
------------------------------------------------------
+Some other decisions to speed up my development workflow
+--------------------------------------------------------
 
 Using Visual Studio Code's built-in terminal
 
@@ -119,3 +119,41 @@ Using Visual Studio Code's built-in terminal
     Third, reading GitHub issues is much easier in full-screen mode within VS Code. In contrast, the external terminal usually opens in a smaller window to work side by side with other applications like Visual Studio or when hosting a server, which often requires resizing to match the content. This adds both physical effort and additional mental overhead (Principle #1).
 
     Fourth, I use ``sc`` and ``ec`` alias shortcuts to open Visual Studio Code to modify configuration files. Running these commands opens the configuration file within the current VS Code editor, so it saves time (Principle #3) and reduces cognitive overload since my brain doesn't have to process a new window being created or require me to type an extra shortcut to adjust the window size (Principle #1).
+
+
+How to upload .tex using minted package from Overleaf to ArXiv
+--------------------------------------------------------------
+
+The ``minted`` package for code highlighting isn't natively supported by ArXiv, while it is natively rendered in Overleaf. We need to do some extra steps to render the minted code blocks since we can't upload a PDF file directly to ArXiv as a result. The following steps are adapted from https://tex.stackexchange.com/a/558082.
+
+#. Enter the project in Overleaf.
+
+#. On the :guilabel:`Menu` icon at the top left, ensure the designated ``.tex`` file is set as the ``Main document``.
+
+#. On the top right corner, click :guilabel:`Submit` and then :guilabel:`Download source`.
+
+#. Unzip the downloaded file on your local machine.
+
+#. Open the designated ``.tex`` file in a text editor.
+
+#. Replace ``\usepackage{minted}`` with ``\usepackage[finalizecache=true]{minted}`` in the relevant ``.tex`` file. This will create ``.pyg`` cache files in the ``_minted-<manuscript-name>`` directory.
+
+#. Run ``pdflatex -shell-escape manuscript.tex`` to scan for ``\cite{}`` and ``\ref{}`` and write to ``.aux``.
+
+#. Run ``bibtex manuscript`` to read ``.aux``, pull the ``.bib`` file, and write to the ``.bbl`` file. Ensure the ``.bbl`` isn't empty.
+
+#. Run ``pdflatex -shell-escape manuscript.tex`` to read the ``.bbl`` and write the references into the PDF. 
+
+#. Run ``pdflatex -shell-escape manuscript.tex`` again to resolve internal links, figure, and table references.
+
+#. Replace ``\usepackage[finalizecache=true]{minted}`` with ``\usepackage[frozencache=true]{minted}`` in the relevant ``.tex`` file. This will ensure that the minted code blocks are frozen so that it can be built without enabling the ``-shell-escape`` option. This is important when submitting to ArXiv or building on restricted environments where ``Pygments`` is not installed.
+
+#. Save and zip the folder.
+
+#. Upload the zipped folder to ArXiv. This will also upload the full ``_minted-<manuscript-name>`` cache directory with the submission.
+
+#. In the :guilabel:`Add Files` stage, upload the zipped folder you just created.
+
+#. In the :guilabel:`Review Files` stage, ensure you don't delete the ``_minted-<manuscript-name>`` directory even though it says "Not used". You may delete other files such as ``.bib`` that are not needed.
+
+#. Then, finish the rest of the submission, which is entering metadata.
