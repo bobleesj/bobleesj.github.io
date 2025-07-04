@@ -19,6 +19,7 @@
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="_static/copybutton.js?v=f281be69"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -73,6 +74,25 @@
 <li class="toctree-l2"><a class="reference internal" href="#vim">Vim</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#some-other-decisions-to-speed-up-my-development-workflow">Some other decisions to speed up my development workflow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-to-upload-tex-using-minted-package-from-overleaf-to-arxiv">How to upload .tex using minted package from Overleaf to ArXiv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#project-checklist">Project checklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mistakes-to-avoid-when-naming-variables">Mistakes to avoid when naming variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ruff">Ruff</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#difference-between-pip-and-conda">Difference between <code class="docutils literal notranslate"><span class="pre">pip</span></code> and <code class="docutils literal notranslate"><span class="pre">conda</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#best-practices-for-mathematical-typesetting-ft-mathjax-and-latex">Best practices for mathematical typesetting (Ft. MathJax and LaTeX)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#add-comments-using">1. Add comments using <code class="docutils literal notranslate"><span class="pre">%</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#avoid-using-fixed-or-without-left-or-right-modifiers">4. Avoid using fixed <code class="docutils literal notranslate"><span class="pre">()</span></code> or <code class="docutils literal notranslate"><span class="pre">[]</span></code> without <code class="docutils literal notranslate"><span class="pre">\left</span></code> or <code class="docutils literal notranslate"><span class="pre">\right</span></code> modifiers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#use-proper-notation">5. Use proper notation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#distinguish-between-vectors-and-matrices">6. Distinguish between vectors and matrices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#use-correct-begin-setup">7. Use correct <code class="docutils literal notranslate"><span class="pre">\begin</span></code> setup</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#example-1-aligned-within-equation">Example 1. <code class="docutils literal notranslate"><span class="pre">aligned</span></code> within <code class="docutils literal notranslate"><span class="pre">equation</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-2-gather">Example 2. <code class="docutils literal notranslate"><span class="pre">gather*</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-3-gather">Example 3. <code class="docutils literal notranslate"><span class="pre">gather</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-4-equation-with-gathered">Example 4. <code class="docutils literal notranslate"><span class="pre">equation</span></code> with <code class="docutils literal notranslate"><span class="pre">gathered</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -189,8 +209,13 @@ $<span class="w"> </span>mamba<span class="w"> </span>shell<span class="w"> </sp
 <li><p>View other parts of the file? Press <code class="docutils literal notranslate"><span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">PageUp/PageDown</span></code>. Press <code class="docutils literal notranslate"><span class="pre">ctrl</span> <span class="pre">+</span> <span class="pre">g</span></code> to move the cursor.</p></li>
 <li><p>View recently closed files? Use <code class="docutils literal notranslate"><span class="pre">ctrl</span> <span class="pre">+</span> <span class="pre">tab</span></code>. This mimics the way you switch recent applications using <code class="docutils literal notranslate"><span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">tab</span></code>.</p></li>
 <li><p>Switch between tabs in the current window? Press <code class="docutils literal notranslate"><span class="pre">opt</span> <span class="pre">+</span> <span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">left/right</span></code>.</p></li>
-<li><p>Go to the file after <code class="docutils literal notranslate"><span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">shift</span> <span class="pre">+</span> <span class="pre">F</span></code>? Press <code class="docutils literal notranslate"><span class="pre">F4</span></code> and <code class="docutils literal notranslate"><span class="pre">shift</span> <span class="pre">+</span> <span class="pre">F4</span></code>. This allows you to quickly jump to the next or previous search result.</p></li>
-<li><p>Globally replace text? Press <code class="docutils literal notranslate"><span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">shift</span> <span class="pre">+</span> <span class="pre">H</span></code>.</p></li>
+<li><p>Go to the file after <code class="docutils literal notranslate"><span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">shift</span> <span class="pre">+</span> <span class="pre">F</span></code>? Press˙ <code class="docutils literal notranslate"><span class="pre">F4</span></code> and <code class="docutils literal notranslate"><span class="pre">shift</span> <span class="pre">+</span> <span class="pre">F4</span></code>. This allows you to quickly jump to the next or previous search result.</p></li>
+<li><p>Globally replace text? Press <code class="docutils literal notranslate"><span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">shift</span> <span class="pre">+</span> <span class="pre">h</span></code>.</p></li>
+<li><p>Move previous cursor position. Press <code class="docutils literal notranslate"><span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">u</span></code></p></li>
+<li><p>Remove line space below? Press <code class="docutils literal notranslate"><span class="pre">ctrl</span> <span class="pre">+</span> <span class="pre">j</span></code>.</p></li>
+<li><p>Highlight a line? Press <code class="docutils literal notranslate"><span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">l</span></code>.</p></li>
+<li><p>Duplicate a line? Press <code class="docutils literal notranslate"><span class="pre">opt</span> <span class="pre">+</span> <span class="pre">shift</span> <span class="pre">+</span> <span class="pre">up/down</span></code>.</p></li>
+<li><p>Switch cursor between widnwos? <code class="docutils literal notranslate"><span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">k</span></code> and then <code class="docutils literal notranslate"><span class="pre">→</span></code> or <code class="docutils literal notranslate"><span class="pre">←</span></code>.</p></li>
 </ul>
 </section>
 <section id="vim">
@@ -238,6 +263,360 @@ $<span class="w"> </span>mamba<span class="w"> </span>shell<span class="w"> </sp
 <li><p>In the <span class="guilabel">Review Files</span> stage, ensure you don’t delete the <code class="docutils literal notranslate"><span class="pre">_minted-&lt;manuscript-name&gt;</span></code> directory even though it says “Not used”. You may delete other files such as <code class="docutils literal notranslate"><span class="pre">.bib</span></code> that are not needed.</p></li>
 <li><p>Then, finish the rest of the submission, which is entering metadata.</p></li>
 </ol>
+</section>
+<section id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading"></a></h2>
+<p>List the dependencies:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>intsall<span class="w"> </span>pipreqs
+pipreqs<span class="w"> </span>.<span class="w"> </span>--force<span class="w"> </span>--ignore<span class="o">=</span>tests
+conda<span class="w"> </span>list<span class="w"> </span>-e<span class="w"> </span>&gt;<span class="w"> </span>requirements.txt
+</pre></div>
+</div>
+<p>Update dependencies:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>update<span class="w"> </span>--all
+pip<span class="w"> </span>list<span class="w"> </span>--outdated
+pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>&lt;package&gt;
+</pre></div>
+</div>
+</section>
+<section id="project-checklist">
+<h2>Project checklist<a class="headerlink" href="#project-checklist" title="Link to this heading"></a></h2>
+<p>The checklist below can be used to improve usability, marketability, and open-source development experience.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>Naming the project</strong></dt><dd><ul>
+<li><p>I have chosen an easy-to-remember name for the project</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Addressing the problem</strong></dt><dd><ul>
+<li><p>Does the documentation clearly state the problem that the project addresses at the beginning</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Project description</strong></dt><dd><ul>
+<li><p>Have you included a compelling one-liner for the project</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Installation instructions</strong></dt><dd><ul>
+<li><p>Is there a one-line installation solution provided in the documentation</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Visual guidance</strong></dt><dd><ul>
+<li><p>Have you used GIFs or screenshots to visually demonstrate how to use the project or what the outputs look like</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Roadmap</strong></dt><dd><ul>
+<li><p>Is there a roadmap included in the documentation to outline future plans and features</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Authors and acknowledgements</strong></dt><dd><ul>
+<li><p>Have you listed the authors and provided acknowledgements to contributors or third-party resources</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>License information</strong></dt><dd><ul>
+<li><p>Is the license clearly stated and included in the project documentation</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Project status</strong></dt><dd><ul>
+<li><p>Have you indicated the current status of the project (e.g., active development, maintenance mode)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Contribution guidelines</strong></dt><dd><ul>
+<li><p>Are there clear guidelines on how to contribute to the project</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Seeking help</strong></dt><dd><ul>
+<li><p>Have you provided instructions on how to ask for help or report issues</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Version control</strong> (Optional)</dt><dd><ul>
+<li><p>Have you made a simple log or version control system visible or mentioned in the documentation</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Naming method 1</span>
+<span class="n">CN_min</span><span class="p">,</span> <span class="n">CN_max</span><span class="p">,</span> <span class="n">CN_avg</span>
+
+<span class="c1"># Naming method 2</span>
+<span class="n">max_CN</span><span class="p">,</span> <span class="n">min_CN</span><span class="p">,</span> <span class="n">avg_CN</span>
+</pre></div>
+</div>
+<p>I choose Method 2. The first method starts with <code class="docutils literal notranslate"><span class="pre">CN_</span></code>, which allows the user to
+identify that this is related to the coordination number. In practice, when we
+speak, we say “maximum coordination number” instead of “coordination number
+maximum”. Therefore, it is more natural from a behavioral point of view.</p>
+</section>
+<section id="mistakes-to-avoid-when-naming-variables">
+<h2>Mistakes to avoid when naming variables<a class="headerlink" href="#mistakes-to-avoid-when-naming-variables" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Using non-standardized abbreviations.</p></li>
+<li><p>Using words that conflict with Python keywords: Avoid names like <code class="docutils literal notranslate"><span class="pre">list</span></code>,
+<code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">dict</span></code>.</p></li>
+<li><p>Using long words without purpose: For example, <code class="docutils literal notranslate"><span class="pre">users_with_access_to_database</span></code>
+can be <code class="docutils literal notranslate"><span class="pre">authorized_users</span></code>, and <code class="docutils literal notranslate"><span class="pre">number_of_items</span></code> can be <code class="docutils literal notranslate"><span class="pre">item_count</span></code>.</p></li>
+<li><p>Using general names: Names such as <code class="docutils literal notranslate"><span class="pre">data</span></code>, <code class="docutils literal notranslate"><span class="pre">info</span></code>, or <code class="docutils literal notranslate"><span class="pre">my_string</span></code> do not
+provide context.</p></li>
+</ul>
+<p>Software is developed using the English language. Writing is an art that
+requires both skills and intuition. Just like learning to ride a bicycle for the
+first time, we need to learn from experience, as it is not possible to gain the
+same insights solely from books and knowledge.</p>
+</section>
+<section id="ruff">
+<h2>Ruff<a class="headerlink" href="#ruff" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">ruff</span></code> is fast. According to a post by Marsh (<a class="reference external" href="https://astral.sh/blog/the-ruff-formatter">https://astral.sh/blog/the-ruff-formatter</a>), formatting about 250,000
+lines of code took only 0.1 seconds with <code class="docutils literal notranslate"><span class="pre">ruff</span></code> compared to 3.20 seconds for <code class="docutils literal notranslate"><span class="pre">black</span></code> and 17.77 seconds for <code class="docutils literal notranslate"><span class="pre">yapf</span></code>. Run either <code class="docutils literal notranslate"><span class="pre">ruff</span> <span class="pre">check</span></code> or <code class="docutils literal notranslate"><span class="pre">ruff</span> <span class="pre">format</span></code> to check and modify the code.</p>
+</section>
+<section id="difference-between-pip-and-conda">
+<h2>Difference between <code class="docutils literal notranslate"><span class="pre">pip</span></code> and <code class="docutils literal notranslate"><span class="pre">conda</span></code><a class="headerlink" href="#difference-between-pip-and-conda" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span></code> and <code class="docutils literal notranslate"><span class="pre">conda</span></code> can be used as dependency managers. <code class="docutils literal notranslate"><span class="pre">pip</span></code> does not try to be a virtual environment manager. <code class="docutils literal notranslate"><span class="pre">conda</span></code> does not try to be Python package developer. <code class="docutils literal notranslate"><span class="pre">conda</span></code> can work with Python packages but also other programming languages.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pip</span></code> communicates with PyPI to upload and download Python packages. <code class="docutils literal notranslate"><span class="pre">conda</span></code> communicates with repositories/channels like conda-forge to upload and download packages, including but not limited to Python packages.</p></li>
+<li><p>Using <code class="docutils literal notranslate"><span class="pre">conda</span></code> allows you to reach a wider audience beyond the Python community since conda-forge is a language-agnostic platform.</p></li>
+</ul>
+</section>
+<section id="best-practices-for-mathematical-typesetting-ft-mathjax-and-latex">
+<h2>Best practices for mathematical typesetting (Ft. MathJax and LaTeX)<a class="headerlink" href="#best-practices-for-mathematical-typesetting-ft-mathjax-and-latex" title="Link to this heading"></a></h2>
+<p>MathJax is used to write mathematical equations on the current website with simple commands within a Markdown file. It renders LaTeX code as a PNG file.</p>
+<p>I will primarily use the following content as a reference to aid my writing and setup. Since MathJax and LaTeX keywords can be found online, I will focus on best practices and example snippets.</p>
+<ul>
+<li><p>Start with <code class="docutils literal notranslate"><span class="pre">\begin{align}</span></code> for aligning multiple equations or <code class="docutils literal notranslate"><span class="pre">\begin{equation}</span></code> for a single equation to provide a number for each equation. Examples are in the following section.</p></li>
+<li><p>It is generally a good practice to indent at the <code class="docutils literal notranslate"><span class="pre">&amp;=</span></code> sign and also to indent after <code class="docutils literal notranslate"><span class="pre">\begin</span></code>.</p>
+<div class="highlight-latex notranslate"><div class="highlight"><pre><span></span><span class="k">\begin</span><span class="nb">{</span>align<span class="nb">}</span>
+a <span class="nb">&amp;</span>= b + c <span class="k">\\</span>
+<span class="nb">&amp;</span>= d + e
+<span class="k">\end</span><span class="nb">{</span>align<span class="nb">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>MathJax code:</p>
+<div class="highlight-latex notranslate"><div class="highlight"><pre><span></span><span class="k">\begin</span><span class="nb">{</span>equation<span class="nb">}</span>
+[<span class="k">\sigma</span>] =
+<span class="k">\begin</span><span class="nb">{</span>bmatrix<span class="nb">}</span>
+<span class="k">\sigma_</span><span class="nb">{</span>11<span class="nb">}</span> <span class="nb">&amp;</span> <span class="k">\sigma_</span><span class="nb">{</span>12<span class="nb">}</span> <span class="nb">&amp;</span> <span class="k">\sigma_</span><span class="nb">{</span>13<span class="nb">}</span> <span class="k">\\</span> <span class="c">% Row 1</span>
+<span class="k">\sigma_</span><span class="nb">{</span>21<span class="nb">}</span> <span class="nb">&amp;</span> <span class="k">\sigma_</span><span class="nb">{</span>22<span class="nb">}</span> <span class="nb">&amp;</span> <span class="k">\sigma_</span><span class="nb">{</span>23<span class="nb">}</span> <span class="k">\\</span> <span class="c">% Row 2</span>
+<span class="k">\sigma_</span><span class="nb">{</span>31<span class="nb">}</span> <span class="nb">&amp;</span> <span class="k">\sigma_</span><span class="nb">{</span>32<span class="nb">}</span> <span class="nb">&amp;</span> <span class="k">\sigma_</span><span class="nb">{</span>33<span class="nb">}</span> <span class="c">% Row 3</span>
+<span class="k">\end</span><span class="nb">{</span>bmatrix<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>equation<span class="nb">}</span>
+</pre></div>
+</div>
+<section id="add-comments-using">
+<h3>1. Add comments using <code class="docutils literal notranslate"><span class="pre">%</span></code><a class="headerlink" href="#add-comments-using" title="Link to this heading"></a></h3>
+<p>We have a preview for both LaTeX and Markdown files. Comments are not needed if the documentation itself provides enough context for the equation. However, they can be useful for two reasons.</p>
+<p>First, we may add remarks without making them explicitly available in the output, especially when the document is in draft form. Second, we may use <code class="docutils literal notranslate"><span class="pre">%</span></code> to strategically navigate and modify the equations.</p>
+<p>To help navigate within the equation:</p>
+<div class="highlight-latex notranslate"><div class="highlight"><pre><span></span><span class="k">\begin</span><span class="nb">{</span>bmatrix<span class="nb">}</span>
+<span class="k">\sigma_</span><span class="nb">{</span>11<span class="nb">}</span> <span class="nb">&amp;</span> <span class="k">\sigma_</span><span class="nb">{</span>12<span class="nb">}</span> <span class="nb">&amp;</span> <span class="k">\sigma_</span><span class="nb">{</span>13<span class="nb">}</span> <span class="k">\\</span> <span class="c">% Row 1</span>
+<span class="k">\sigma_</span><span class="nb">{</span>21<span class="nb">}</span> <span class="nb">&amp;</span> <span class="k">\sigma_</span><span class="nb">{</span>22<span class="nb">}</span> <span class="nb">&amp;</span> <span class="k">\sigma_</span><span class="nb">{</span>23<span class="nb">}</span> <span class="k">\\</span> <span class="c">% Row 2</span>
+<span class="k">\sigma_</span><span class="nb">{</span>31<span class="nb">}</span> <span class="nb">&amp;</span> <span class="k">\sigma_</span><span class="nb">{</span>32<span class="nb">}</span> <span class="nb">&amp;</span> <span class="k">\sigma_</span><span class="nb">{</span>33<span class="nb">}</span> <span class="c">% Row 3</span>
+<span class="k">\end</span><span class="nb">{</span>bmatrix<span class="nb">}</span>
+</pre></div>
+</div>
+<p>To comment out parts of the document:</p>
+<div class="highlight-latex notranslate"><div class="highlight"><pre><span></span><span class="c">% The following will be restored once we have...</span>
+<span class="c">% \begin{equation}</span>
+<span class="c">% ...</span>
+<span class="c">% \end{equation}</span>
+</pre></div>
+</div>
+</section>
+<section id="avoid-using-fixed-or-without-left-or-right-modifiers">
+<h3>4. Avoid using fixed <code class="docutils literal notranslate"><span class="pre">()</span></code> or <code class="docutils literal notranslate"><span class="pre">[]</span></code> without <code class="docutils literal notranslate"><span class="pre">\left</span></code> or <code class="docutils literal notranslate"><span class="pre">\right</span></code> modifiers<a class="headerlink" href="#avoid-using-fixed-or-without-left-or-right-modifiers" title="Link to this heading"></a></h3>
+<p>We do not want to use a fixed <code class="docutils literal notranslate"><span class="pre">()</span></code> or <code class="docutils literal notranslate"><span class="pre">[]</span></code> without using <code class="docutils literal notranslate"><span class="pre">\left</span></code> or <code class="docutils literal notranslate"><span class="pre">\right</span></code>.</p>
+<p>Using <code class="docutils literal notranslate"><span class="pre">\left</span></code> and <code class="docutils literal notranslate"><span class="pre">\right</span></code>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+  c &amp;= \left(\frac{a}{b}\right) \quad \text{} \\
+  c &amp;= (\frac{a}{b}) \quad \text{:(}
+\end{align}\end{split}\]</div>
+<p>MathJax code:</p>
+<div class="highlight-latex notranslate"><div class="highlight"><pre><span></span><span class="k">\begin</span><span class="nb">{</span>align<span class="nb">}</span>
+c <span class="nb">&amp;</span>= <span class="k">\left</span>(<span class="k">\frac</span><span class="nb">{</span>a<span class="nb">}{</span>b<span class="nb">}</span><span class="k">\right</span>) <span class="k">\\</span>
+c <span class="nb">&amp;</span>= (<span class="k">\frac</span><span class="nb">{</span>a<span class="nb">}{</span>b<span class="nb">}</span>)
+<span class="k">\end</span><span class="nb">{</span>align<span class="nb">}</span>
+</pre></div>
+</div>
+</section>
+<section id="use-proper-notation">
+<h3>5. Use proper notation<a class="headerlink" href="#use-proper-notation" title="Link to this heading"></a></h3>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+  &amp; \sin(x) \quad \log(y) \quad \ln(x)  \\
+  &amp; sin(x) \quad log(y) \quad ln(x) \quad \text{:(}
+\end{align}\end{split}\]</div>
+<p>Notice that function names are not italicized if properly formatted.</p>
+<p>MathJax code:</p>
+<div class="highlight-latex notranslate"><div class="highlight"><pre><span></span><span class="k">\begin</span><span class="nb">{</span>align<span class="nb">}</span>
+<span class="nb">&amp;</span> <span class="k">\sin</span>(x) <span class="k">\quad</span> <span class="k">\log</span>(y) <span class="k">\quad</span> <span class="k">\ln</span>(x) <span class="k">\\</span>
+<span class="nb">&amp;</span> sin(x) <span class="k">\quad</span> log(y) <span class="k">\quad</span> ln(x)
+<span class="k">\end</span><span class="nb">{</span>align<span class="nb">}</span>
+</pre></div>
+</div>
+</section>
+<section id="distinguish-between-vectors-and-matrices">
+<h3>6. Distinguish between vectors and matrices<a class="headerlink" href="#distinguish-between-vectors-and-matrices" title="Link to this heading"></a></h3>
+<p>Generally, a bold lowercase letter is used for vectors, while a capitalized non-bold letter is used for matrices.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+  \mathbf{v} &amp;= \begin{bmatrix} v_1 \\ v_2 \\ v_3 \end{bmatrix} \\
+  M &amp;= \begin{bmatrix}
+  m_{11} &amp; m_{12} \\
+  m_{21} &amp; m_{22}
+  \end{bmatrix}
+\end{align}\end{split}\]</div>
+</section>
+<section id="use-correct-begin-setup">
+<h3>7. Use correct <code class="docutils literal notranslate"><span class="pre">\begin</span></code> setup<a class="headerlink" href="#use-correct-begin-setup" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Environment</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>align</p></td>
+<td><p>Align multiple equations at the <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> symbol. Each line is numbered by default.</p></td>
+</tr>
+<tr class="row-odd"><td><p>align*</p></td>
+<td><p>Same as <code class="docutils literal notranslate"><span class="pre">align</span></code>, no line numbering.</p></td>
+</tr>
+<tr class="row-even"><td><p>aligned</p></td>
+<td><p>Sub-environment used within another environment like <code class="docutils literal notranslate"><span class="pre">equation</span></code> to align multiple lines, no new equation number.</p></td>
+</tr>
+<tr class="row-odd"><td><p>equation*</p></td>
+<td><p>Same as <code class="docutils literal notranslate"><span class="pre">equation</span></code>, no line numbering.</p></td>
+</tr>
+<tr class="row-even"><td><p>gather</p></td>
+<td><p>Center multiple equations without aligning them to a particular symbol. Each line is numbered.</p></td>
+</tr>
+<tr class="row-odd"><td><p>gather*</p></td>
+<td><p>Same as <code class="docutils literal notranslate"><span class="pre">gather</span></code> but with no line numbering.</p></td>
+</tr>
+<tr class="row-even"><td><p>gathered</p></td>
+<td><p>Sub-environment used within another environment, like <code class="docutils literal notranslate"><span class="pre">equation</span></code>, to center multiple lines</p></td>
+</tr>
+<tr class="row-odd"><td><p>alignat</p></td>
+<td><p>Allows for the alignment of multiple equations, similar to <code class="docutils literal notranslate"><span class="pre">align</span></code>, but gives you control over the spacing between columns.</p></td>
+</tr>
+<tr class="row-even"><td><p>alignat*</p></td>
+<td><p>Same as <code class="docutils literal notranslate"><span class="pre">alignat</span></code> but without equation numbering.</p></td>
+</tr>
+</tbody>
+</table>
+<section id="example-1-aligned-within-equation">
+<h4>Example 1. <code class="docutils literal notranslate"><span class="pre">aligned</span></code> within <code class="docutils literal notranslate"><span class="pre">equation</span></code><a class="headerlink" href="#example-1-aligned-within-equation" title="Link to this heading"></a></h4>
+<p>Align with a single line number.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{equation}
+  \begin{aligned}
+  a + b + c &amp;= d \\
+  a + c &amp;= h
+  \end{aligned}
+\end{equation}\end{split}\]</div>
+<p>MathJax code:</p>
+<div class="highlight-latex notranslate"><div class="highlight"><pre><span></span><span class="k">\begin</span><span class="nb">{</span>equation<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>aligned<span class="nb">}</span>
+a + b + c <span class="nb">&amp;</span>= d <span class="k">\\</span>
+e + f + g <span class="nb">&amp;</span>= h
+<span class="k">\end</span><span class="nb">{</span>aligned<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>equation<span class="nb">}</span>
+</pre></div>
+</div>
+</section>
+<section id="example-2-gather">
+<h4>Example 2. <code class="docutils literal notranslate"><span class="pre">gather*</span></code><a class="headerlink" href="#example-2-gather" title="Link to this heading"></a></h4>
+<p>Center without line numbering.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{gather*}
+  x^2 + y^2 = r^2 \\
+  e^{i\pi} + 1 = 0 \\
+  y = mx + c
+\end{gather*}\end{split}\]</div>
+<p>MathJax code:</p>
+<div class="highlight-latex notranslate"><div class="highlight"><pre><span></span><span class="k">\begin</span><span class="nb">{</span>gather*<span class="nb">}</span>
+x<span class="nb">^</span>2 + y<span class="nb">^</span>2 = r<span class="nb">^</span>2 <span class="k">\\</span>
+e<span class="nb">^{</span>i<span class="k">\pi</span><span class="nb">}</span> + 1 = 0 <span class="k">\\</span>
+y = mx + c
+<span class="k">\end</span><span class="nb">{</span>gather*<span class="nb">}</span>
+</pre></div>
+</div>
+</section>
+<section id="example-3-gather">
+<h4>Example 3. <code class="docutils literal notranslate"><span class="pre">gather</span></code><a class="headerlink" href="#example-3-gather" title="Link to this heading"></a></h4>
+<p>Center with line numbering for each equation.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{gather}
+  x^2 + y^2 = r^2 \\
+  e^{i\pi} + 1 = 0 \\
+  y = mx + c
+\end{gather}\end{split}\]</div>
+<p>MathJax code:</p>
+<div class="highlight-latex notranslate"><div class="highlight"><pre><span></span><span class="k">\begin</span><span class="nb">{</span>gather<span class="nb">}</span>
+x<span class="nb">^</span>2 + y<span class="nb">^</span>2 = r<span class="nb">^</span>2 <span class="k">\\</span>
+e<span class="nb">^{</span>i<span class="k">\pi</span><span class="nb">}</span> + 1 = 0 <span class="k">\\</span>
+y = mx + c
+<span class="k">\end</span><span class="nb">{</span>gather<span class="nb">}</span>
+</pre></div>
+</div>
+</section>
+<section id="example-4-equation-with-gathered">
+<h4>Example 4. <code class="docutils literal notranslate"><span class="pre">equation</span></code> with <code class="docutils literal notranslate"><span class="pre">gathered</span></code><a class="headerlink" href="#example-4-equation-with-gathered" title="Link to this heading"></a></h4>
+<p>Center with only one line numbering.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{equation}
+  \begin{gathered}
+  x^2 + y^2 = r^2 \\
+  e^{i\pi} + 1 = 0 \\
+  y = mx + c
+  \end{gathered}
+\end{equation}\end{split}\]</div>
+<p>MathJax code:</p>
+<div class="highlight-latex notranslate"><div class="highlight"><pre><span></span><span class="k">\begin</span><span class="nb">{</span>equation<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>gathered<span class="nb">}</span>
+x<span class="nb">^</span>2 + y<span class="nb">^</span>2 = r<span class="nb">^</span>2 <span class="k">\\</span>
+e<span class="nb">^{</span>i<span class="k">\pi</span><span class="nb">}</span> + 1 = 0 <span class="k">\\</span>
+y = mx + c
+<span class="k">\end</span><span class="nb">{</span>gathered<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>equation<span class="nb">}</span>
+</pre></div>
+</div>
+</section>
+</section>
 </section>
 </section>
 

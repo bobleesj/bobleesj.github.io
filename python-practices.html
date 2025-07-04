@@ -60,14 +60,53 @@
 <p class="caption" role="heading"><span class="caption-text">PRACTICES</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Python</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#argparse-tba">argparse (TBA)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pytest">pytest</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#why-pytest">Why pytest</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#locating-files-and-folders-in-the-project-directory">Locating files and folders in the project directory</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#working-with-temporary-files-using-tmpdir-and-tmp-path">Working with temporary files using <code class="docutils literal notranslate"><span class="pre">tmpdir</span></code> and <code class="docutils literal notranslate"><span class="pre">tmp_path</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#testing-an-argument-parser">Testing an argument parser</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#mocking-a-simple-variable">Mocking a simple variable</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#mocking-a-function">Mocking a function</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#mocking-http-requests-and-capturing-print-output">Mocking HTTP requests and capturing print output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#test-log">Test log</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#object-oriented-programming">Object-oriented programming</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#data-class">Data class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#abstract-class">Abstract class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#property-decorator">Property decorator</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#numpy">NumPy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#individual-operations">Individual operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#d-slicing">1D slicing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">2D slicing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#boolean-indexing">Boolean Indexing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matrix-creation">Matrix creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#others">Others</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#element-wise-addition">Element-wise addition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#check-if-an-element-exists-in-a-list">Check if an element exists in a list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#list-comprehensions-vs-map-vs-for-loop">List comprehensions vs. map vs. for loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filter-a-list">Filter a list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#use-to-merge-two-dictionaries">Use <code class="docutils literal notranslate"><span class="pre">|</span></code> to merge two dictionaries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#counter-to-find-frequency"><code class="docutils literal notranslate"><span class="pre">Counter</span></code> to find frequency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lambda-function"><code class="docutils literal notranslate"><span class="pre">lambda</span></code> function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#open-instead-of-finally"><code class="docutils literal notranslate"><span class="pre">open</span></code> instead of <code class="docutils literal notranslate"><span class="pre">finally</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#enumerate-instead-of-range-for-loop"><code class="docutils literal notranslate"><span class="pre">enumerate</span></code> instead of <code class="docutils literal notranslate"><span class="pre">range</span></code> for loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#use-for-large-numbers">Use <code class="docutils literal notranslate"><span class="pre">_</span></code> for large numbers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#comprehensions">Comprehensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#zip">Zip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#use-perf-counter-for-time">Use <code class="docutils literal notranslate"><span class="pre">perf_counter()</span></code> for time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-array">Create array</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reshape-array">Reshape array</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#argparse-tba">argparse (TBA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#logging">logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#intro-to-python-logging">Intro to Python logging</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#initial-setup">Initial Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#understand-log-levels">Understand log levels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#save-logs">Save logs</a></li>
 </ul>
 </li>
 </ul>
@@ -107,15 +146,41 @@
   <section id="python">
 <h1>Python<a class="headerlink" href="#python" title="Link to this heading"></a></h1>
 <p>Here I document Python practices I have learned while developing packages like <code class="docutils literal notranslate"><span class="pre">scikit-package</span></code> and <code class="docutils literal notranslate"><span class="pre">cifkit</span></code>. These practices are not exhaustive, but I hope they can guide you in your own projects. <code class="docutils literal notranslate"><span class="pre">pytest</span></code> is used for testing.</p>
-<section id="argparse-tba">
-<h2>argparse (TBA)<a class="headerlink" href="#argparse-tba" title="Link to this heading"></a></h2>
-</section>
 <section id="pytest">
 <h2>pytest<a class="headerlink" href="#pytest" title="Link to this heading"></a></h2>
+<section id="why-pytest">
+<h3>Why pytest<a class="headerlink" href="#why-pytest" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Avoid subclassing by using only functions, making the test structure flat
+and simple.</p></li>
+<li><p>No direct execution with <cite>__main__</cite> since the script is executed by pytest.</p></li>
+<li><p>state control with its fixture system, for setting up and tearing down global resources.</p></li>
+<li><p>Temporary folders efficiently using <cite>tmp_path</cite>, a built-in fixture</p></li>
+<li><p>pytest uses <cite>caplog</cite> to test log output and <code class="docutils literal notranslate"><span class="pre">capsys</span></code> to capture print.</p></li>
+</ul>
+<p>General practices for testing with pytest</p>
+<ul class="simple">
+<li><p><strong>Adopt test-driven development</strong>: Write tests before implementing the
+functionality. Start with failing tests, then implement the function, make the
+tests pass, and refactor.</p></li>
+<li><p><strong>Avoid over-testing trivial code</strong>: Refrain from testing trivial code, such
+as getters and setters, to prevent a bloated test suite. Focus on ensuring
+robustness rather than achieving 100% coverage.</p></li>
+<li><p><strong>Conduct integration testing</strong>: Perform integration testing by starting from
+scratch and testing the outputs. Unit tests might pass due to the use of
+mocking, which simulates heavy latency tasks like database connections.</p></li>
+<li><p><strong>Import specific functions</strong>: Prefer importing specific functions to clarify
+exactly which parts of the codebase are under test.</p></li>
+<li><p><strong>Use `Enum` to manage error messages</strong>: Leverage <cite>Enum</cite> to organize and
+manage error messages consistently.</p></li>
+<li><p><strong>Catch specific errors</strong>: Always catch specific errors instead of general
+type errors.</p></li>
+</ul>
 <p>To get started, ensure you have installed <code class="docutils literal notranslate"><span class="pre">pytest</span></code> and <code class="docutils literal notranslate"><span class="pre">pytest-mock</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>pytest<span class="w"> </span>pytest-mock
 </pre></div>
 </div>
+</section>
 <section id="locating-files-and-folders-in-the-project-directory">
 <h3>Locating files and folders in the project directory<a class="headerlink" href="#locating-files-and-folders-in-the-project-directory" title="Link to this heading"></a></h3>
 <p>To locate a file in your project directory, such as <code class="docutils literal notranslate"><span class="pre">TEMPLATE.rst</span></code> in the <code class="docutils literal notranslate"><span class="pre">news</span></code> folder, you can use the following approach:</p>
@@ -234,6 +299,713 @@
 <li><p>The <code class="docutils literal notranslate"><span class="pre">capsys</span></code> fixture captures the output printed by the function.</p></li>
 <li><p>The test confirms that <code class="docutils literal notranslate"><span class="pre">requests.get</span></code> was called once with the expected URL.</p></li>
 </ul>
+</section>
+<section id="test-log">
+<h3>Test log<a class="headerlink" href="#test-log" title="Link to this heading"></a></h3>
+<p>You can use the <code class="docutils literal notranslate"><span class="pre">caplog</span></code> fixture to capture log. You can use <code class="docutils literal notranslate"><span class="pre">capsys</span></code> to capture the print output.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">log_save_file_message</span><span class="p">(</span><span class="n">file_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">file_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">file_type</span><span class="si">}</span><span class="s2"> has been saved in </span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Test function:</p>
+<p>Use the <cite>caplog</cite> input default by <cite>pytest</cite>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">log_save_file_message</span><span class="p">(</span><span class="n">caplog</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">caplog</span><span class="o">.</span><span class="n">at_level</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">):</span>
+        <span class="n">log_save_file_message</span><span class="p">(</span><span class="n">file_type</span><span class="p">,</span> <span class="n">file_path</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">file_type</span><span class="si">}</span><span class="s2"> has been saved in </span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s2">.&quot;</span> <span class="o">==</span> <span class="n">caplog</span><span class="o">.</span><span class="n">text</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="object-oriented-programming">
+<h2>Object-oriented programming<a class="headerlink" href="#object-oriented-programming" title="Link to this heading"></a></h2>
+<p>From the “Stop Writing Classes” video on <a class="reference external" href="https://www.youtube.com/watch?v=o9pEzgHorH0">YouTube</a>, I agree with the following bullet points directly from the video:</p>
+<ul class="simple">
+<li><p>Simple is better than complex.</p></li>
+<li><p>Flat is better than nested.</p></li>
+<li><p>Readability counts.</p></li>
+<li><p>Ship features not code.</p></li>
+<li><p>Customers love features, not code.</p></li>
+</ul>
+<p><strong>General cons of OOP</strong></p>
+<ul class="simple">
+<li><p>Hidden states within objects make it hard to reason about what is contained within an object from outside a function. By design, this is a feature known as encapsulation, a principle of OOP. It provides safety preventing external entities from directly changing the object’s state.</p></li>
+<li><p>OOP tends to give a feeling of being more organized, like an organization. It also means modules and tasks are more tightly coupled.</p></li>
+<li><p>OOP tends to create boilerplate code such as getters and setters often employed in JAVA without adding significant value.</p></li>
+</ul>
+<p><strong>General pros of OOP</strong></p>
+<ul class="simple">
+<li><p>A well-designed object can be reused in other projects, like <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> in NumPy.</p></li>
+</ul>
+<p><strong>General OOP principles</strong></p>
+<ul class="simple">
+<li><p>Each class should have a single responsibility</p></li>
+<li><p>Avoid deep inheritance</p></li>
+</ul>
+<section id="data-class">
+<h3>Data class<a class="headerlink" href="#data-class" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Source- https://docs.python.org/3/tutorial/classes.html#</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Employee</span><span class="p">:</span>
+  <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+  <span class="n">dept</span><span class="p">:</span> <span class="nb">str</span>
+  <span class="n">salary</span><span class="p">:</span> <span class="nb">int</span>
+
+<span class="n">john</span> <span class="o">=</span> <span class="n">Employee</span><span class="p">(</span><span class="s1">&#39;john&#39;</span><span class="p">,</span> <span class="s1">&#39;computer lab&#39;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">john</span><span class="o">.</span><span class="n">dept</span>
+<span class="s1">&#39;computer lab&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">john</span><span class="o">.</span><span class="n">salary</span>
+<span class="mi">1000</span>
+</pre></div>
+</div>
+</section>
+<section id="abstract-class">
+<h3>Abstract class<a class="headerlink" href="#abstract-class" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example source - https://www.geeksforgeeks.org/abstract-classes-in-python/</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Polygon</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+  <span class="nd">@abstractmethod</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">print_sides</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Triangle</span><span class="p">(</span><span class="n">Polygon</span><span class="p">):</span>
+  <span class="c1"># overriding abstract method</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">print_sides</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I have 3 sides&quot;</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Pentagon</span><span class="p">(</span><span class="n">Polygon</span><span class="p">):</span>
+  <span class="c1"># overriding abstract method</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">print_sides</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I have 5 sides&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="property-decorator">
+<h3>Property decorator<a class="headerlink" href="#property-decorator" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example source - https://www.programiz.com/python-programming/property</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Celsius</span><span class="p">:</span>
+  <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">temperature</span> <span class="o">=</span> <span class="n">temperature</span>
+
+  <span class="k">def</span><span class="w"> </span><span class="nf">to_fahrenheit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">temperature</span> <span class="o">*</span> <span class="mf">1.8</span><span class="p">)</span> <span class="o">+</span> <span class="mi">32</span>
+
+  <span class="k">def</span><span class="w"> </span><span class="nf">get_temperature</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Getting value...&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_temperature</span>
+
+  <span class="k">def</span><span class="w"> </span><span class="nf">set_temperature</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Setting value...&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">273.15</span><span class="p">:</span>
+      <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Temperature below -273.15 is not possible&quot;</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_temperature</span> <span class="o">=</span> <span class="n">value</span>
+</pre></div>
+</div>
+<p>The above code can be improved using <code class="docutils literal notranslate"><span class="pre">&#64;property</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example source - https://www.programiz.com/python-programming/property</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Celsius</span><span class="p">:</span>
+  <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">temperature</span> <span class="o">=</span> <span class="n">temperature</span>
+
+  <span class="k">def</span><span class="w"> </span><span class="nf">to_fahrenheit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">temperature</span> <span class="o">*</span> <span class="mf">1.8</span><span class="p">)</span> <span class="o">+</span> <span class="mi">32</span>
+
+  <span class="nd">@property</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">temperature</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Getting value...&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_temperature</span>
+
+  <span class="nd">@temperature</span><span class="o">.</span><span class="n">setter</span>
+  <span class="k">def</span><span class="w"> </span><span class="nf">temperature</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Setting value...&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">273.15</span><span class="p">:</span>
+      <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Temperature below -273 is not possible&quot;</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_temperature</span> <span class="o">=</span> <span class="n">value</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="numpy">
+<h2>NumPy<a class="headerlink" href="#numpy" title="Link to this heading"></a></h2>
+<p>A matrix represents a set of values. Matrices are used in solving a system of equations, representing graphs, etc. The more concisely and clearly we represent matrices in scripts, the less time is required for debugging.</p>
+<p>Assume <code class="docutils literal notranslate"><span class="pre">X</span></code> and <code class="docutils literal notranslate"><span class="pre">Y</span></code> represent matrices and <code class="docutils literal notranslate"><span class="pre">vec</span></code> is a 1-D array.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">)</span>       <span class="c1"># Add</span>
+<span class="n">np</span><span class="o">.</span><span class="n">substract</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">)</span> <span class="c1"># Substract</span>
+<span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">)</span>    <span class="c1"># Divide</span>
+
+<span class="c1"># Multiply, all same</span>
+<span class="n">X</span> <span class="o">@</span> <span class="n">Y</span>             <span class="c1"># recommended</span>
+<span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+<span class="n">X</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="individual-operations">
+<h3>Individual operations<a class="headerlink" href="#individual-operations" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>        <span class="c1"># Flatten</span>
+<span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>         <span class="c1"># Square root all elements</span>
+<span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>          <span class="c1"># Sum all elements</span>
+<span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>   <span class="c1"># Row-wise sum</span>
+<span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>   <span class="c1"># Column-wise sum</span>
+<span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>         <span class="c1"># Single max value</span>
+<span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># Get max in each column</span>
+<span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># Get max in each row</span>
+<span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>         <span class="c1"># Mean</span>
+<span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>          <span class="c1"># Standard deviation</span>
+<span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>          <span class="c1"># Variance</span>
+<span class="n">np</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>        <span class="c1"># Sum of the elements on the diagonal</span>
+<span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">matrix_rank</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>  <span class="c1"># Rank of the matrix</span>
+<span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>   <span class="c1"># Determinant of the matrix</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># Get value from 1st row, 2nd col</span>
+</pre></div>
+</div>
+</section>
+<section id="d-slicing">
+<h3>1D slicing<a class="headerlink" href="#d-slicing" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">vec</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span> <span class="c1"># [1, ..., 9]</span>
+<span class="n">vec</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span>       <span class="c1"># [4, 5, 6, 7]</span>
+<span class="n">vec</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>     <span class="c1"># 5th last to 2nd last =&gt; [5, 6, 7]</span>
+
+<span class="c1"># Get every Nth index value</span>
+<span class="n">vec</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span>      <span class="c1"># [0, 2, 4, 6, 8]</span>
+<span class="n">vec</span><span class="p">[::</span><span class="mi">5</span><span class="p">]</span>      <span class="c1"># [0, 5]</span>
+
+<span class="c1"># Inverse</span>
+<span class="n">vec</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>     <span class="c1"># Temp inverse [9, 8, ... 1, 0]</span>
+<span class="n">vec</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span> <span class="c1"># Permanent inverse</span>
+</pre></div>
+</div>
+</section>
+<section id="id1">
+<h3>2D slicing<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span>  <span class="n">vec</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span>       <span class="c1"># get second row</span>
+<span class="n">X</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>      <span class="c1"># get last col</span>
+<span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="p">:]</span>     <span class="c1"># get first two rows</span>
+<span class="n">X</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">:]</span>  <span class="c1"># get first and thrid rows</span>
+<span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>     <span class="c1"># get first two columns</span>
+<span class="n">X</span><span class="p">[:,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>  <span class="c1"># get first and thrid columns</span>
+<span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>   <span class="c1"># get submatrix of first two rows/columnes</span>
+<span class="n">X</span><span class="p">[</span><span class="n">X</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">]</span>      <span class="c1"># get elements greater than 5</span>
+
+<span class="c1"># Advanced</span>
+<span class="n">X</span><span class="p">[:,</span> <span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>    <span class="c1"># reverse cols for each row</span>
+<span class="c1"># =&gt; [[3 2 1]</span>
+<span class="c1">#     [6 5 4]</span>
+<span class="c1">#     [9 8 7]]</span>
+<span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>   <span class="c1"># same as above but skip first row</span>
+<span class="c1"># =&gt; [[6 5 4]</span>
+<span class="c1">#     [9 8 7]]</span>
+</pre></div>
+</div>
+</section>
+<section id="boolean-indexing">
+<h3>Boolean Indexing<a class="headerlink" href="#boolean-indexing" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cols</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span> <span class="o">&gt;</span> <span class="mi">1</span>  <span class="c1"># select col(s) where first row &gt; 1</span>
+<span class="c1"># =&gt; [False  True  True]</span>
+<span class="n">X</span><span class="p">[:,</span> <span class="n">cols</span><span class="p">]</span>
+<span class="c1"># =&gt; [[2 3]</span>
+<span class="c1">#     [5 6]</span>
+<span class="c1">#     [8 9]]</span>
+</pre></div>
+</div>
+</section>
+<section id="matrix-creation">
+<h3>Matrix creation<a class="headerlink" href="#matrix-creation" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)))</span>
+<span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">5</span><span class="p">,),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="c1"># Copy</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>              <span class="c1"># Copy X</span>
+<span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>         <span class="c1"># Return 1&#39;s with (2,3) shape</span>
+<span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>        <span class="c1"># Return 0&#39;s with (2,3) shape</span>
+
+<span class="c1"># Full</span>
+<span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">10</span><span class="p">)</span>     <span class="c1"># Generate (2,2), all 10</span>
+<span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span> <span class="c1"># Generate (2,2), all inf</span>
+<span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span> <span class="c1"># Generate (2,2), each row of [1,2]</span>
+</pre></div>
+</div>
+</section>
+<section id="others">
+<h3>Others<a class="headerlink" href="#others" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span>
+    <span class="n">precision</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>   <span class="c1"># Set decimal places</span>
+    <span class="n">suppress</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="c1"># Avoid scientific notations</span>
+    <span class="n">threshold</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="c1"># Max number of elements to be printed</span>
+    <span class="n">linewidth</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span>
+    <span class="n">edgeitems</span><span class="o">=</span><span class="mi">2</span>    <span class="c1"># Show two values per edge when truncated</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="element-wise-addition">
+<h3>Element-wise addition<a class="headerlink" href="#element-wise-addition" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">list2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="n">combined_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">list1</span><span class="p">,</span> <span class="n">list2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">combined_list</span><span class="p">)</span>
+<span class="c1"># [5 7 9]</span>
+</pre></div>
+</div>
+</section>
+<section id="check-if-an-element-exists-in-a-list">
+<h3>Check if an element exists in a list<a class="headerlink" href="#check-if-an-element-exists-in-a-list" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">exists</span> <span class="o">=</span> <span class="nb">any</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">my_list</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">3</span><span class="p">])</span>  <span class="c1"># :(</span>
+<span class="n">exists</span> <span class="o">=</span> <span class="mi">3</span> <span class="ow">in</span> <span class="n">my_list</span>  <span class="c1"># :)</span>
+</pre></div>
+</div>
+</section>
+<section id="list-comprehensions-vs-map-vs-for-loop">
+<h3>List comprehensions vs. map vs. for loop<a class="headerlink" href="#list-comprehensions-vs-map-vs-for-loop" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># :(</span>
+<span class="n">squared</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">my_list</span><span class="p">:</span>
+     <span class="n">squared</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># :|</span>
+<span class="n">squared</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">my_list</span><span class="p">))</span>
+<span class="c1"># :)</span>
+<span class="n">squared</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">my_list</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="filter-a-list">
+<h3>Filter a list<a class="headerlink" href="#filter-a-list" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># :(</span>
+<span class="n">filtered</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">my_list</span><span class="p">:</span>
+  <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="n">filtered</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="c1"># :)</span>
+<span class="n">filtered</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">my_list</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="use-to-merge-two-dictionaries">
+<h3>Use <code class="docutils literal notranslate"><span class="pre">|</span></code> to merge two dictionaries<a class="headerlink" href="#use-to-merge-two-dictionaries" title="Link to this heading"></a></h3>
+<p>Python has a concise syntax for this particular job.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define two dictionaries with different keys</span>
+<span class="n">person_details</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">56</span><span class="p">}</span>
+<span class="n">person_location</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;New York&quot;</span><span class="p">,</span> <span class="s2">&quot;country&quot;</span><span class="p">:</span> <span class="s2">&quot;USA&quot;</span><span class="p">}</span>
+<span class="c1"># Merge the two dictionaries</span>
+<span class="n">merged_dict</span> <span class="o">=</span> <span class="n">person_details</span> <span class="o">|</span> <span class="n">person_location</span>
+<span class="n">merged_dict</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">56</span><span class="p">,</span> <span class="s1">&#39;city&#39;</span><span class="p">:</span> <span class="s1">&#39;New York&#39;</span><span class="p">,</span> <span class="s1">&#39;country&#39;</span><span class="p">:</span> <span class="s1">&#39;USA&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="counter-to-find-frequency">
+<h3><code class="docutils literal notranslate"><span class="pre">Counter</span></code> to find frequency<a class="headerlink" href="#counter-to-find-frequency" title="Link to this heading"></a></h3>
+<p>In scientific computing, we like to count and draw histograms. For one of my projects, I determine a set of atoms from the supercell to determine the coordination number. The reference is chosen with the atoms with the greatest number of atoms surrounding it. Here, <code class="docutils literal notranslate"><span class="pre">Counter</span></code> is our friend.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>
+
+<span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
+<span class="n">counter</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">counter</span><span class="p">)</span>
+<span class="c1"># Counter({12: 5, 15: 3, 7: 2, 3: 1})</span>
+<span class="c1"># Find the two most common elements</span>
+<span class="n">counter</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># [(12, 5)]</span>
+<span class="n">counter</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># [(12, 5), (15, 3)]</span>
+</pre></div>
+</div>
+</section>
+<section id="lambda-function">
+<h3><code class="docutils literal notranslate"><span class="pre">lambda</span></code> function<a class="headerlink" href="#lambda-function" title="Link to this heading"></a></h3>
+<p>Lambda functions or called “closure” in Swift, a function. It must be defined after <code class="docutils literal notranslate"><span class="pre">lambda</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Return &quot;even&quot; or &quot;odd&quot; based on the value</span>
+<span class="n">classify_number</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s2">&quot;even&quot;</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">&quot;odd&quot;</span>
+</pre></div>
+</div>
+<p>Example 1. Sort <code class="docutils literal notranslate"><span class="pre">dict</span></code></p>
+<p>The way to sort or modify values across a collection of items in Python is using <code class="docutils literal notranslate"><span class="pre">lambda</span></code> function.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sort complex iterables with sorted()</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">},</span>
+  <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">56</span><span class="p">},</span>
+  <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">17</span><span class="p">}</span>
+<span class="p">]</span>
+
+<span class="n">sorted_data</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">sorted_data</span><span class="p">)</span>
+<span class="c1"># [{&#39;name&#39;: &#39;Alice&#39;, &#39;age&#39;: 12},</span>
+<span class="c1"># {&#39;name&#39;: &#39;Charlie&#39;, &#39;age&#39;: 17},</span>
+<span class="c1"># {&#39;name&#39;: &#39;Bob&#39;, &#39;age&#39;: 56}]</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="s2">&quot;score&quot;</span><span class="p">:</span> <span class="mi">85</span><span class="p">},</span>
+  <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">56</span><span class="p">,</span> <span class="s2">&quot;score&quot;</span><span class="p">:</span> <span class="mi">90</span><span class="p">},</span>
+  <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">56</span><span class="p">,</span> <span class="s2">&quot;score&quot;</span><span class="p">:</span> <span class="mi">88</span><span class="p">}</span>
+<span class="p">]</span>
+
+<span class="c1"># Sort by age, then by score (ascending order)</span>
+<span class="n">sorted_data</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="s2">&quot;score&quot;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sorted_data</span><span class="p">)</span>
+<span class="c1"># [{&#39;name&#39;: &#39;Alice&#39;, &#39;age&#39;: 12, &#39;score&#39;: 85},</span>
+<span class="c1"># {&#39;name&#39;: &#39;Charlie&#39;, &#39;age&#39;: 56, &#39;score&#39;: 88},</span>
+<span class="c1"># {&#39;name&#39;: &#39;Bob&#39;, &#39;age&#39;: 56, &#39;score&#39;: 90}]</span>
+</pre></div>
+</div>
+<p>Example 2. Sort <code class="docutils literal notranslate"><span class="pre">list</span></code></p>
+<p>Based on increasing or decreasing</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="n">sorted_numbers_asc</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sorted_numbers_asc</span><span class="p">)</span>
+<span class="c1"># Output: [1, 1, 2, 3, 4, 5, 6, 9]</span>
+<span class="n">sorted_numbers_desc</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">numbers</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="o">-</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sorted_numbers_desc</span><span class="p">)</span>
+<span class="c1"># Output: [9, 6, 5, 4, 3, 2, 1, 1]</span>
+</pre></div>
+</div>
+<p>Based on string length</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;cherry&quot;</span><span class="p">,</span> <span class="s2">&quot;date&quot;</span><span class="p">]</span>
+<span class="n">sorted_words</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sorted_words</span><span class="p">)</span>
+<span class="c1"># Output: [&#39;date&#39;, &#39;apple&#39;, &#39;banana&#39;, &#39;cherry&#39;]</span>
+</pre></div>
+</div>
+</section>
+<section id="open-instead-of-finally">
+<h3><code class="docutils literal notranslate"><span class="pre">open</span></code> instead of <code class="docutils literal notranslate"><span class="pre">finally</span></code><a class="headerlink" href="#open-instead-of-finally" title="Link to this heading"></a></h3>
+<p>Python offers a cleaner, more efficient way to handle files opening and closing.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># :(</span>
+<span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;my_file.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+  <span class="n">data</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+  <span class="c1"># process data</span>
+<span class="k">finally</span><span class="p">:</span>
+  <span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># :)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;my_file.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+  <span class="n">data</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+  <span class="c1"># process data</span>
+</pre></div>
+</div>
+<p>We simply do not forget to close the file. It is handled automatically with <code class="docutils literal notranslate"><span class="pre">open</span></code>.</p>
+</section>
+<section id="enumerate-instead-of-range-for-loop">
+<h3><code class="docutils literal notranslate"><span class="pre">enumerate</span></code> instead of <code class="docutils literal notranslate"><span class="pre">range</span></code> for loop<a class="headerlink" href="#enumerate-instead-of-range-for-loop" title="Link to this heading"></a></h3>
+<p>Example 1. <code class="docutils literal notranslate"><span class="pre">list</span></code></p>
+<p>We want both the index and the value without the need to use <code class="docutils literal notranslate"><span class="pre">[i]</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># List data</span>
+<span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+
+<span class="c1"># :(</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">my_list</span><span class="p">)):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">my_list</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+<span class="c1"># :) - Get both index and value in the loop</span>
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">my_list</span><span class="p">):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Example 2. <code class="docutils literal notranslate"><span class="pre">dict</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dictionary data</span>
+<span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+
+<span class="c1"># :( - Iterating over a dictionary without using enumerate</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">my_dict</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">my_dict</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+
+<span class="c1"># :) - Using enumerate to get both the index and key-value pairs</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">my_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+<span class="c1"># If index is not needed</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">my_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="use-for-large-numbers">
+<h3>Use <code class="docutils literal notranslate"><span class="pre">_</span></code> for large numbers<a class="headerlink" href="#use-for-large-numbers" title="Link to this heading"></a></h3>
+<p>We do not want to count the zeros.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># :|</span>
+<span class="n">number_of_stars</span> <span class="o">=</span> <span class="mi">1000000000</span>
+<span class="c1"># :)</span>
+<span class="n">number_of_stars</span> <span class="o">=</span> <span class="mi">1_000_000_000</span>
+</pre></div>
+</div>
+</section>
+<section id="comprehensions">
+<h3>Comprehensions<a class="headerlink" href="#comprehensions" title="Link to this heading"></a></h3>
+<p>A comprehension in Python is a concise syntax for constructing a new sequence based on the values from an existing sequence or iterable.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dictionary comprehension</span>
+<span class="n">dict_comp</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)}</span>
+<span class="c1"># List comprehension</span>
+<span class="n">list_comp</span> <span class="o">=</span> <span class="p">[(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
+<span class="c1"># Set comprehension</span>
+<span class="n">set_comp</span> <span class="o">=</span> <span class="p">{(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dict Comprehension:&quot;</span><span class="p">,</span> <span class="n">dict_comp</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;List Comprehension:&quot;</span><span class="p">,</span> <span class="n">list_comp</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Set Comprehension:&quot;</span><span class="p">,</span> <span class="n">set_comp</span><span class="p">)</span>
+<span class="c1"># Dict Comprehension: {0: 1, 1: 4, 2: 9, 3: 16, 4: 25}</span>
+<span class="c1"># List Comprehension: [1, 4, 9, 16, 25]</span>
+<span class="c1"># Set Comprehension: {0, 1, 2, 3, 4}</span>
+</pre></div>
+</div>
+<p>Add condition</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">list_comp</span> <span class="o">=</span> <span class="p">[(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">list_comp</span><span class="p">)</span>
+<span class="c1"># [False, True, False, False, False]</span>
+</pre></div>
+</div>
+<p>Example 1. Constant addition</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a 2D array (e.g., 3x3)</span>
+<span class="n">arr_2d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+           <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+           <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]])</span>
+
+<span class="c1"># Constant to add</span>
+<span class="n">constant</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="c1"># The constant is &quot;broadcast&quot; across the 2D array, adding it to every element</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">arr_2d</span> <span class="o">+</span> <span class="n">constant</span>
+</pre></div>
+</div>
+<p>Example 2. Addition between two arrays</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">arr_2d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]])</span>
+<span class="n">arr_1d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># The 1D array is broadcast across each row of the 2D array</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">arr_2d</span> <span class="o">+</span> <span class="n">arr_1d</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="c1"># Output:</span>
+<span class="c1"># [[2 2 2]</span>
+<span class="c1">#  [5 5 5]</span>
+<span class="c1">#  [8 8 8]]</span>
+</pre></div>
+</div>
+<p>Example 3. Multiplication between two arrays</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">arr_2d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+<span class="n">arr_1d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">arr_2d</span> <span class="o">*</span> <span class="n">arr_1d</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"> [1, 2]    [1*1, 2*2]    [1,  4]</span>
+<span class="sd"> [1, 2] -&gt; [3*1, 4*2] -&gt; [3,  8]</span>
+<span class="sd"> [1, 2]    [5*1, 6*2]    [5, 12]</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="c1"># Output:</span>
+<span class="c1"># [[ 1  4]</span>
+<span class="c1">#  [ 3  8]</span>
+<span class="c1">#  [ 5 12]]</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="c1"># Adds 10 to each element</span>
+<span class="n">result_add</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="c1"># Multiplies each element by 2</span>
+<span class="n">result_multiply</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="c1"># Computes the sine of each element</span>
+<span class="n">result_sin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="zip">
+<h3>Zip<a class="headerlink" href="#zip" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">zip()</span></code> function combines several iterables (like lists, tuples, etc.) element-wise, creating a new iterator of tuples.</p>
+<p>Example 1. iterate two arrays</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+
+<span class="n">zipped</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>  <span class="c1"># Creates an iterator of tuples</span>
+
+<span class="k">for</span> <span class="n">pair</span> <span class="ow">in</span> <span class="n">zipped</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">pair</span><span class="p">)</span>  <span class="c1"># (1, 4), (2, 5), and (3, 6)</span>
+</pre></div>
+</div>
+<p>Example 2. <code class="docutils literal notranslate"><span class="pre">enumerate</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">av</span><span class="p">,</span> <span class="n">bv</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)):</span>
+  <span class="c1"># &#39;i&#39; is the index, &#39;av&#39; is the element from &#39;a&#39;, &#39;bv&#39; is the element from &#39;b&#39;</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Index: </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">, a: </span><span class="si">{</span><span class="n">av</span><span class="si">}</span><span class="s2">, b: </span><span class="si">{</span><span class="n">bv</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="use-perf-counter-for-time">
+<h3>Use <code class="docutils literal notranslate"><span class="pre">perf_counter()</span></code> for time<a class="headerlink" href="#use-perf-counter-for-time" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="c1"># :( Using time.time()</span>
+<span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Sleep for 1 second</span>
+<span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">time_duration</span> <span class="o">=</span> <span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span>
+
+<span class="c1"># :) Using time.perf_counter()</span>
+<span class="n">start_perf</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Sleep for 1 second</span>
+<span class="n">end_perf</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<span class="n">perf_duration</span> <span class="o">=</span> <span class="n">end_perf</span> <span class="o">-</span> <span class="n">start_perf</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">time.perf_counter()</span></code> provides the highest available resolution timer to measure a short duration. It includes time elapsed during sleep and is system-wide.</p>
+<p><code class="docutils literal notranslate"><span class="pre">time.time()</span></code> returns the current time in seconds since the Epoch (a fixed point in time used for time calculations, typically January 1, 1970, 00:00:00 (UTC)). It’s suitable for getting the current timestamp.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">even_numbers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">even_numbers</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="create-array">
+<h3>Create array<a class="headerlink" href="#create-array" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create an empty 1D array</span>
+<span class="n">arr_1d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="c1"># [0, 1, ..., 8, 9]</span>
+
+<span class="n">arr_1d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="c1"># [0, 0, 0, 0, 0]</span>
+
+<span class="c1"># Create an empty 2D array</span>
+<span class="n">arr_2d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="c1">#[[0. 0. 0. 0.]</span>
+<span class="c1"># [0. 0. 0. 0.]</span>
+<span class="c1"># [0. 0. 0. 0.]]</span>
+</pre></div>
+</div>
+</section>
+<section id="reshape-array">
+<h3>Reshape array<a class="headerlink" href="#reshape-array" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">arr_1d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">arr_2d</span> <span class="o">=</span> <span class="n">arr_1d</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> <span class="c1"># 5 rows, 2 cols</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="argparse-tba">
+<h2>argparse (TBA)<a class="headerlink" href="#argparse-tba" title="Link to this heading"></a></h2>
+</section>
+<section id="logging">
+<h2>logging<a class="headerlink" href="#logging" title="Link to this heading"></a></h2>
+</section>
+<section id="intro-to-python-logging">
+<h2>Intro to Python logging<a class="headerlink" href="#intro-to-python-logging" title="Link to this heading"></a></h2>
+<p>Logs record activities. They are used for debugging and analyzing user behavior.
+While <code class="docutils literal notranslate"><span class="pre">print()</span></code> serves as a perfectly good solution for simple programs, there
+are specific needs that it cannot fulfill:</p>
+<ul class="simple">
+<li><p>Saving logs in a separate folder or periodically</p></li>
+<li><p>Turning on/off certain types of logs globally</p></li>
+<li><p>Providing information on line numbers, file names, etc.</p></li>
+<li><p>Categorizing logs into <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code>, <code class="docutils literal notranslate"><span class="pre">INFO</span></code>, <code class="docutils literal notranslate"><span class="pre">WARNING</span></code>, <code class="docutils literal notranslate"><span class="pre">ERROR</span></code>, and <code class="docutils literal notranslate"><span class="pre">CRITICAL</span></code></p></li>
+</ul>
+<p>For these requirements, we may want to use Python’s built-in logging tool.</p>
+<section id="initial-setup">
+<h3>Initial Setup<a class="headerlink" href="#initial-setup" title="Link to this heading"></a></h3>
+<p>First, copy the following code to a Python file:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+        <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
+        <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%(asctime)s</span><span class="s2"> </span><span class="si">%(levelname)s</span><span class="s2"> </span><span class="si">%(message)s</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">datefmt</span><span class="o">=</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span>
+    <span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Add log messages by modifying the file like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+        <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
+        <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%(asctime)s</span><span class="s2"> </span><span class="si">%(levelname)s</span><span class="s2"> </span><span class="si">%(message)s</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">datefmt</span><span class="o">=</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span>
+    <span class="p">)</span>
+
+    <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;This is a debug log.&quot;</span><span class="p">)</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;This is an info log.&quot;</span><span class="p">)</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;This is a warning log.&quot;</span><span class="p">)</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;This is an error log.&quot;</span><span class="p">)</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s2">&quot;This is a critical log.&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="understand-log-levels">
+<h3>Understand log levels<a class="headerlink" href="#understand-log-levels" title="Link to this heading"></a></h3>
+<p>The log level <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> is the lowest, meaning all messages from all severity
+levels (<code class="docutils literal notranslate"><span class="pre">DEBUG</span></code>, <code class="docutils literal notranslate"><span class="pre">INFO</span></code>, <code class="docutils literal notranslate"><span class="pre">WARNING</span></code>, <code class="docutils literal notranslate"><span class="pre">ERROR</span></code>, <code class="docutils literal notranslate"><span class="pre">CRITICAL</span></code>) will be logged. Refer
+to the table below:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Log Level Set</p></th>
+<th class="head"><p>Messages Printed</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DEBUG</p></td>
+<td><p>DEBUG, INFO, WARNING, ERROR, CRITICAL</p></td>
+</tr>
+<tr class="row-odd"><td><p>INFO</p></td>
+<td><p>INFO, WARNING, ERROR, CRITICAL</p></td>
+</tr>
+<tr class="row-even"><td><p>WARNING</p></td>
+<td><p>WARNING, ERROR, CRITICAL</p></td>
+</tr>
+<tr class="row-odd"><td><p>ERROR</p></td>
+<td><p>ERROR, CRITICAL</p></td>
+</tr>
+<tr class="row-even"><td><p>CRITICAL</p></td>
+<td><p>CRITICAL</p></td>
+</tr>
+</tbody>
+</table>
+<p>For example, if you modify from <code class="docutils literal notranslate"><span class="pre">logging.DEBUG</span></code> to <code class="docutils literal notranslate"><span class="pre">logging.ERROR</span></code>:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>python main.py (logging.DEBUG)
+2024-05-23 16:28:07 INFO This is an info log.
+2024-05-23 16:28:07 WARNING This is a warning log.
+2024-05-23 16:28:07 ERROR This is an error log.
+2024-05-23 16:28:07 CRITICAL This is a critical log.
+
+python main.py (logging.ERROR)
+2024-05-23 16:28:14 ERROR This is an error log.
+2024-05-23 16:28:14 CRITICAL This is a critical log.
+</pre></div>
+</div>
+</section>
+<section id="save-logs">
+<h3>Save logs<a class="headerlink" href="#save-logs" title="Link to this heading"></a></h3>
+<p>Modify the <code class="docutils literal notranslate"><span class="pre">basicConfig</span></code> by adding <code class="docutils literal notranslate"><span class="pre">filename</span></code> and <code class="docutils literal notranslate"><span class="pre">filemode</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
+    <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;app.log&#39;</span><span class="p">,</span>
+    <span class="n">filemode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span>  <span class="c1"># &#39;w&#39; to write, &#39;a&#39; to append</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> - </span><span class="si">%(levelname)s</span><span class="s1"> - </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">,</span>
+    <span class="n">datefmt</span><span class="o">=</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>As of this writing, I currently have no further solutions needed beyond the
+above at the current level. I may add more details if more advanced
+functionalities from the <code class="docutils literal notranslate"><span class="pre">logging</span></code> library are needed for my projects.</p>
 </section>
 </section>
 </section>
