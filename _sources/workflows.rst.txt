@@ -18,16 +18,16 @@ Tools I use daily
     - URL
   * - IDE
     - Visual Studio Code (Copilot)
-    - 
+    -
   * - Version control
     - Git, GitHub CLI, GitHub
     - `Tutorial on GitHub workflow for beginners <https://scikit-package.github.io/scikit-package/support/frequently-asked-questions.html#github-workflow>`_
   * - Command line interface (CLI)
     - `Warp <https://www.warp.dev//>`_
-    - 
+    -
   * - Development productivity
     - `scikit-package <https://scikit-package.github.io/scikit-package/>`_, `bobleesj.utils <https://bobleesj.github.io/bobleesj.utils/>`_
-    - 
+    -
   * - CLI shortcuts
     - Bash shell
     - :ref:`keyboard-shortcuts-setup`
@@ -36,10 +36,10 @@ Tools I use daily
     - :ref:`text-expander-with-espanso`
   * - Web browser
     - `Brave <https://brave.com/>`_
-    - 
+    -
   * - Documentation
     - `Sphinx <https://www.sphinx-doc.org/>`_
-    - 
+    -
 
 GitHub pull request
 -------------------
@@ -47,7 +47,7 @@ GitHub pull request
 If you are not familiar with GitHub, please first read my guide on the `GitHub workflow <https://scikit-package.github.io/scikit-package/support/frequently-asked-questions.html#github-workflow>`_. I also recommend starting with the `Level 4 tutorial <https://scikit-package.github.io/scikit-package/tutorials/tutorial-level-4.html>`_ of ``scikit-package`` to actually use GitHub, GitHub Actions, and the GitHub pull request workflow using your own project. Then you should be able to utilize the commands in this section.
 
 .. note::
-  
+
   The alias commands like ``gsub`` are defined in :ref:`keyboard-shortcuts-setup`.
 
 Make a new pull request
@@ -66,7 +66,7 @@ Make a new pull request
 #. Type ``napr "<Add news file>."`` to create a new news entry in ``news/<branch-name>``, stage, commit, and push the changes, and make the PR title the news content.
 
     .. note::
-      
+
       To submit the PR right away without choosing PR template, type ``naprf "<Add news file>."`` This may be useful for trivial changes that do not require a detailed PR description.
 
 Modify a pull request
@@ -165,9 +165,9 @@ For minor changes, often making a whole pull request is not necessary, such as f
 #. Type ``gbd`` (GitHub build documentation) to trigger the GitHub Actions workflow to deploy the online documentation built from the ``main`` branch.
 
     .. note::
-    
+
       If you want to run ``git push`` and ``gbd`` at the same time, type ``pd``. So typically, for minor fixes, I run ``gcam <Add commit message>`` and run ``pd``.
- 
+
 
 .. _keyboard-shortcuts-setup:
 
@@ -477,7 +477,7 @@ The following instructions are tested on macOS.
 
 #. Type ``ec`` defined in :ref:`keyboard-shortcuts-setup` to open the espanso configuration folder.
 
-#. In ``match/base.yml``, copy and paste the following configuration into the espanso configuration file 
+#. In ``match/base.yml``, copy and paste the following configuration into the espanso configuration file
 
     .. code-block:: yaml
 
@@ -490,7 +490,7 @@ The following instructions are tested on macOS.
         - trigger: "prr"
           replace: "This is ready for review."
         - trigger: "prc1"
-          replace: "Great start! Please see my in-line comments." 
+          replace: "Great start! Please see my in-line comments."
         - trigger: "prc2"
           replace: "Almost there... just a few more tweaks needed."
         - trigger: "prm"
@@ -546,7 +546,7 @@ The following instructions are tested on macOS.
         - trigger: "skpkgs"
           replace: "`scikit-package-system` "
         - trigger: "skpkgw"
-          replace: "`scikit-package-workspace` "  
+          replace: "`scikit-package-workspace` "
         # Checklist & pomodoro
         - trigger: "po1"
           replace: "Pomodoro #1 "
@@ -600,4 +600,3 @@ The following instructions are tested on macOS.
 
   - To turn off/on espanso, in ``config/default.yml``, uncomment ``toggle_key: ALT``. Now, you can toggle espanso on and off by pressing the ``Opt`` key twice.
   - To see the list of matches, presss the ``Opt-Space`` keys together.
-

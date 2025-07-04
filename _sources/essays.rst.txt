@@ -723,7 +723,7 @@ refactored after the meaning is conveyed.
 
 Repetition is not harmful if it enhances clarity.
 
-Be extremely careful using adjectives and adverbs to prevent miscommunication. These parts of speech are often immeasurable, hence subjective. 
+Be extremely careful using adjectives and adverbs to prevent miscommunication. These parts of speech are often immeasurable, hence subjective.
 
     - A “significant” problem may not be a significant to another. Rather use countable nouns and use analogy for comparision.
     - "Failure" is also a subjective term because it is determined by the expected outcome, which differs for each person. It is better to state what was not achieved based on the expected outcome of the individual or the organization's expectation.
