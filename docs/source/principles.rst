@@ -30,6 +30,8 @@ It is common for open-source scientific packages to release a package using the 
 
 For my daily work, I use the pomodoro technique to maximize my output, with 50 minutes of focus and 10 minutes of rest in between. I have found that this is the most optimal way to maximize my output instead of working many hours straight without breaks. You can read more about my pomodoro technique described in :ref:`essay-daily-work`.
 
+.. _principle-minimum-process:
+
 Principle 3. **Minimum process** with the **same input and ouput**
 ---------------------------------------------------------------------
 
@@ -37,7 +39,7 @@ Another reason we want to use a minimum process is that automation and processes
 
 Another example is that I consider "time" as part of the process. So, instead of using the input ``conda install``, I started using ``mamba install`` to install packages to reduce installation time. I use a web browser that does automatic ad blocking. I find the `Brave browser <https://brave.com/>`_ to be the best for this purpose, as it saves time in loading and also prevents me from using my consciousness on inadvertently reading ads.
 
-FIXME: add Bala's example of using vectorization operation in NumPy to speed up distance calculations.
+Another example is the use of vectorization for computing distances between two points within a unit cell and its supercell cell. Using the ``for-loop`` method is often the first approach that comes to mind, but it is not the most efficient. Instead, I had a close contact who made a significant contribution to one of my projects that boosted the algorithm performance more than 10x by using vectorizing operations instead of using for-loops. This is an example of how we can use the minimum process to achieve the same output with the same input.
 
 Exceptions and questions
 ------------------------
