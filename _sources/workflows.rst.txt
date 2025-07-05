@@ -212,29 +212,27 @@ How to use keyboard shortcuts in your CLI
         # File navigations using functions
         dev()        { cd "$DEVROOT"; }
         # skpkg-related directories
-        skpkg()   { cd "$DEVROOT/skpkg" && ma skpkg-env; }
-        skpkgw()  { cd "$DEVROOT/skpkg-baby/skpkg-workspace" && ma skpkg-env; }
-        skpkgs()  { cd "$DEVROOT/skpkg-baby/skpkg-system" && ma skpkg-env; }
-        skpkgc()  { cd "$DEVROOT/skpkg-baby/skpkg-conda-forge" && ma skpkg-env; }
-        skpkgm()  { cd "$DEVROOT/skpkg-baby/skpkg-manuscript" && ma skpkg-env; }
-        skpkgr()  { cd "$DEVROOT/skpkg-baby/release-scripts" && ma skpkg-env; }
+        skpkg()   { cd "$DEVROOT/skpkg" && mamba activate skpkg-env; }
+        skpkgw()  { cd "$DEVROOT/skpkg-baby/skpkg-workspace" && mamba activate skpkg-env; }
+        skpkgs()  { cd "$DEVROOT/skpkg-baby/skpkg-system" && mamba activate skpkg-env; }
+        skpkgc()  { cd "$DEVROOT/skpkg-baby/skpkg-conda-forge" && mamba activate skpkg-env; }
+        skpkgm()  { cd "$DEVROOT/skpkg-baby/skpkg-mamba activatenuscript" && mamba activate skpkg-env; }
+        skpkgr()  { cd "$DEVROOT/skpkg-baby/release-scripts" && mamba activate skpkg-env; }
         # bob-env projects
-        but()     { cd "$DEVROOT/my-package/bobleesj.utils" && ma bob-env; }
-        bw()    { cd "$DEVROOT/bobleesj.github.io" && ma bob-env && git pull ; }
-        bwd()    { cd "$DEVROOT/bobleesj.github.io" && ma bob-env && code . && d ; }
+        but()     { cd "$DEVROOT/my-package/bobleesj.utils" && mamba activate bob-env; }
+        bw()      { cd "$DEVROOT/bobleesj.github.io" && mamba activate bob-env && git pull; }
+        bwd()     { cd "$DEVROOT/bobleesj.github.io" && mamba activate bob-env && code . && d; }
         # cifkit-env projects
-        caf()     { cd "$DEVROOT/my-package/CAF" && ma cifkit-env; }
-        cba()     { cd "$DEVROOT/my-package/CBA" && ma cifkit-env; }
-        saf()     { cd "$DEVROOT/my-package/SAF" && ma cifkit-env; }
-        cifkit()  { cd "$DEVROOT/my-package/cifkit" && ma cifkit-env; }
-        cif()     { cd "$DEVROOT/my-package/cifkit" && ma cifkit-env; }
-        cifc()    { cd "$DEVROOT/cif-cleaner" && ma cifkit-env; }
-        cafapp()  { cd "$DEVROOT/CAF-app" && ma cifkit-env; }
-
+        caf()     { cd "$DEVROOT/my-package/CAF" && mamba activate cifkit-env; }
+        cba()     { cd "$DEVROOT/my-package/CBA" && mamba activate cifkit-env; }
+        saf()     { cd "$DEVROOT/my-package/SAF" && mamba activate cifkit-env; }
+        cifkit()  { cd "$DEVROOT/my-package/cifkit" && mamba activate cifkit-env; }
+        cif()     { cd "$DEVROOT/my-package/cifkit" && mamba activate cifkit-env; }
+        cifc()    { cd "$DEVROOT/cif-cleaner" && mamba activate cifkit-env; }
+        cafapp()  { cd "$DEVROOT/CAF-app" && mamba activate cifkit-env; }
         # Editable installs
         iskpkg()  { pip install -e "$DEVROOT/skpkg"; }
         ibut()    { pip install -e "$DEVROOT/my-package/bobleesj.utils"; }
-
         # URL navigations
         alias ggl='function _ggl() { open "https://www.google.com/search?q=$(echo "$*" | sed "s/ /+/g")"; }; _ggl "$@"'
         alias g='open https://github.com/bobleesj'
@@ -248,19 +246,19 @@ How to use keyboard shortcuts in your CLI
         alias gskpkgi='open https://github.com/scikit-package/scikit-package/issues'
         alias gskpkgp='open https://github.com/scikit-package/scikit-package/pulls'
         alias gbutils='open https://github.com/bobleesj/bobleesj.utils'
-        alias gbweb='open https://github.com/bobleesj/bobleesj.github.io'
-        # Single letter aliases
-
+        alias gbw='open https://github.com/bobleesj/bobleesj.github.io'
         # CV
         alias cv='nodemon --exec python cv.py --watch . --ext py,json'
         # bobleesj.utils
         alias bdlb='bob delete local-branches'
         alias bli='bob list issues'
+        alias bci='bob create issues'
+        # config files
         alias sc='code . ~/.zshrc'
         alias bc='code . ~/.bobrc'
         alias spc='code . ~/.skpkgrc'
         alias ss='source ~/.zshrc'
-        alias ec='code /Users/imac/Library/Application\ Support/espanso'
+        alias ec='code /Users/imac/Library/Application\ Support/espanso/match/base.yml'
         # git
         alias ga='git add'
         alias gc='git checkout'
@@ -277,7 +275,7 @@ How to use keyboard shortcuts in your CLI
         alias gacp='git add . && git commit -a -m "test commit" && git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)'
         alias gcam='git commit -a -m'
         gcamp() {
-          git commit -a -m "$@" && gpsuo
+          git commit -a -m "$@" && git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)
         }
         alias gce='git commit --allow-empty -m "ci: re-run CI with empty commit"'
         alias gcb='git checkout -b'
@@ -292,19 +290,31 @@ How to use keyboard shortcuts in your CLI
         alias gsob='gc main && git pull && gcb'
         alias gdsub='gc main && bdlb && git pull upstream main && gcb'
         alias gdsob='gc main && bdlb && git pull && gcb'
-        # github CLI
+        # Github web interface
+        alias ghb='gh browse'
+        alias ghbp='gh pr ls --web'
+        alias ghbi='gh issue list --web'
+        alias ghba='gh workflow list --web'
+        alias grsd='gh repo set-default'
+        # GitHub issues (view, create, comment, close)
+        alias gil='gh issue list'
+        gic()   { gh issue create -t "$1" -b ""; }
+        gicb()  { gh issue create --template "Bug Report or Feature Request" --title "$1" --editor ;}
+        gicm()  { gh issue comment "$1" --body "$2" && gh issue view "$1" --comments ;}
+        gicml() { gh issue comment "$1" --editor ;}
+        gicl()  { gh issue comment "$1" --body "$2" && gh issue close "$1" ;}
+        giv()   { gh issue view "$1" ;}
+        givw()  { gh issue view "$1" --web ;}
+        # GitHub PRs
         alias gpcr='gh pr create'
         alias gpl='gh pr list'
-        alias gpch='gh pr checkout'
         alias gpvw='gh pr view --web'
-        alias gil='gh issue list'
-        alias ghb='gh browse'
-        alias ghbi='gh issue list --web'
+        alias gpch='gh pr checkout'
         alias gpv='gh pr view'
+        # GitHub custom commands purely for convenience
         alias gbd='gh workflow run publish-docs-on-release.yml'
         alias gbds='gh run list --workflow=publish-docs-on-release.yml'
-        alias grsd='gh repo set-default'
-        # Combined
+        # Git & GH CLI combined
         alias gpsuop='gpsuo && gpcr'
         # Create news file, add, commit, push, and create PR with the same news title.
         _make_pr() {
@@ -344,12 +354,6 @@ How to use keyboard shortcuts in your CLI
         ndprf() { _make_pr "nd" "$1" "fill"; }
         nnpr()  { _make_pr "nn" "$1" ""; }
         nnprf() { _make_pr "nn" "$1" "fill"; }
-        gict() {
-          gh issue create -t "$1" -b ""
-        }
-        gi() {
-          gh issue create -t "$1" -b ""
-        }
         gto() {
           TAG="$1"
           git tag "$TAG" && git push origin "$TAG"
@@ -358,7 +362,6 @@ How to use keyboard shortcuts in your CLI
           TAG="$1"
           git tag "$TAG" && git push upstream "$TAG"
         }
-
         # Edit news file for the current branch
         alias ne='vim news/$(git rev-parse --abbrev-ref HEAD).rst'
         alias api='package build api-doc'
@@ -384,8 +387,9 @@ How to use keyboard shortcuts in your CLI
                 --file requirements/tests.txt \
                 --file requirements/conda.txt \
                 --file requirements/docs.txt && \
-                mamba activate "$env_name" && \
-                pip install -e .
+            mamba activate "$env_name" && \
+            pip install -e . --no-deps && \
+            pip install sphinx-reload pre-commit
         }
         # Jupyter Lab
         alias ji='jupyter lab'
@@ -444,157 +448,16 @@ How to use keyboard shortcuts in your CLI
           ENV_NAME="${PKG}-cf"
           echo "🔧 Creating environment: $ENV_NAME"
           mamba create -y -n "$ENV_NAME" "$PKG" || return 1
-
           echo "🚀 Activating environment..."
           source "$(conda info --base)/etc/profile.d/conda.sh"
           conda activate "$ENV_NAME" || return 1
-
           echo "📄 Installing requirements/tests.txt..."
-          mamba install -y --file requirements/tests.txt || return 1
-
+          mamba install -y --file requirements/tests.txt || return 1ss
           echo "🧪 Running tests with pytest..."
           pytest
         }
 
 
-
-#. Run ``source ~/.bashrc`` to apply the changes.
-
-#. To add or modify commands, type ``sc`` to open ``~/.bashrc`` in Visual Studio Code, make your changes, and save the file.
-
-#. To apply the changes, instead of running ``source ~/.bashrc``, type ``ss`` to apply the changes to your current terminal session.
-
-.. _text-expander-with-espanso:
-
-Use text expander to prevent typing the same text
--------------------------------------------------
-
-The goal is to **minimize the amount of typing** by setting custom aliases for nouns, pharses, and sentences. This aligns with :ref:`principle-minimum-effort-same-output`.
-
-The following instructions are tested on macOS.
-
-#. Install `espanso <https://espanso.org/>`_.
-
-#. Type ``ec`` defined in :ref:`keyboard-shortcuts-setup` to open the espanso configuration folder.
-
-#. In ``match/base.yml``, copy and paste the following configuration into the espanso configuration file
-
-    .. code-block:: yaml
-
-      # espanso match file
-      # For a complete introduction, visit the official docs at: https://espanso.org/docs/
-      matches:
-        # GitHub
-        - trigger: "lgtm"
-          replace: "Looks good to me!"
-        - trigger: "prr"
-          replace: "This is ready for review."
-        - trigger: "prc1"
-          replace: "Great start! Please see my in-line comments."
-        - trigger: "prc2"
-          replace: "Almost there... just a few more tweaks needed."
-        - trigger: "prm"
-          replace: "Looking good. Merging this PR!"
-        - trigger: "g1"
-          replace: "I think this is a great idea. I have a few thoughts."
-        - trigger: "g2"
-          replace: "This is great. Could you please implement this?"
-        - trigger: "c1"
-          replace: "Sorry I am a bit confused by this section because "
-        - trigger: "c2"
-          replace: "I might be missing something. Do you mind explaining "
-        - trigger: "i1"
-          replace: "Closes "
-        - trigger: "i2"
-          replace: "Closed by issue "
-        # Appreciate
-        - trigger: "a1"
-          replace: "Thanks!"
-        - trigger: "a2"
-          replace: "Thanks a lot!"
-        - trigger: "a3"
-          replace: "Thank you so much!"
-        - trigger: "a4"
-          replace: "Wow, this is awesome. Thank you so much!"
-        - trigger: "gbl"
-          replace: "@bobleesj "
-        # Billinge
-        - trigger: "gsb"
-          replace: "@sbillinge "
-        - trigger: "gtz"
-          replace: "@Tieqiong "
-        - trigger: "gcm"
-          replace: "@cadenmyers13 "
-        - trigger: "gyx"
-          replace: "@ycexiao "
-        - trigger: "gem"
-          replace: "@EmilJaffal "
-        # Oliynyk
-        - trigger: "gbs"
-          replace: "@balaranjan "
-        - trigger: "gds"
-          replace: "@dshirya "
-        # Projects
-        - trigger: "butils"
-          replace: "`bobleesj.utils` "
-        - trigger: "skpkgn"
-          replace: "`scikit-package` "
-        - trigger: "skpkgc"
-          replace: "`scikit-package-conda-forge` "
-        - trigger: "skpkgm"
-          replace: "`scikit-package-manuscript` "
-        - trigger: "skpkgs"
-          replace: "`scikit-package-system` "
-        - trigger: "skpkgw"
-          replace: "`scikit-package-workspace` "
-        # Checklist & pomodoro
-        - trigger: "po1"
-          replace: "Pomodoro #1 "
-        - trigger: "po2"
-          replace: "Pomodoro #2 "
-        - trigger: "po3"
-          replace: "Pomodoro #3 "
-        - trigger: "po4"
-          replace: "Pomodoro #4 "
-        - trigger: "po5"
-          replace: "Pomodoro #5 "
-        - trigger: "po6"
-          replace: "Pomodoro #6 "
-        - trigger: "po7"
-          replace: "Pomodoro #7 "
-        - trigger: "po8"
-          replace: "Pomodoro #8 "
-        - trigger: "po9"
-          replace: "Pomodoro #9 "
-        - trigger: "po10"
-          replace: "Pomodoro #10 "
-        - trigger: "poc"
-          replace: "[ ] "
-        - trigger: "pod"
-          replace: "[x] "
-        # Date, time
-        - trigger: ":date"
-          replace: "{{mydate}}"
-          vars:
-            - name: mydate
-              type: date
-              params:
-                format: "%b %-d, %Y"
-        - trigger: ":time"
-          replace: "{{mytime}}"
-          vars:
-            - name: mytime
-              type: date
-              params:
-                format: "%I:%M %p"
-        # Print the output of a shell command
-        - trigger: ":shell"
-          replace: "{{output}}"
-          vars:
-            - name: output
-              type: shell
-              params:
-                cmd: "echo 'Hello from your shell'"
 
 #. Now, you can use the defined triggers in any application. For example, typing ``lgtm`` will replace it with ``Looks good to me!``.
 

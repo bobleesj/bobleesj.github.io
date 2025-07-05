@@ -15,7 +15,7 @@ Core principles
 
 Using the principles above, I detail practices adopted in my open-source projects that align with these principles.
 
-1. **The path with the least physical and cognitive resistance** is what the leader should provide
+**The path with the least physical and cognitive resistance** is what the leader should provide
 ---------------------------------------------------------------------------------------------------
 
 Potential contributors have varying levels of experience. For some, making their first commit is a big step. The leader should recognize this effort and create a welcoming environment while maintaining standards. While experienced contributors may run linting tools locally, beginners may not be familiar with linting tools or the forking and cloning workflow.
@@ -26,7 +26,7 @@ With reduced resistance, we enable contributors to feel joy through the act of c
 
 Another example is demonstrated in ``scikit-package``. Here, packages that are ``scikit-package`` standardized attach a news file for each PR that is later compiled into the `CHANGELOG <https://github.com/scikit-package/scikit-package/blob/main/CHANGELOG.rst>`_ during full release. Previously, there was physical resistance. It was required to manually create a news file by running ``cp news/TEMPLATE.rst <branch-name>.rst`` and then manually adding the news item either from the terminal or a text editor. This was a barrier for first-time contributors. In the ``0.2.0`` release, I developed a CLI command that automatically generates the news file with the correct name and format, making it easier for contributors to add news items without worrying about the details on how the news files are generated and where they are located. This is an example of how we can provide a path of least resistance for contributors. They will eventually know once they find more joy from the process and become more engaged with the project.
 
-2. **How we work is often more important** than what we work on at the moment.
+**How we work is often more important** than what we work on at the moment.
 ------------------------------------------------------------------------------
 
 When I wake up, I open my GitHub mobile app. Seeing a **purple notification** indicating that my pull request has been merged—often accompanied by a thumbs-up emoji and a thank-you message—makes me smile. From this emotional response, we can draw an important lesson: **joy matters**. Joy attracts attention. It creates a positive feedback loop that encourages continued contributions and deepens engagement.
@@ -42,16 +42,16 @@ Autonomy is crucial. It fosters a sense of ownership, which is a deeply ingraine
 In fact, contributors are often excited to learn highly optimized practices. They appreciate it when a leader takes the time to explain the rationale behind a workflow. Ultimately, when contributors feel included in the process and see their impact, they experience a rare and valuable emotion: **joy**. And with that joy comes learning, recognition, and growth for both the individual and the project.
 
 
-3. The leader should **acknowledge every contributor**'s idea, bug finding, and feature in detail.
+The leader should **acknowledge every contributor**'s idea, bug finding, and feature in detail.
 ---------------------------------------------------------------------------------------------------
 
 To lower the barrier for first-time contributors, we kept the GitHub issue and pull request template as simple as possible. For example, the issue template at https://github.com/scikit-package/scikit-package/blob/main/.github/ISSUE_TEMPLATE/bug_feature.md is sufficient. It consists of “Problem” and “Proposed solution.” The “Proposed solution” section encourages the issue writer to think about the issue, explore, and develop a sense of ownership. It is like building IKEA furniture: as we spend more time with the tool, we own the process and the final product.
 
-When a bug is reported in a project and I fix it, in the pull request description, I thank the contributor for reporting the bug and explain in detail how it was fixed. This way, we keep contributors engaged. When a contributor suggests or implements a new feature, first, acknowledge that on the first page of the documentation and also, from time to time, tag the contributor when the feature is used so that we engage the contributor. The goal is to communicate their value and shore appreciation for their contributions. That's the least we can do. It must come from the leader of the project.
+When a bug is reported in a project by another contributor, in the pull request description, the leader should tag and appreciate the contributor for identifying the problem with other community members. When a contributor suggests or implements a new feature, first, acknowledge that on the first page of the documentation and also, from time to time, tag the contributor when the feature is used so that we engage the contributor and their contribution is valued.
 
-(FIXME: - Here mention how I congratulated Bala for his first PR contribution in ``cifkit``.)
+I had a close collaborator who made a `significant contribution <https://github.com/bobleesj/cifkit/pull/49>`_ to one of my projects that bosted the algorithm perfromance more than 10x by using vectorization with NumPy instead of using for-loops aligned with :ref:`principle-minimum-process`. I was so thankful for the PR that I wrote an email to all other main contributors. I am also writing about his contribution permanently in this document as well.
 
-1. The leader should provide **every resource to help spread** via word-of-mouth.
+The leader should provide **every resource to help spread** via word-of-mouth.
 ---------------------------------------------------------------------------------
 
 If useful, the software will be shared. GIFs can help, especially for interactive CLI tools and GUI-based applications. A simple list of selling points also helps with copy and paste via email when sharing with colleagues. If applicable, a URL link to Jupyter or web-based demos (for example, Google Colab) helps so people do not need to install anything to try it. The step-by-step “Getting Started” section should not be too long so first-time visitors are not overwhelmed. The path of least resistance is fundamental for early adopters.
