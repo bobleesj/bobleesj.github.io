@@ -52,6 +52,7 @@
 <li class="toctree-l1"><a class="reference internal" href="principles.html">My optimization principles</a></li>
 <li class="toctree-l1"><a class="reference internal" href="open-source-leadership.html">Guide for leading open-source software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="writing.html">Guide for written communication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decision-making.html">Guide for decision making</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">THOUGHTS</span></p>
 <ul>
@@ -66,13 +67,14 @@
 <li class="toctree-l1"><a class="reference internal" href="news.html">News</a></li>
 <li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Bob’s notes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#how-to-add-jupyter-notebooks-to-sphinx">How to add Jupyter notebooks to Sphinx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sphinx">Sphinx</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#add-jupyter-notebook">Add Jupyter notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-citation">Add citation</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#how-to-set-up-ssh-for-github">How to set up SSH for GitHub</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-to-install-mamba">How to install <code class="docutils literal notranslate"><span class="pre">mamba</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#set-vim-as-the-default-editor">Set <code class="docutils literal notranslate"><span class="pre">VIM</span></code> as the default editor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#keyboard-shortcuts-in-visual-studio-code">Keyboard shortcuts in Visual Studio Code</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#vim">Vim</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#some-other-decisions-to-speed-up-my-development-workflow">Some other decisions to speed up my development workflow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-to-upload-tex-using-minted-package-from-overleaf-to-arxiv">How to upload .tex using minted package from Overleaf to ArXiv</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#dependencies">Dependencies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#project-checklist">Project checklist</a></li>
@@ -91,6 +93,10 @@
 <li class="toctree-l4"><a class="reference internal" href="#example-4-equation-with-gathered">Example 4. <code class="docutils literal notranslate"><span class="pre">equation</span></code> with <code class="docutils literal notranslate"><span class="pre">gathered</span></code></a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">지식 경영 메뉴얼 - 이순철</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">나머지</a></li>
 </ul>
 </li>
 </ul>
@@ -123,13 +129,59 @@
              
   <section id="bob-s-notes">
 <h1>Bob’s notes<a class="headerlink" href="#bob-s-notes" title="Link to this heading"></a></h1>
-<section id="how-to-add-jupyter-notebooks-to-sphinx">
-<h2>How to add Jupyter notebooks to Sphinx<a class="headerlink" href="#how-to-add-jupyter-notebooks-to-sphinx" title="Link to this heading"></a></h2>
+<section id="sphinx">
+<h2>Sphinx<a class="headerlink" href="#sphinx" title="Link to this heading"></a></h2>
+<section id="add-jupyter-notebook">
+<h3>Add Jupyter notebook<a class="headerlink" href="#add-jupyter-notebook" title="Link to this heading"></a></h3>
+<p>You may want to render Jupyter notebooks and show outputs as shown in <a class="reference external" href="https://bobleesj.github.io/bobleesj.utils/notebooks/Oliynyk">https://bobleesj.github.io/bobleesj.utils/notebooks/Oliynyk</a>.</p>
 <ol class="arabic simple">
 <li><p>Add <code class="docutils literal notranslate"><span class="pre">ipykernel</span></code> and <code class="docutils literal notranslate"><span class="pre">nbsphinx</span></code>, and remove <code class="docutils literal notranslate"><span class="pre">m2r</span></code> from <code class="docutils literal notranslate"><span class="pre">requirements/docs.txt</span></code>.</p></li>
 <li><p>Add <code class="docutils literal notranslate"><span class="pre">nbsphinx_allow_errors</span> <span class="pre">=</span> <span class="pre">True</span></code> in <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>.</p></li>
-<li><p>Cross-check with <code class="docutils literal notranslate"><span class="pre">bobleesj.utils</span></code> (<a class="reference external" href="http://github.com/bobleesj/bobleesj.utils">http://github.com/bobleesj/bobleesj.utils</a>).</p></li>
+<li><p>Done!</p></li>
 </ol>
+<blockquote>
+<div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Did you encounter and problems? I recommend you to cross-check with the <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> file of <code class="docutils literal notranslate"><span class="pre">bobleesj.utils</span></code> in <a class="reference external" href="https://github.com/bobleesj/bobleesj.utils">https://github.com/bobleesj/bobleesj.utils</a>.</p>
+</div>
+</div></blockquote>
+</section>
+<section id="add-citation">
+<h3>Add citation<a class="headerlink" href="#add-citation" title="Link to this heading"></a></h3>
+<p>You may want to have a single of <code class="docutils literal notranslate"><span class="pre">.bib</span></code> where you put all citations and then use it throuhgout the documentation. For example, check this page how I cite papers in <a class="reference internal" href="decision-making.html#decision-making-guide"><span class="std std-ref">Guide for decision making</span></a>.</p>
+<ol class="arabic">
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">sphinxcontrib-bibtex</span></code> to <code class="docutils literal notranslate"><span class="pre">requirements/docs.txt</span></code>.</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">sphinxcontrib.bibtex</span></code> to <code class="docutils literal notranslate"><span class="pre">extensions</span></code> in <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>.</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">bibtex_bibfiles</span> <span class="pre">=</span> <span class="pre">['refs.bib']</span></code> in <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>.</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">mamba</span> <span class="pre">--file</span> <span class="pre">requirements/docs.text</span></code>.</p></li>
+<li><p>Create <code class="docutils literal notranslate"><span class="pre">refs.bib</span></code> under <code class="docutils literal notranslate"><span class="pre">docs</span></code>.</p></li>
+<li><p>Copy and paste the following into <code class="docutils literal notranslate"><span class="pre">refs.bib</span></code>:</p>
+<blockquote>
+<div><div class="highlight-bib notranslate"><div class="highlight"><pre><span></span><span class="nc">@article</span><span class="p">{</span><span class="nl">nature22336</span><span class="p">,</span>
+<span class="w">  </span><span class="na">author</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Schlebusch, Carina M. and others}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">title</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Southern African ancient genomes estimate modern human divergence to 350,000 to 260,000 years ago}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Nature}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">volume</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{546}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">pages</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{293--296}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">year</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{2017}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">url</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{https://www.nature.com/articles/nature22336}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>In your <code class="docutils literal notranslate"><span class="pre">.rst</span></code> file, write <code class="docutils literal notranslate"><span class="pre">This</span> <span class="pre">is</span> <span class="pre">from</span> <span class="pre">:cite:`nature22336`.</span></code>.</p></li>
+<li><p>At the botton of the <code class="docutils literal notranslate"><span class="pre">.rst</span></code> file, add</p>
+<blockquote>
+<div><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>.. bibliography:: refs.bib
+   :style: plain
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Done! Add more to the <code class="docutils literal notranslate"><span class="pre">refs.bib</span></code> file as needed. You should see a nicely rendered cited section as shown in <span class="xref std std-ref">decision-guide-ref</span></p></li>
+</ol>
+</section>
 </section>
 <section id="how-to-set-up-ssh-for-github">
 <h2>How to set up SSH for GitHub<a class="headerlink" href="#how-to-set-up-ssh-for-github" title="Link to this heading"></a></h2>
@@ -202,46 +254,6 @@ $<span class="w"> </span>mamba<span class="w"> </span>shell<span class="w"> </sp
 </pre></div>
 </div>
 </section>
-<section id="keyboard-shortcuts-in-visual-studio-code">
-<h2>Keyboard shortcuts in Visual Studio Code<a class="headerlink" href="#keyboard-shortcuts-in-visual-studio-code" title="Link to this heading"></a></h2>
-<ul class="simple">
-<li><p>Fix multiple lines at once? Press <code class="docutils literal notranslate"><span class="pre">opt</span> <span class="pre">+</span> <span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">up/down</span></code>.</p></li>
-<li><p>View other parts of the file? Press <code class="docutils literal notranslate"><span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">PageUp/PageDown</span></code>. Press <code class="docutils literal notranslate"><span class="pre">ctrl</span> <span class="pre">+</span> <span class="pre">g</span></code> to move the cursor.</p></li>
-<li><p>View recently closed files? Use <code class="docutils literal notranslate"><span class="pre">ctrl</span> <span class="pre">+</span> <span class="pre">tab</span></code>. This mimics the way you switch recent applications using <code class="docutils literal notranslate"><span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">tab</span></code>.</p></li>
-<li><p>Switch between tabs in the current window? Press <code class="docutils literal notranslate"><span class="pre">opt</span> <span class="pre">+</span> <span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">left/right</span></code>.</p></li>
-<li><p>Go to the file after <code class="docutils literal notranslate"><span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">shift</span> <span class="pre">+</span> <span class="pre">F</span></code>? Press˙ <code class="docutils literal notranslate"><span class="pre">F4</span></code> and <code class="docutils literal notranslate"><span class="pre">shift</span> <span class="pre">+</span> <span class="pre">F4</span></code>. This allows you to quickly jump to the next or previous search result.</p></li>
-<li><p>Globally replace text? Press <code class="docutils literal notranslate"><span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">shift</span> <span class="pre">+</span> <span class="pre">h</span></code>.</p></li>
-<li><p>Move previous cursor position. Press <code class="docutils literal notranslate"><span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">u</span></code></p></li>
-<li><p>Remove line space below? Press <code class="docutils literal notranslate"><span class="pre">ctrl</span> <span class="pre">+</span> <span class="pre">j</span></code>.</p></li>
-<li><p>Highlight a line? Press <code class="docutils literal notranslate"><span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">l</span></code>.</p></li>
-<li><p>Duplicate a line? Press <code class="docutils literal notranslate"><span class="pre">opt</span> <span class="pre">+</span> <span class="pre">shift</span> <span class="pre">+</span> <span class="pre">up/down</span></code>.</p></li>
-<li><p>Switch cursor between widnwos? <code class="docutils literal notranslate"><span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">k</span></code> and then <code class="docutils literal notranslate"><span class="pre">→</span></code> or <code class="docutils literal notranslate"><span class="pre">←</span></code>.</p></li>
-</ul>
-</section>
-<section id="vim">
-<h2>Vim<a class="headerlink" href="#vim" title="Link to this heading"></a></h2>
-<ul class="simple">
-<li><p>When writing a GitHub issue, you may want to write under each header. A simple way is to go to the line with <code class="docutils literal notranslate"><span class="pre">&lt;line-number&gt;G</span></code> and then press <code class="docutils literal notranslate"><span class="pre">o</span></code>. If you want to append text at the end of the file or in the middle, use <code class="docutils literal notranslate"><span class="pre">G</span></code> or <code class="docutils literal notranslate"><span class="pre">L</span></code>, and then press <code class="docutils literal notranslate"><span class="pre">o</span></code>. To modify the title, use <code class="docutils literal notranslate"><span class="pre">gg</span></code> to go to the first line and press <code class="docutils literal notranslate"><span class="pre">A</span></code> to append text at the end of the line.</p></li>
-<li><p>To navigate easily, use the arrow replacements: <code class="docutils literal notranslate"><span class="pre">h</span></code>, <code class="docutils literal notranslate"><span class="pre">j</span></code>, <code class="docutils literal notranslate"><span class="pre">k</span></code>, and <code class="docutils literal notranslate"><span class="pre">l</span></code>. Use <code class="docutils literal notranslate"><span class="pre">w</span></code> and <code class="docutils literal notranslate"><span class="pre">e</span></code> to move forward by word, and <code class="docutils literal notranslate"><span class="pre">b</span></code> and <code class="docutils literal notranslate"><span class="pre">ge</span></code> to move backward. If you don’t want to count every punctuation mark or space, use <code class="docutils literal notranslate"><span class="pre">W</span></code>, <code class="docutils literal notranslate"><span class="pre">E</span></code>, <code class="docutils literal notranslate"><span class="pre">B</span></code>, and <code class="docutils literal notranslate"><span class="pre">gE</span></code> to move by word without counting punctuation marks or spaces.</p></li>
-<li><p>To insert before the cursor, use <code class="docutils literal notranslate"><span class="pre">i</span></code>; after the cursor, use <code class="docutils literal notranslate"><span class="pre">a</span></code>. To insert at the beginning of the line, use <code class="docutils literal notranslate"><span class="pre">I</span></code>. To insert at the end of the line, use <code class="docutils literal notranslate"><span class="pre">A</span></code>.</p></li>
-<li><p><strong>Fix quick typos?</strong> Press <code class="docutils literal notranslate"><span class="pre">x</span></code> to delete the character under the cursor or <code class="docutils literal notranslate"><span class="pre">r</span></code> to replace the character. Use <code class="docutils literal notranslate"><span class="pre">X</span></code> to delete the character before the cursor. To delete more than one character, use <code class="docutils literal notranslate"><span class="pre">&lt;number&gt;x</span></code> or <code class="docutils literal notranslate"><span class="pre">&lt;number&gt;r</span></code>. For example, to delete 3 characters, use <code class="docutils literal notranslate"><span class="pre">3x</span></code> or <code class="docutils literal notranslate"><span class="pre">3r</span></code>. To delete 3 characters to the left of the cursor, use <code class="docutils literal notranslate"><span class="pre">3X</span></code>.</p></li>
-<li><p><strong>Want to make bigger fixes?</strong> Use <code class="docutils literal notranslate"><span class="pre">dd</span></code> to delete the current line, or <code class="docutils literal notranslate"><span class="pre">D</span></code> to delete from the cursor to the end of the line. To change a word, use <code class="docutils literal notranslate"><span class="pre">cw</span></code> (deletes the word from the cursor to the right and enters insert mode). Use <code class="docutils literal notranslate"><span class="pre">cc</span></code> to delete the current line and enter insert mode.</p></li>
-<li><p><strong>Tired of counting the number of characters?</strong> You can simply identify the start of the word you want to modify. The key commands are <code class="docutils literal notranslate"><span class="pre">f</span></code> and <code class="docutils literal notranslate"><span class="pre">t</span></code>. <code class="docutils literal notranslate"><span class="pre">f&lt;char&gt;</span></code> moves the cursor to the next <code class="docutils literal notranslate"><span class="pre">&lt;char&gt;</span></code> on the right. <code class="docutils literal notranslate"><span class="pre">t&lt;char&gt;</span></code> moves the cursor to the character before the next <code class="docutils literal notranslate"><span class="pre">&lt;char&gt;</span></code> on the right. <code class="docutils literal notranslate"><span class="pre">F&lt;char&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">T&lt;char&gt;</span></code> do the same in the opposite direction. This is useful when you need to delete a few characters using <code class="docutils literal notranslate"><span class="pre">df&lt;char&gt;</span></code> or <code class="docutils literal notranslate"><span class="pre">dt&lt;char&gt;</span></code>. To repeat the last command, use <code class="docutils literal notranslate"><span class="pre">;</span></code>. To repeat in the opposite direction, use <code class="docutils literal notranslate"><span class="pre">,</span></code>.</p></li>
-<li><p><strong>Want to copy and paste?</strong> Press <code class="docutils literal notranslate"><span class="pre">yy</span></code> to copy the line, and <code class="docutils literal notranslate"><span class="pre">p</span></code> or <code class="docutils literal notranslate"><span class="pre">P</span></code> to paste below or above the cursor.</p></li>
-<li><p><strong>Made a mistake?</strong> Use <code class="docutils literal notranslate"><span class="pre">u</span></code> to undo and <code class="docutils literal notranslate"><span class="pre">ctrl-r</span></code> to redo. To undo multiple times, use <code class="docutils literal notranslate"><span class="pre">&lt;number&gt;u</span></code>. For example, <code class="docutils literal notranslate"><span class="pre">3u</span></code> will undo the last three changes.</p></li>
-</ul>
-</section>
-<section id="some-other-decisions-to-speed-up-my-development-workflow">
-<h2>Some other decisions to speed up my development workflow<a class="headerlink" href="#some-other-decisions-to-speed-up-my-development-workflow" title="Link to this heading"></a></h2>
-<p>Using Visual Studio Code’s built-in terminal</p>
-<blockquote>
-<div><p><strong>While developing</strong> software—such as adding new content to my personal website—I prefer using Visual Studio Code’s built-in terminal instead of an external terminal. There are a few reasons for this.</p>
-<p>First, I can open the terminal within VS Code by pressing <code class="docutils literal notranslate"><span class="pre">ctrl</span> <span class="pre">+</span> <span class="pre">`</span></code> the first time, and then <code class="docutils literal notranslate"><span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">j</span></code> for subsequent uses, which is much more convenient ergonomically. In contrast, accessing an external terminal requires <code class="docutils literal notranslate"><span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">tab</span></code> or using Spotlight search. Often, it is necessary to press <code class="docutils literal notranslate"><span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">tab</span></code> multiple times to find the terminal application. For Spotlight search, I have to type the first letter of the terminal application, which adds both physical and cognitive overhead. Using the principle of “same output, minimum input,” the <code class="docutils literal notranslate"><span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">j</span></code> shortcut in VS Code requires the least effort (Principle #1).</p>
-<p>Second, the external terminal window is often positioned differently or displayed alongside other applications, requiring me to constantly switch focus between the terminal and the VS Code editor. This increases my cognitive load (Principle #1).</p>
-<p>Third, reading GitHub issues is much easier in full-screen mode within VS Code. In contrast, the external terminal usually opens in a smaller window to work side by side with other applications like Visual Studio or when hosting a server, which often requires resizing to match the content. This adds both physical effort and additional mental overhead (Principle #1).</p>
-<p>Fourth, I use <code class="docutils literal notranslate"><span class="pre">sc</span></code> and <code class="docutils literal notranslate"><span class="pre">ec</span></code> alias shortcuts to open Visual Studio Code to modify configuration files. Running these commands opens the configuration file within the current VS Code editor, so it saves time (Principle #3) and reduces cognitive overload since my brain doesn’t have to process a new window being created or require me to type an extra shortcut to adjust the window size (Principle #1).</p>
-</div></blockquote>
-</section>
 <section id="how-to-upload-tex-using-minted-package-from-overleaf-to-arxiv">
 <h2>How to upload .tex using minted package from Overleaf to ArXiv<a class="headerlink" href="#how-to-upload-tex-using-minted-package-from-overleaf-to-arxiv" title="Link to this heading"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">minted</span></code> package for code highlighting isn’t natively supported by ArXiv, while it is natively rendered in Overleaf. We need to do some extra steps to render the minted code blocks since we can’t upload a PDF file directly to ArXiv as a result. The following steps are adapted from <a class="reference external" href="https://tex.stackexchange.com/a/558082">https://tex.stackexchange.com/a/558082</a>.</p>
@@ -283,90 +295,30 @@ pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="
 <h2>Project checklist<a class="headerlink" href="#project-checklist" title="Link to this heading"></a></h2>
 <p>The checklist below can be used to improve usability, marketability, and open-source development experience.</p>
 <ul class="simple">
-<li><dl class="simple">
-<dt><strong>Naming the project</strong></dt><dd><ul>
-<li><p>I have chosen an easy-to-remember name for the project</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>Addressing the problem</strong></dt><dd><ul>
-<li><p>Does the documentation clearly state the problem that the project addresses at the beginning</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>Project description</strong></dt><dd><ul>
-<li><p>Have you included a compelling one-liner for the project</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>Installation instructions</strong></dt><dd><ul>
-<li><p>Is there a one-line installation solution provided in the documentation</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>Visual guidance</strong></dt><dd><ul>
-<li><p>Have you used GIFs or screenshots to visually demonstrate how to use the project or what the outputs look like</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>Roadmap</strong></dt><dd><ul>
-<li><p>Is there a roadmap included in the documentation to outline future plans and features</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>Authors and acknowledgements</strong></dt><dd><ul>
-<li><p>Have you listed the authors and provided acknowledgements to contributors or third-party resources</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>License information</strong></dt><dd><ul>
-<li><p>Is the license clearly stated and included in the project documentation</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>Project status</strong></dt><dd><ul>
-<li><p>Have you indicated the current status of the project (e.g., active development, maintenance mode)</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>Contribution guidelines</strong></dt><dd><ul>
-<li><p>Are there clear guidelines on how to contribute to the project</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>Seeking help</strong></dt><dd><ul>
-<li><p>Have you provided instructions on how to ask for help or report issues</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>Version control</strong> (Optional)</dt><dd><ul>
-<li><p>Have you made a simple log or version control system visible or mentioned in the documentation</p></li>
-</ul>
-</dd>
-</dl>
-</li>
+<li><p><strong>Naming the project</strong>
+- An easy-to-remember name for the project has been chosen</p></li>
+<li><p><strong>Addressing the problem</strong>
+- The documentation clearly states the problem that the project addresses at the beginning</p></li>
+<li><p><strong>Project description</strong>
+- A compelling one-liner for the project is included</p></li>
+<li><p><strong>Installation instructions</strong>
+- A one-line installation solution is provided in the documentation</p></li>
+<li><p><strong>Visual guidance</strong>
+- GIFs or screenshots are used to visually demonstrate how to use the project or what the outputs look like</p></li>
+<li><p><strong>Roadmap</strong>
+- A roadmap is included in the documentation to outline future plans and features</p></li>
+<li><p><strong>Authors and acknowledgements</strong>
+- Authors are listed and acknowledgements to contributors or third-party resources are provided</p></li>
+<li><p><strong>License information</strong>
+- The license is clearly stated and included in the project documentation</p></li>
+<li><p><strong>Project status</strong>
+- The current status of the project (e.g., active development, maintenance mode) is indicated</p></li>
+<li><p><strong>Contribution guidelines</strong>
+- Clear guidelines on how to contribute to the project are provided</p></li>
+<li><p><strong>Seeking help</strong>
+- Instructions on how to ask for help or report issues are provided</p></li>
+<li><p><strong>Version control</strong> (Optional)
+- A simple log or version control system is visible or mentioned in the documentation</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Naming method 1</span>
 <span class="n">CN_min</span><span class="p">,</span> <span class="n">CN_max</span><span class="p">,</span> <span class="n">CN_avg</span>
@@ -616,6 +568,40 @@ y = mx + c
 </pre></div>
 </div>
 </section>
+</section>
+</section>
+<section id="id1">
+<h2>지식 경영 메뉴얼 - 이순철<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p>2025년 7월 초, 한국에서 친구를 만났다. 지인의 회사 일정은 1학기와 2학기로 나뉘어 있으며, 진급에 필요한 학점을 이용해 필요한 수업을 들어야 한다고 말했다. 회사가 학교처럼 운영이 된다니… 몇 주 전, ‘지식 경영 메뉴얼’이라는 아버지의 책을 읽었다. 25년이 넘은 책이지만, 학습 조직이라는 개념에 대해 좀 더 알고 싶었다. 책을 읽고 중요한 내용을 아래에 정리했다. 먼저 지식경영의 정의를 알고, 책에 나온 내용을 나에게 맞게 정리했다. 책 내용 이외에도 지식경영에 대한 나의 생각을 추가했다.</p>
+<p>知識經營의 目標</p>
+<p>“지식경영은 조직이 지닌 지적 자산뿐만 아니라 구성원 개개인의 지식이나 노하우를 체계적으로 발굴하여 조직 내부의 보편적인 지식으로 공유하고, 이를 활용해 조직 전체의 경쟁력을 향상시키는 경영 이론이다.”</p>
+<p>새로운 기술이 도입되더라도 사용법을 모르면 기술은 의미가 없다. 내부 역량을 파악해야 하며, 교육을 통해 기술을 활용할 수 있는 역량을 키워야 한다. 또한, 나는 업무에 바로 사용할 수 있는 외부 교육을 제공한다. 교육 시 실제 경험과 교훈을 제공하여 업무에 적용할 수 있도록 한다.</p>
+<p>지식의 조회가 쉬워야 한다. 누구나 쉽게 사례별로 지식을 조회하고 활용할 수 있어야 한다. 또한, 지식이 쉽게 업데이트될 수 있도록 지식 데이터베이스를 구축하고 보상을 제공한다.</p>
+<p>학습은 미래의 기회를 창출하기 위한 투자이다. 일반 기업은 업무 이외의 학습 시간을 주어 조직원이 새로운 기술을 익혀 새로운 먹거리를 창출할 수 있도록 한다. 또한, 학습은 조직의 단기적 사업 목표를 이루게 한다. 학습을 권장해야 한다. 따라서, 교육과 학습은 비용 관점이나 복지 관점이 아닌 투자 관점에서 바라보아야 한다.</p>
+<p>교육에 필요한 인적 자원, 회의실, 컴퓨터 등을 제공한다.</p>
+<p>지식 공유를 권장한다. 지식을 공유하는 것이 구조조정의 대상이 아님을 알려야 한다. 신뢰와 존경의 대상이 된다는 것을 상기시킨다. 종업원의 학습 활동을 대외적으로 인정한다. 승진 체계, 지식 공유 시상, 컨퍼런스 발표, 뉴스레터 기고, 감사 편지 등이 있다.</p>
+<p>전문가의 지식이 조직의 지식 자산이 될 수 있도록 한다.</p>
+<section id="id2">
+<h3>나머지<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p>상황에 따라 실수를 용인하는 조직이어야 한다.</p>
+<p>부서 간 신뢰가 중요하다. 신뢰를 통해 서로 도움이 되는 관계를 형성하고, 조직의 이익과 서로의 이익을 위해 협력한다. 조직 계층을 넘나드는 발표회, 프로젝트 회의, 기술 세미나 등을 통해 지식을 공유하며 서로 간의 접점을 늘려 신뢰 관계를 형성한다. 선입견과 편견을 버리고 서로 신뢰하는 것이 중요하다. 이를 위해 서로 물리적으로 접촉하는 것이 중요하다.</p>
+<p>종업원 모두가 피드백을 줄 수 있도록 참여하게 한다. 반대 의견에 중점을 두지 않고, 가급적 많은 의견을 수렴한다.</p>
+<p>原則</p>
+<ul class="simple">
+<li><p>最高經營層 學習 目標 樹立 參與</p></li>
+</ul>
+<p>討論方法</p>
+<ul class="simple">
+<li><p>反對 意見 自制</p></li>
+<li><p>發言權 獨占 自制</p></li>
+</ul>
+<p>技術敎育 戰略</p>
+<ul class="simple">
+<li><p>教育 前, 매니저는 교육 목적 및 사업 연관성을 파악</p></li>
+<li><p>教育 前, 매니저는 피교육자의 역량을 파악</p></li>
+<li><p>教育 前, 기술 사용 경험을 피교육자가 제공</p></li>
+<li><p>教育 後, 매니저는 피교육자의 사업 활용 여부를 모니터링하고 현장 교육을 실시</p></li>
+</ul>
 </section>
 </section>
 </section>

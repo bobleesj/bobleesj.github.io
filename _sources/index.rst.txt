@@ -15,7 +15,7 @@ If you are a researcher, feel free to visit the :ref:`research` page to see if t
 
 .. note::
 
-   This website is maintained with the help of ``scikit-package`` (https://scikit-package.github.io/scikit-package).
+   My website is developed and maintained using the ``scikit-package`` (https://scikit-package.github.io/scikit-package) Level 5 standards. It's easy to share work with the community!
 
 .. toctree::
    :maxdepth: 2
@@ -27,6 +27,7 @@ If you are a researcher, feel free to visit the :ref:`research` page to see if t
    principles
    open-source-leadership
    writing
+   decision-making
 
 
 .. toctree::
@@ -35,9 +36,6 @@ If you are a researcher, feel free to visit the :ref:`research` page to see if t
    :caption: THOUGHTS
 
    essays
-   .. science/pdf
-   .. science/electron-ptychography
-   .. science/crystallography
 
 .. toctree::
    :maxdepth: 2

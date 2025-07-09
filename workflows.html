@@ -67,12 +67,22 @@
 <li class="toctree-l3"><a class="reference internal" href="#update-online-documentation-without-a-release">Update online documentation without a release</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#how-to-use-keyboard-shortcuts-in-your-cli">How to use keyboard shortcuts in your CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#keyboard-shortcut">Keyboard shortcut</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cli-commands">CLI commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#visual-studio-code">Visual Studio Code</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#vim">Vim</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#vim-configuration">Vim configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#some-other-decisions-to-speed-up-my-development-workflow">Some other decisions to speed up my development workflow</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="principles.html">My optimization principles</a></li>
 <li class="toctree-l1"><a class="reference internal" href="open-source-leadership.html">Guide for leading open-source software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="writing.html">Guide for written communication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decision-making.html">Guide for decision making</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">THOUGHTS</span></p>
 <ul>
@@ -115,7 +125,7 @@
              
   <section id="development-workflows">
 <span id="workflows"></span><h1>Development workflows<a class="headerlink" href="#development-workflows" title="Link to this heading"></a></h1>
-<p>Here I document the workflows and commands I use in practice to develop and maintain software projects. Many of the commands are aliased to make them easier to remember and use. You can find the full list of commands in <a class="reference internal" href="#keyboard-shortcuts-setup"><span class="std std-ref">How to use keyboard shortcuts in your CLI</span></a>.</p>
+<p>Here I document the workflows and commands I use in practice to develop and maintain software projects. Many of the commands are aliased to make them easier to remember and use. You can find the full list of commands in <a class="reference internal" href="#keyboard-shortcuts-setup"><span class="std std-ref">Keyboard shortcut</span></a>.</p>
 <section id="tools-i-use-daily">
 <span id="tools-used-daily"></span><h2>Tools I use daily<a class="headerlink" href="#tools-i-use-daily" title="Link to this heading"></a></h2>
 <table class="docutils align-default">
@@ -144,7 +154,7 @@
 </tr>
 <tr class="row-even"><td><p>CLI shortcuts</p></td>
 <td><p>Bash shell</p></td>
-<td><p><a class="reference internal" href="#keyboard-shortcuts-setup"><span class="std std-ref">How to use keyboard shortcuts in your CLI</span></a></p></td>
+<td><p><a class="reference internal" href="#keyboard-shortcuts-setup"><span class="std std-ref">Keyboard shortcut</span></a></p></td>
 </tr>
 <tr class="row-odd"><td><p>Text expander/shortcut</p></td>
 <td><p><a class="reference external" href="https://espanso.org/">espanso</a></p></td>
@@ -166,7 +176,7 @@
 <p>If you are not familiar with GitHub, please first read my guide on the <a class="reference external" href="https://scikit-package.github.io/scikit-package/support/frequently-asked-questions.html#github-workflow">GitHub workflow</a>. I also recommend starting with the <a class="reference external" href="https://scikit-package.github.io/scikit-package/tutorials/tutorial-level-4.html">Level 4 tutorial</a> of <code class="docutils literal notranslate"><span class="pre">scikit-package</span></code> to actually use GitHub, GitHub Actions, and the GitHub pull request workflow using your own project. Then you should be able to utilize the commands in this section.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The alias commands like <code class="docutils literal notranslate"><span class="pre">gsub</span></code> are defined in <a class="reference internal" href="#keyboard-shortcuts-setup"><span class="std std-ref">How to use keyboard shortcuts in your CLI</span></a>.</p>
+<p>The alias commands like <code class="docutils literal notranslate"><span class="pre">gsub</span></code> are defined in <a class="reference internal" href="#keyboard-shortcuts-setup"><span class="std std-ref">Keyboard shortcut</span></a>.</p>
 </div>
 <section id="make-a-new-pull-request">
 <h3>Make a new pull request<a class="headerlink" href="#make-a-new-pull-request" title="Link to this heading"></a></h3>
@@ -180,10 +190,21 @@
 <blockquote>
 <div><div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>To submit the PR right away without choosing PR template, type <code class="docutils literal notranslate"><span class="pre">naprf</span> <span class="pre">&quot;&lt;Add</span> <span class="pre">news</span> <span class="pre">file&gt;.&quot;</span></code> This may be useful for trivial changes that do not require a detailed PR description.</p>
+<p>To submit the PR right away without choosing PR template, type <code class="docutils literal notranslate"><span class="pre">naprf</span> <span class="pre">&quot;&lt;Add</span> <span class="pre">news</span> <span class="pre">file&gt;.&quot;</span></code> This may be useful for trivial changes that do not require a detailed PR description</p>
 </div>
 </div></blockquote>
 </li>
+<li><p>Choose the PR template, and continue in the web browser.</p>
+<blockquote>
+<div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It can be more efficient to write the PR description in the web browser with potentially attaching screenshots.</p>
+</div>
+</div></blockquote>
+</li>
+<li><p>Before submtiting, review the files changed, to ensure we don’t make another commit that would spam reviewers and watchers.</p></li>
+<li><p>Once the title and the description are ready, press <code class="docutils literal notranslate"><span class="pre">shift-cmd-enter</span></code> to submit the PR.</p></li>
+<li><p>Once the PR is ready for review, use <code class="docutils literal notranslate"><span class="pre">g&lt;two-letters&gt;</span></code> to tag the reviewer and type <code class="docutils literal notranslate"><span class="pre">prr</span></code> which renders to <code class="docutils literal notranslate"><span class="pre">Ready</span> <span class="pre">for</span> <span class="pre">review</span></code> using the espanso text expander.</p></li>
 </ol>
 </section>
 <section id="modify-a-pull-request">
@@ -275,8 +296,10 @@
 </ol>
 </section>
 </section>
-<section id="how-to-use-keyboard-shortcuts-in-your-cli">
-<span id="keyboard-shortcuts-setup"></span><h2>How to use keyboard shortcuts in your CLI<a class="headerlink" href="#how-to-use-keyboard-shortcuts-in-your-cli" title="Link to this heading"></a></h2>
+<section id="keyboard-shortcut">
+<span id="keyboard-shortcuts-setup"></span><h2>Keyboard shortcut<a class="headerlink" href="#keyboard-shortcut" title="Link to this heading"></a></h2>
+<section id="cli-commands">
+<h3>CLI commands<a class="headerlink" href="#cli-commands" title="Link to this heading"></a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If you are a Windows user, install “Git for Windows” from <a class="reference external" href="https://git-scm.com/download/win">https://git-scm.com/download/win</a>.</p>
@@ -565,6 +588,69 @@ testcf<span class="o">()</span><span class="w"> </span><span class="o">{</span>
 <li><p>To turn off/on espanso, in <code class="docutils literal notranslate"><span class="pre">config/default.yml</span></code>, uncomment <code class="docutils literal notranslate"><span class="pre">toggle_key:</span> <span class="pre">ALT</span></code>. Now, you can toggle espanso on and off by pressing the <code class="docutils literal notranslate"><span class="pre">Opt</span></code> key twice.</p></li>
 <li><p>To see the list of matches, presss the <code class="docutils literal notranslate"><span class="pre">Opt-Space</span></code> keys together.</p></li>
 </ul>
+</div></blockquote>
+</section>
+<section id="visual-studio-code">
+<h3>Visual Studio Code<a class="headerlink" href="#visual-studio-code" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fix multiple lines at once? Press <code class="docutils literal notranslate"><span class="pre">opt</span> <span class="pre">+</span> <span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">up/down</span></code>.</p></li>
+<li><p>View other parts of the file? Press <code class="docutils literal notranslate"><span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">PageUp/PageDown</span></code>. Press <code class="docutils literal notranslate"><span class="pre">ctrl</span> <span class="pre">+</span> <span class="pre">g</span></code> to move the cursor.</p></li>
+<li><p>View recently closed files? Use <code class="docutils literal notranslate"><span class="pre">ctrl</span> <span class="pre">+</span> <span class="pre">tab</span></code>. This mimics the way you switch recent applications using <code class="docutils literal notranslate"><span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">tab</span></code>.</p></li>
+<li><p>Switch between tabs in the current window? Press <code class="docutils literal notranslate"><span class="pre">opt</span> <span class="pre">+</span> <span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">left/right</span></code>.</p></li>
+<li><p>Go to the file after <code class="docutils literal notranslate"><span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">shift</span> <span class="pre">+</span> <span class="pre">F</span></code>? Press˙ <code class="docutils literal notranslate"><span class="pre">F4</span></code> and <code class="docutils literal notranslate"><span class="pre">shift</span> <span class="pre">+</span> <span class="pre">F4</span></code>. This allows you to quickly jump to the next or previous search result.</p></li>
+<li><p>Globally replace text? Press <code class="docutils literal notranslate"><span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">shift</span> <span class="pre">+</span> <span class="pre">h</span></code>.</p></li>
+<li><p>Move previous cursor position. Press <code class="docutils literal notranslate"><span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">u</span></code></p></li>
+<li><p>Remove line space below? Press <code class="docutils literal notranslate"><span class="pre">ctrl</span> <span class="pre">+</span> <span class="pre">j</span></code>.</p></li>
+<li><p>Highlight a line? Press <code class="docutils literal notranslate"><span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">l</span></code>.</p></li>
+<li><p>Duplicate a line? Press <code class="docutils literal notranslate"><span class="pre">opt</span> <span class="pre">+</span> <span class="pre">shift</span> <span class="pre">+</span> <span class="pre">up/down</span></code>.</p></li>
+<li><p>Switch cursor between widnwos? <code class="docutils literal notranslate"><span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">k</span></code> and then <code class="docutils literal notranslate"><span class="pre">→</span></code> or <code class="docutils literal notranslate"><span class="pre">←</span></code>.</p></li>
+<li><p>Turn on/off Copilot?  <code class="docutils literal notranslate"><span class="pre">ctrl-cmd-z</span></code> for writing.</p></li>
+</ul>
+</section>
+</section>
+<section id="vim">
+<h2>Vim<a class="headerlink" href="#vim" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>If you want to copy a few lines below, enter the line Visual Mode using <code class="docutils literal notranslate"><span class="pre">shift-V</span></code>, use <code class="docutils literal notranslate"><span class="pre">j</span></code> to select multiple files, then either use <code class="docutils literal notranslate"><span class="pre">d</span></code> or <code class="docutils literal notranslate"><span class="pre">y</span></code> to cut or copy the lines.</p></li>
+<li><p>When writing a GitHub issue, you may want to write under each header. A simple way is to go to the line with <code class="docutils literal notranslate"><span class="pre">&lt;line-number&gt;G</span></code> and then press <code class="docutils literal notranslate"><span class="pre">o</span></code>. If you want to append text at the end of the file or in the middle, use <code class="docutils literal notranslate"><span class="pre">G</span></code> or <code class="docutils literal notranslate"><span class="pre">L</span></code>, and then press <code class="docutils literal notranslate"><span class="pre">o</span></code>. To modify the title, use <code class="docutils literal notranslate"><span class="pre">gg</span></code> to go to the first line and press <code class="docutils literal notranslate"><span class="pre">A</span></code> to append text at the end of the line.</p></li>
+<li><p>Naviate within the line? Use <code class="docutils literal notranslate"><span class="pre">$</span></code> and <code class="docutils literal notranslate"><span class="pre">0</span></code> to go the ends of the line.</p></li>
+<li><p>To navigate between letters and words, use the arrow replacements: <code class="docutils literal notranslate"><span class="pre">h</span></code>, <code class="docutils literal notranslate"><span class="pre">j</span></code>, <code class="docutils literal notranslate"><span class="pre">k</span></code>, and <code class="docutils literal notranslate"><span class="pre">l</span></code>. Use <code class="docutils literal notranslate"><span class="pre">w</span></code> and <code class="docutils literal notranslate"><span class="pre">e</span></code> to move forward by word, and <code class="docutils literal notranslate"><span class="pre">b</span></code> and <code class="docutils literal notranslate"><span class="pre">ge</span></code> to move backward. If you don’t want to count every punctuation mark or space, use <code class="docutils literal notranslate"><span class="pre">W</span></code>, <code class="docutils literal notranslate"><span class="pre">E</span></code>, <code class="docutils literal notranslate"><span class="pre">B</span></code>, and <code class="docutils literal notranslate"><span class="pre">gE</span></code> to move by word without counting punctuation marks or spaces.</p></li>
+<li><p>To insert before the cursor, use <code class="docutils literal notranslate"><span class="pre">i</span></code>; after the cursor, use <code class="docutils literal notranslate"><span class="pre">a</span></code>. To insert at the beginning of the line, use <code class="docutils literal notranslate"><span class="pre">I</span></code>. To insert at the end of the line, use <code class="docutils literal notranslate"><span class="pre">A</span></code>.</p></li>
+<li><p><strong>Tired of counting the number of characters?</strong> You can simply identify the start of the word you want to modify. The key commands are <code class="docutils literal notranslate"><span class="pre">f</span></code> and <code class="docutils literal notranslate"><span class="pre">t</span></code>. <code class="docutils literal notranslate"><span class="pre">f&lt;char&gt;</span></code> moves the cursor to the next <code class="docutils literal notranslate"><span class="pre">&lt;char&gt;</span></code> on the right. <code class="docutils literal notranslate"><span class="pre">t&lt;char&gt;</span></code> moves the cursor to the character before the next <code class="docutils literal notranslate"><span class="pre">&lt;char&gt;</span></code> on the right. <code class="docutils literal notranslate"><span class="pre">F&lt;char&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">T&lt;char&gt;</span></code> do the same in the opposite direction. This is useful when you need to delete a few characters using <code class="docutils literal notranslate"><span class="pre">df&lt;char&gt;</span></code> or <code class="docutils literal notranslate"><span class="pre">dt&lt;char&gt;</span></code>. To repeat the last command, use <code class="docutils literal notranslate"><span class="pre">;</span></code>. To repeat in the opposite direction, use <code class="docutils literal notranslate"><span class="pre">,</span></code>.</p></li>
+<li><p><strong>Fix quick typos?</strong> Press <code class="docutils literal notranslate"><span class="pre">x</span></code> to delete the character under the cursor or <code class="docutils literal notranslate"><span class="pre">r</span></code> to replace the character. Use <code class="docutils literal notranslate"><span class="pre">X</span></code> to delete the character before the cursor. To delete more than one character, use <code class="docutils literal notranslate"><span class="pre">&lt;number&gt;x</span></code> or <code class="docutils literal notranslate"><span class="pre">&lt;number&gt;r</span></code>. For example, to delete 3 characters, use <code class="docutils literal notranslate"><span class="pre">3x</span></code> or <code class="docutils literal notranslate"><span class="pre">3r</span></code>. To delete 3 characters to the left of the cursor, use <code class="docutils literal notranslate"><span class="pre">3X</span></code>.</p></li>
+<li><p><strong>Want to make bigger fixes?</strong> Use <code class="docutils literal notranslate"><span class="pre">dd</span></code> to delete the current line, or <code class="docutils literal notranslate"><span class="pre">D</span></code> to delete from the cursor to the end of the line. To change a word, use <code class="docutils literal notranslate"><span class="pre">cw</span></code> (deletes the word from the cursor to the right and enters insert mode). Use <code class="docutils literal notranslate"><span class="pre">cc</span></code> to delete the current line and enter insert mode.</p></li>
+<li><p><strong>Copy and paste?</strong> Press <code class="docutils literal notranslate"><span class="pre">yy</span></code> to copy the line, and <code class="docutils literal notranslate"><span class="pre">p</span></code> or <code class="docutils literal notranslate"><span class="pre">P</span></code> to paste below or above the cursor.</p></li>
+<li><p><strong>Show line numbers?</strong> Type <code class="docutils literal notranslate"><span class="pre">:set</span> <span class="pre">number</span></code> and press Enter.</p></li>
+<li><p><strong>Move cursor to the middle?</strong> press <code class="docutils literal notranslate"><span class="pre">zz</span></code>.</p></li>
+<li><p><strong>Made a mistake?</strong> Use <code class="docutils literal notranslate"><span class="pre">u</span></code> to undo and <code class="docutils literal notranslate"><span class="pre">ctrl-r</span></code> to redo. To undo multiple times, use <code class="docutils literal notranslate"><span class="pre">&lt;number&gt;u</span></code>. For example, <code class="docutils literal notranslate"><span class="pre">3u</span></code> will undo the last three changes.</p></li>
+<li><p><strong>Swap two lines?</strong> Type <code class="docutils literal notranslate"><span class="pre">:m+1</span></code>.</p></li>
+<li><p><strong>Scroll the page?</strong> Press <code class="docutils literal notranslate"><span class="pre">ctrl-f/b</span></code>.</p></li>
+</ul>
+<section id="vim-configuration">
+<h3>Vim configuration<a class="headerlink" href="#vim-configuration" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>To change the default setting, <code class="docutils literal notranslate"><span class="pre">vi</span> <span class="pre">~/.vimrc</span></code> and add <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">number</span></code> to the file.</p></li>
+<li><p>To exit without saving, <code class="docutils literal notranslate"><span class="pre">:q!</span></code>.</p></li>
+<li><p>To save and exit, <code class="docutils literal notranslate"><span class="pre">:wq</span></code> or <code class="docutils literal notranslate"><span class="pre">:x</span></code>.</p></li>
+<li><p>To save, <code class="docutils literal notranslate"><span class="pre">:w</span></code>.</p></li>
+<li><p>To exit, save, and rename, <code class="docutils literal notranslate"><span class="pre">:w</span> <span class="pre">&lt;new-name&gt;</span></code>.</p></li>
+</ul>
+</section>
+</section>
+<section id="some-other-decisions-to-speed-up-my-development-workflow">
+<h2>Some other decisions to speed up my development workflow<a class="headerlink" href="#some-other-decisions-to-speed-up-my-development-workflow" title="Link to this heading"></a></h2>
+<p>Using Visual Studio Code’s built-in terminal</p>
+<blockquote>
+<div><p><strong>While developing</strong> software—such as adding new content to my personal website—I prefer using Visual Studio Code’s built-in terminal instead of an external terminal. There are a few reasons for this.</p>
+<p>First, I can open the terminal within VS Code by pressing <code class="docutils literal notranslate"><span class="pre">ctrl</span> <span class="pre">+</span> <span class="pre">`</span></code> the first time, and then <code class="docutils literal notranslate"><span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">j</span></code>. In contrast, accessing an external terminal requires <code class="docutils literal notranslate"><span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">tab</span></code> or using Spotlight search. Often, it is necessary to press <code class="docutils literal notranslate"><span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">tab</span></code> multiple times to find the terminal application. For Spotlight search, I have to type the first letter of the terminal application, which adds both physical and cognitive overhead. Using the principle of “same output, minimum input,” the <code class="docutils literal notranslate"><span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">j</span></code> shortcut in VS Code requires the least effort (Principle #1).</p>
+<p>Second, the external terminal window is often positioned differently or displayed alongside other applications, requiring me to constantly switch focus between the terminal and the VS Code editor. This increases my cognitive load (Principle #1).</p>
+<p>Third, reading GitHub issues is much easier in full-screen mode within VS Code. In contrast, the external terminal usually opens in a smaller window to work side by side with other applications like Visual Studio or when hosting a server, which often requires resizing to match the content. This adds both physical effort and additional mental overhead (Principle #1).</p>
+<p>Fourth, I use <code class="docutils literal notranslate"><span class="pre">sc</span></code> and <code class="docutils literal notranslate"><span class="pre">ec</span></code> alias shortcuts to open Visual Studio Code to modify configuration files. Running these commands opens the configuration file within the current VS Code editor, so it saves time (Principle #3) and reduces cognitive overload since my brain doesn’t have to process a new window being created or require me to type an extra shortcut to adjust the window size (Principle #1).</p>
+</div></blockquote>
+<p>Monitor setup</p>
+<blockquote>
+<div><p>I like to use two monitors: one directly in front of me and another vertically oriented monitor on the right side, where I list my tasks, track time, and monitor the progression of my pomodoro sessions. This setup allows me to keep my neck and eyes focused on the main monitor without twisting my waist. The second monitor provides a sense of momentum and progress, as I can see my
+tasks without switching to another application.</p>
 </div></blockquote>
 </section>
 </section>
