@@ -1,12 +1,61 @@
 Bob's notes
 ===========
 
-How to add Jupyter notebooks to Sphinx
---------------------------------------
+Sphinx
+-------
 
-1. Add ``ipykernel`` and ``nbsphinx``, and remove ``m2r`` from ``requirements/docs.txt``.
-2. Add ``nbsphinx_allow_errors = True`` in ``conf.py``.
-3. Cross-check with ``bobleesj.utils`` (http://github.com/bobleesj/bobleesj.utils).
+Add Jupyter notebook
+^^^^^^^^^^^^^^^^^^^^^
+
+You may want to render Jupyter notebooks and show outputs as shown in https://bobleesj.github.io/bobleesj.utils/notebooks/Oliynyk.
+
+#. Add ``ipykernel`` and ``nbsphinx``, and remove ``m2r`` from ``requirements/docs.txt``.
+#. Add ``nbsphinx_allow_errors = True`` in ``conf.py``.
+#. Done! 
+
+  .. note::
+    
+    Did you encounter and problems? I recommend you to cross-check with the ``conf.py`` file of ``bobleesj.utils`` in https://github.com/bobleesj/bobleesj.utils.
+
+Add citation
+^^^^^^^^^^^^
+
+You may want to have a single of ``.bib`` where you put all citations and then use it throuhgout the documentation. For example, check this page how I cite papers in :ref:`decision-making-guide`.
+
+#. Add ``sphinxcontrib-bibtex`` to ``requirements/docs.txt``.
+
+#. Add ``sphinxcontrib.bibtex`` to ``extensions`` in ``conf.py``.
+
+#. Add ``bibtex_bibfiles = ['refs.bib']`` in ``conf.py``.
+
+#. Run ``mamba --file requirements/docs.text``.
+
+#. Create ``refs.bib`` under ``docs``. 
+
+#. Copy and paste the following into ``refs.bib``:
+
+    .. code-block:: bib
+
+        @article{nature22336,
+          author = {Schlebusch, Carina M. and others},
+          title = {Southern African ancient genomes estimate modern human divergence to 350,000 to 260,000 years ago},
+          journal = {Nature},
+          volume = {546},
+          pages = {293--296},
+          year = {2017},
+          url = {https://www.nature.com/articles/nature22336}
+        }
+
+#. In your ``.rst`` file, write ``This is from :cite:`nature22336`.``.
+
+#. At the botton of the ``.rst`` file, add 
+
+    .. code-block:: text
+
+      .. bibliography:: refs.bib
+         :style: plain
+
+#. Done! Add more to the ``refs.bib`` file as needed. You should see a nicely rendered cited section as shown in :ref:`decision-guide-ref`
 
 How to set up SSH for GitHub
 ----------------------------
@@ -98,17 +147,9 @@ Keyboard shortcuts in Visual Studio Code
 - Duplicate a line? Press ``opt + shift + up/down``.
 - Switch cursor between widnwos? ``cmd + k`` and then ``→`` or ``←``.
 
-Vim 
----
+Some custom key bindings
+- Enable/disable GitHub Copilot ``ctrl-cmd-z`` for writing.
 
-- When writing a GitHub issue, you may want to write under each header. A simple way is to go to the line with ``<line-number>G`` and then press ``o``. If you want to append text at the end of the file or in the middle, use ``G`` or ``L``, and then press ``o``. To modify the title, use ``gg`` to go to the first line and press ``A`` to append text at the end of the line.
-- To navigate easily, use the arrow replacements: ``h``, ``j``, ``k``, and ``l``. Use ``w`` and ``e`` to move forward by word, and ``b`` and ``ge`` to move backward. If you don't want to count every punctuation mark or space, use ``W``, ``E``, ``B``, and ``gE`` to move by word without counting punctuation marks or spaces.
-- To insert before the cursor, use ``i``; after the cursor, use ``a``. To insert at the beginning of the line, use ``I``. To insert at the end of the line, use ``A``.
-- **Fix quick typos?** Press ``x`` to delete the character under the cursor or ``r`` to replace the character. Use ``X`` to delete the character before the cursor. To delete more than one character, use ``<number>x`` or ``<number>r``. For example, to delete 3 characters, use ``3x`` or ``3r``. To delete 3 characters to the left of the cursor, use ``3X``.
-- **Want to make bigger fixes?** Use ``dd`` to delete the current line, or ``D`` to delete from the cursor to the end of the line. To change a word, use ``cw`` (deletes the word from the cursor to the right and enters insert mode). Use ``cc`` to delete the current line and enter insert mode.
-- **Tired of counting the number of characters?** You can simply identify the start of the word you want to modify. The key commands are ``f`` and ``t``. ``f<char>`` moves the cursor to the next ``<char>`` on the right. ``t<char>`` moves the cursor to the character before the next ``<char>`` on the right. ``F<char>`` and ``T<char>`` do the same in the opposite direction. This is useful when you need to delete a few characters using ``df<char>`` or ``dt<char>``. To repeat the last command, use ``;``. To repeat in the opposite direction, use ``,``.
-- **Want to copy and paste?** Press ``yy`` to copy the line, and ``p`` or ``P`` to paste below or above the cursor.
-- **Made a mistake?** Use ``u`` to undo and ``ctrl-r`` to redo. To undo multiple times, use ``<number>u``. For example, ``3u`` will undo the last three changes.
 
 Some other decisions to speed up my development workflow
 --------------------------------------------------------

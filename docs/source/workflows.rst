@@ -463,3 +463,31 @@ How to use keyboard shortcuts in your CLI
 
   - To turn off/on espanso, in ``config/default.yml``, uncomment ``toggle_key: ALT``. Now, you can toggle espanso on and off by pressing the ``Opt`` key twice.
   - To see the list of matches, presss the ``Opt-Space`` keys together.
+
+
+Vim 
+---
+
+- If you want to copy a few lines below, enter the line Visual Mode using ``shift-V``, use ``j`` to select multiple files, then either use ``d`` or ``y`` to cut or copy the lines.
+- When writing a GitHub issue, you may want to write under each header. A simple way is to go to the line with ``<line-number>G`` and then press ``o``. If you want to append text at the end of the file or in the middle, use ``G`` or ``L``, and then press ``o``. To modify the title, use ``gg`` to go to the first line and press ``A`` to append text at the end of the line.
+- Naviate within the line? Use ``$`` and ``0`` to go the ends of the line.
+- To navigate between letters and words, use the arrow replacements: ``h``, ``j``, ``k``, and ``l``. Use ``w`` and ``e`` to move forward by word, and ``b`` and ``ge`` to move backward. If you don't want to count every punctuation mark or space, use ``W``, ``E``, ``B``, and ``gE`` to move by word without counting punctuation marks or spaces.
+- To insert before the cursor, use ``i``; after the cursor, use ``a``. To insert at the beginning of the line, use ``I``. To insert at the end of the line, use ``A``.
+- **Tired of counting the number of characters?** You can simply identify the start of the word you want to modify. The key commands are ``f`` and ``t``. ``f<char>`` moves the cursor to the next ``<char>`` on the right. ``t<char>`` moves the cursor to the character before the next ``<char>`` on the right. ``F<char>`` and ``T<char>`` do the same in the opposite direction. This is useful when you need to delete a few characters using ``df<char>`` or ``dt<char>``. To repeat the last command, use ``;``. To repeat in the opposite direction, use ``,``.
+- **Fix quick typos?** Press ``x`` to delete the character under the cursor or ``r`` to replace the character. Use ``X`` to delete the character before the cursor. To delete more than one character, use ``<number>x`` or ``<number>r``. For example, to delete 3 characters, use ``3x`` or ``3r``. To delete 3 characters to the left of the cursor, use ``3X``.
+- **Want to make bigger fixes?** Use ``dd`` to delete the current line, or ``D`` to delete from the cursor to the end of the line. To change a word, use ``cw`` (deletes the word from the cursor to the right and enters insert mode). Use ``cc`` to delete the current line and enter insert mode.
+- **Copy and paste?** Press ``yy`` to copy the line, and ``p`` or ``P`` to paste below or above the cursor.
+- **Show line numbers?** Type ``:set number`` and press Enter.
+- **Move cursor to the middle?** press ``zz``.
+- **Made a mistake?** Use ``u`` to undo and ``ctrl-r`` to redo. To undo multiple times, use ``<number>u``. For example, ``3u`` will undo the last three changes.
+- **Swap two lines?** Type ``:m+1``.
+- **Scroll the page?** Press ``ctrl-f/b``.
+
+Vim configuration
+^^^^^^^^^^^^^^^^^
+
+- To change the default setting, ``vi ~/.vimrc`` and add ``set number`` to the file.
+- To exit without saving, ``:q!``.
+- To save and exit, ``:wq`` or ``:x``.
+- To save, ``:w``.
+- To exit, save, and rename, ``:w <new-name>``.

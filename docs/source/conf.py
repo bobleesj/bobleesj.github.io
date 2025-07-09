@@ -37,6 +37,7 @@ ab_authors = "Sangjoon Lee"
 # ones.
 extensions = [
     "sphinx.ext.autodoc",
+    "sphinxcontrib.bibtex",
     "sphinx.ext.napoleon",
     "sphinx.ext.todo",
     "sphinx.ext.viewcode",
@@ -44,6 +45,10 @@ extensions = [
     "sphinx_rtd_theme",
     "sphinx_copybutton",
 ]
+
+# sphinxcontrib.bibtex
+bibtex_bibfiles = ['refs.bib']
+
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]

@@ -2,3 +2,4 @@ sphinx
 sphinx_rtd_theme
 doctr
 sphinx-copybutton
+sphinxcontrib-bibtex
