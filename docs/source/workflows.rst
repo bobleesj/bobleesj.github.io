@@ -67,7 +67,19 @@ Make a new pull request
 
     .. note::
 
-      To submit the PR right away without choosing PR template, type ``naprf "<Add news file>."`` This may be useful for trivial changes that do not require a detailed PR description.
+      To submit the PR right away without choosing PR template, type ``naprf "<Add news file>."`` This may be useful for trivial changes that do not require a detailed PR description
+  
+#. Choose the PR template, and continue in the web browser.
+
+    .. note::
+      
+      It can be more efficient to write the PR description in the web browser with potentially attaching screenshots.
+
+#. Before submtiting, review the files changed, to ensure we don't make another commit that would spam reviewers and watchers.
+
+#. Once the title and the description are ready, press ``shift-cmd-enter`` to submit the PR.
+
+#. Once the PR is ready for review, use ``g<two-letters>`` to tag the reviewer and type ``prr`` which renders to ``Ready for review`` using the espanso text expander.
 
 Modify a pull request
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -171,8 +183,11 @@ For minor changes, often making a whole pull request is not necessary, such as f
 
 .. _keyboard-shortcuts-setup:
 
-How to use keyboard shortcuts in your CLI
------------------------------------------
+Keyboard shortcut
+-----------------
+
+CLI commands
+^^^^^^^^^^^^
 
 .. note::
 
@@ -457,13 +472,27 @@ How to use keyboard shortcuts in your CLI
           pytest
         }
 
-
-
 #. Now, you can use the defined triggers in any application. For example, typing ``lgtm`` will replace it with ``Looks good to me!``.
 
   - To turn off/on espanso, in ``config/default.yml``, uncomment ``toggle_key: ALT``. Now, you can toggle espanso on and off by pressing the ``Opt`` key twice.
   - To see the list of matches, presss the ``Opt-Space`` keys together.
 
+
+Visual Studio Code
+^^^^^^^^^^^^^^^^^^
+
+- Fix multiple lines at once? Press ``opt + cmd + up/down``.
+- View other parts of the file? Press ``cmd + PageUp/PageDown``. Press ``ctrl + g`` to move the cursor.
+- View recently closed files? Use ``ctrl + tab``. This mimics the way you switch recent applications using ``cmd + tab``. 
+- Switch between tabs in the current window? Press ``opt + cmd + left/right``.
+- Go to the file after ``cmd + shift + F``? Press˙ ``F4`` and ``shift + F4``. This allows you to quickly jump to the next or previous search result.
+- Globally replace text? Press ``cmd + shift + h``.
+- Move previous cursor position. Press ``cmd + u``
+- Remove line space below? Press ``ctrl + j``.
+- Highlight a line? Press ``cmd + l``.
+- Duplicate a line? Press ``opt + shift + up/down``.
+- Switch cursor between widnwos? ``cmd + k`` and then ``→`` or ``←``.
+- Turn on/off Copilot?  ``ctrl-cmd-z`` for writing.
 
 Vim 
 ---
@@ -491,3 +520,25 @@ Vim configuration
 - To save and exit, ``:wq`` or ``:x``.
 - To save, ``:w``.
 - To exit, save, and rename, ``:w <new-name>``.
+
+
+Some other decisions to speed up my development workflow
+--------------------------------------------------------
+
+Using Visual Studio Code's built-in terminal
+
+    **While developing** software—such as adding new content to my personal website—I prefer using Visual Studio Code's built-in terminal instead of an external terminal. There are a few reasons for this.
+
+    First, I can open the terminal within VS Code by pressing ``ctrl + ``` the first time, and then ``cmd + j``. In contrast, accessing an external terminal requires ``cmd + tab`` or using Spotlight search. Often, it is necessary to press ``cmd + tab`` multiple times to find the terminal application. For Spotlight search, I have to type the first letter of the terminal application, which adds both physical and cognitive overhead. Using the principle of "same output, minimum input," the ``cmd + j`` shortcut in VS Code requires the least effort (Principle #1).
+
+    Second, the external terminal window is often positioned differently or displayed alongside other applications, requiring me to constantly switch focus between the terminal and the VS Code editor. This increases my cognitive load (Principle #1).
+
+    Third, reading GitHub issues is much easier in full-screen mode within VS Code. In contrast, the external terminal usually opens in a smaller window to work side by side with other applications like Visual Studio or when hosting a server, which often requires resizing to match the content. This adds both physical effort and additional mental overhead (Principle #1).
+
+    Fourth, I use ``sc`` and ``ec`` alias shortcuts to open Visual Studio Code to modify configuration files. Running these commands opens the configuration file within the current VS Code editor, so it saves time (Principle #3) and reduces cognitive overload since my brain doesn't have to process a new window being created or require me to type an extra shortcut to adjust the window size (Principle #1).
+
+Monitor setup
+
+  I like to use two monitors: one directly in front of me and another vertically oriented monitor on the right side, where I list my tasks, track time, and monitor the progression of my pomodoro sessions. This setup allows me to keep my neck and eyes focused on the main monitor without twisting my waist. The second monitor provides a sense of momentum and progress, as I can see my 
+  tasks without switching to another application.
+

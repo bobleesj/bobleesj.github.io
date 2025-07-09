@@ -50,6 +50,7 @@ repos:
       - id: prettier
         additional_dependencies:
           - "prettier@^3.2.4"
+    exclude: .*_app\.py
   # docformatter - PEP 257 compliant docstring formatter
   - repo: https://github.com/s-weigand/docformatter
     rev: 5757c5190d95e5449f102ace83df92e7d3b06c6c
