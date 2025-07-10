@@ -1,6 +1,29 @@
 Essays
 ======
 
+Life in the context of entropy
+------------------------------
+
+“The whole is greater than the sum of its parts,” said Aristotle. The phenomenon of being a whole allows living organisms to momentarily resist the trajectory of nature guided by entropy.
+
+Entropy is expressed as the degree of possible rearrangements for components within a system. Being integrated as a whole reduces the number of possible arrangements.
+
+Humans, as living organisms, momentarily resist and defy the course of nature. We consume and digest highly complex energy sources such as proteins and carbohydrates and attempt to maintain functional unity. The idea of consuming low-entropy food, or "negentropy," was discussed by Schrödinger in his 1944 book *What is Life?*
+
+A living organism is characterized by the ability to maintain homeostasis—the fight against disintegration. Our immune system, blood flow, and digestive system circulate and prevent the accumulation of the bad. Yet, we will eventually decompose, following the call of entropy, resulting in a greater number of arrangements of scattered atoms and molecules.
+
+While alive, we develop tightly coupled and sophisticated genetic information in the form of DNA, providing the code for our offspring to continue the fight for survival against nature over billions of years. Our fight continues.
+
+So, how do we live a full life? There are many answers based on one's perspective. Some are religious points of view. But there is one commonality for all of us in the context of entropy.
+
+We are more defined as human, and we live by doing activities that reduce entropy: the ability to focus, use consciousness, form civilization through laws and physical structures, and remain in control rather than succumb to randomness. However, above all, nurturing and giving birth to a child can be considered the most human and living act possible from the context of entropy.
+
+Another attempt is the use of "mimesis," the replication of ideas and thoughts that form culture. We also attempt to decrease entropy by providing a blueprint of ideas for the next generation. This was discussed in the book *The Selfish Gene* by Richard Dawkins.
+
+There is no right way to live as a human being. But we can attempt to live fully by guiding our activities toward a low-entropy state. We must appreciate it and use it while we can. We only have about 1,000 months or so. Then, we are gone.
+
+July 11, 2025, Incheon, South Korea
+
 The value of poster presentations in scientific conferences
 -----------------------------------------------------------
 
