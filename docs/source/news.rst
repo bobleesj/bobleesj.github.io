@@ -50,10 +50,10 @@ I developed Python software for coordination envionrment chracterization of RE23
 Featured news
 -------------
 
-#. Professor Topper and Sangjoon Lee ChE’23 Share New Computational Methods for Atmospheric Nanoparticles Research (https://cooper.edu/engineering/news/professor-topper-and-sangjoon-lee-che23-share-new-computational-methods)
+#. Professor Topper and Sangjoon Lee ChE'23 Share New Computational Methods for Atmospheric Nanoparticles Research (https://cooper.edu/engineering/news/professor-topper-and-sangjoon-lee-che23-share-new-computational-methods)
 
 #. Introducing Our 2022 STEM Teaching Fellows (https://cooper.edu/engineering/news/introducing-our-2022-stem-teaching-fellows)
 
-#. Cooper Union’s First Undergraduate Research Symposium (https://cooper.edu/engineering/news/cooper-unions-first-undergraduate-research-symposium)
+#. Cooper Union's First Undergraduate Research Symposium (https://cooper.edu/engineering/news/cooper-unions-first-undergraduate-research-symposium)
 
 #. Cooper Undergraduate Research Club Hosts Spring Research Seminar and What's Next for Their Club Founders (https://cooper.edu/engineering/news/cooper-undergraduate-research-club-hosts-spring-research-seminar-and-whats-next)

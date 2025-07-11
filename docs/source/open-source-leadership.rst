@@ -8,7 +8,7 @@ About 10 years ago, I started using GitHub to distribute tutorial source code fo
 Core principles
 ---------------
 
-1. The path of **least resistance (pain) guides human behavior**. It is the leader’s responsibility to provide this path for contributors in every aspect of the project, from installation and tutorials to documentation and development guides.
+1. The path of **least resistance (pain) guides human behavior**. It is the leader's responsibility to provide this path for contributors in every aspect of the project, from installation and tutorials to documentation and development guides.
 2. **Joy is the driving force.** Volunteer-based contributors seek joy and meaning in exchange for their time. The leader must recognize that time and effort are valuable and treat them with respect.
 3. **No contributor wants to sabotage the project**. Contributors join the community with good intentions but may have different experiences and skills. The leader must ensure that even those with the least experience can contribute and attain joy from the process.
 4. **How we work is often more important than what we work on**. What we work on is temporary, but how we work forms the *culture*. There are multiple routes to achieve the same goal. The leader must ensure the process is enjoyable and rewarding. Without joy, the reason to contribute diminishes, and the project may lose valuable contributors.

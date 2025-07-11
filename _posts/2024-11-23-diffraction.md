@@ -139,7 +139,7 @@ It recovers phase information.
 
 Q. What is phase information?
 
-The position of the wave in the oscillatory cycle. Phase changes can highliyh fine structures that might not show up in intensity data alone. The phase can directly link with samples’ thickness, density and compositon.
+The position of the wave in the oscillatory cycle. Phase changes can highliyh fine structures that might not show up in intensity data alone. The phase can directly link with samples' thickness, density and compositon.
 
 Q. so my unerstnadinfg is that4D stem gives 4D info per reach real space and the difrraction pattern but the thing is that we want to do not only look at individual but take a whole and we want to recover the phase? like diffraction interfering?
 
@@ -299,19 +299,19 @@ Ptchography excels at capturing detailed phase image and useful how material mod
 Q. Now that you have multis lace ptychography for in situ, how can you reconstruct , it inherently lends to 3D reconstruction
 
 Q. What information is needed to guess and get refined later?
-You need to set the amplitude, meaning how much wave’s intensity is reduced by the sample. Them,
+You need to set the amplitude, meaning how much wave's intensity is reduced by the sample. Them,
 
 Q. So what is the algorithm about?
 The goal is to utilize the diffraction patterns recorded to reconstruct the real-space structure of the sample. Ptchography captures both amplitude and phase information, so the phase retrieval algorithm is crucial for obtaining the phase of the exit wave at each point in the sample.
 
 Q. How do you acquire the phase information?
-You start with the initial sample’s structure and guess intensity and phase of the sample’s Elton wave at each point. After diffraction, it gives you amplitude, not the phase. Then, the diffraction patterns obtained from the simulation ad then compared with the experimental diffraction data. We are primarily interested in the phase after the electron has scattered.
+You start with the initial sample's structure and guess intensity and phase of the sample's Elton wave at each point. After diffraction, it gives you amplitude, not the phase. Then, the diffraction patterns obtained from the simulation ad then compared with the experimental diffraction data. We are primarily interested in the phase after the electron has scattered.
 
 Q, How does the phase tell you information about the structure?
 
 Q. Also do you model a single electron and the phase associated with the electron?
 
-Q. But again, why are we doing this instead of using just regular 3D? Why can’t we just use the microscope to observe he 2D and then eventually form 3D by combining 2D images?
+Q. But again, why are we doing this instead of using just regular 3D? Why can't we just use the microscope to observe he 2D and then eventually form 3D by combining 2D images?
 If you use a flat 2D project to build a 3D structure, the full depth information is hard to acquire. Even
 
 Q. What is tomography?

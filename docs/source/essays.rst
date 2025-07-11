@@ -8,7 +8,7 @@ Life in the context of entropy
 
 Entropy is expressed as the degree of possible rearrangements for components within a system. Being integrated as a whole reduces the number of possible arrangements.
 
-Humans, as living organisms, momentarily resist and defy the course of nature. We consume and digest highly complex energy sources such as proteins and carbohydrates and attempt to maintain functional unity. The idea of consuming low-entropy food, or "negentropy," was discussed by Schrödinger in his 1944 book *What is Life?*
+Humans, as living organisms, momentarily resist and defy the course of nature. We consume and digest highly complex and chemically ordered energy sources such as proteins and carbohydrates and attempt to maintain functional unity. The idea of consuming low-entropy food, or "negentropy," was discussed by Schrödinger in his 1944 book *What is Life?*
 
 A living organism is characterized by the ability to maintain homeostasis—the fight against disintegration. Our immune system, blood flow, and digestive system circulate and prevent the accumulation of the bad. Yet, we will eventually decompose, following the call of entropy, resulting in a greater number of arrangements of scattered atoms and molecules.
 
@@ -23,6 +23,29 @@ Another attempt is the use of "mimesis," the replication of ideas and thoughts t
 There is no right way to live as a human being. But we can attempt to live fully by guiding our activities toward a low-entropy state. We must appreciate it and use it while we can. We only have about 1,000 months or so. Then, we are gone.
 
 July 11, 2025, Incheon, South Korea
+
+Procrastination is natural
+--------------------------
+
+The subconscious brain can detect whether an upcoming task is associated with pain. Our brains are capable of recording and processing information without our conscious awareness—dreaming is a prime example. Over the past five years, I have had to write and prepare reports, exams, manuscripts, and tests. I have experienced procrastination. In this document, I discuss why procrastination is a natural behavior and how I manage it.
+
+I am not a historian. We are biologically inclined to avoid pain and seek immediate pleasure. I imagine our ancestors only foraged for food when they were hungry, endured great suffering from disease and animal attacks, lived short lives, and faced extremely high child mortality rates. A long-term perspective likely gained importance after the agricultural revolution, which started about 12,000 years ago. Written language and arithmetic must have developed around this time to support planning, maintenance, and recordkeeping for agriculture. Twelve thousand years is not a long time from an evolutionary perspective. That is why I like to think that our primal instincts, shaped before the agricultural revolution, have the dominant influence on our behaviors today. In this context, procrastination is a natural and protective response to avoid immediate cognitive suffering.
+
+Since the agricultural revolution, long-term thinking has become increasingly important and rewarding. The classic Stanford marshmallow experiment demonstrates that children who delay gratification tend to succeed more in life. Still, facing painful tasks like writing introductions or correcting mistakes on graded papers remains difficult. I often remind myself: *"Do not overestimate willpower; do not underestimate biology."* It is more effective to *engineer* our reward systems than to rely on willpower alone. We are wired to avoid discomfort and seek comfort. The key is to use this tendency to our advantage.
+
+The Pomodoro Technique is one of my most effective strategies. It offers a clear endpoint, a "win." Knowing there is an end to the task matters. I dedicate specific Pomodoro sessions to each task (50 minutes of focused work followed by a 10-minute break). The idea of a short, defined session helps reduce resistance. After four Pomodoros, I reward myself with either a nap or team sports. Over time, this has trained my brain to associate focused work with eventual pleasure.
+
+But there is still activation energy required to begin a Pomodoro session. Having a goal helps, but it's often not big enough to get me started. For example, writing this blog post is easy due to the joy of writing alone, so often I don't need the Pomodoro session. But for tasks considered less stimulating, such as writing graded lab reports in my experience, applying controlled pressure is more effective in generating the minimum activation energy to get started.
+
+I have a study partner with whom I agree to compare academic performance, and the lower performer buys a meal at the end of the semester. I also share my goals with family members. This creates external accountability and the risk of disappointing people I care about. The fear of losing trust becomes a motivational factor that leads me to sit down and begin the Pomodoro sessions.
+
+Rest is essential. Without mental and physical rest, a greater activation energy is required to get started. Yes, a few days before an exam, as a student, we can probably run on 5 to 6 hours of sleep per night because the fear of failure alone serves as the driving force to overcome the activation energy to get started. However, this approach carries the risk of not having enough time. Most importantly, it takes away the "fun" of studying, associating learning with a painful and mental process. This then creates a further cycle in the following exam that is associated with pain, so we further procrastinate.
+
+We must recognize a delicate balance between procrastination and genuine fatigue. On regular days, I sleep without an alarm to allow full recovery. If I wake up feeling unexcited to attack the day, I continue sleeping. That is a signal from my body and brain. Listening to these cues helps me avoid burnout while staying productive. Particularly for students and knowledge workers, it's not about the number of hours awake. It's the product of Method, Intensity, and Time (MIT). I will write more about this topic later.
+
+Procrastination is not simply a flaw. It is a natural response rooted to protect us. By understanding this and working with—not against—our instincts, we can create systems that reward progress and reduce resistance. Engineer the body through reward and pain, rather than relying solely on willpower.
+
+August 2024, 160 Claremont Ave, New York
 
 The value of poster presentations in scientific conferences
 -----------------------------------------------------------
@@ -73,7 +96,7 @@ During my poster session, I create an environment where both parties can feel
 vulnerable. I start by sharing my own vulnerabilities and weaknesses, making the
 other person more comfortable sharing theirs. For example, I mention the work I
 have done and the work of others, highlighting why they were helpful due to my
-lack of skill. Vulnerability helps us understand each other’s needs.
+lack of skill. Vulnerability helps us understand each other's needs.
 Complementary skill sets form a professional relationship. Additionally,
 discussing non-science topics during breakfast, lunch, or between sessions is
 important because we are more likely to be vulnerable with people we have talked
@@ -104,11 +127,11 @@ the two types of audiences mentioned, I would invite them to stay connected and
 exchange contact information, have lunch or dinner afterward to build trust.
 
 To reiterate, we attend in-person events to cultivate professional relationships
-that benefit each other’s careers. A poster is a session that allows one to
+that benefit each other's careers. A poster is a session that allows one to
 identify a group of audiences that may turn into a professional network. During
-a poster, we remain open, interactive, and vulnerable to identify each other’s
+a poster, we remain open, interactive, and vulnerable to identify each other's
 needs and find complementary skills. If both agree, we collaborate to advance
-each other’s careers.
+each other's careers.
 
 Practice is costly
 ------------------
@@ -312,7 +335,7 @@ I record what I need to accomplish today, this week, this month, this quarter,
 this semester, and this year. I have daily to-dos. I do not always check off all
 the list items. I focus on what I have accomplished. As my brain is explorative
 with ideas and action steps, there are always more than I can complete in a day.
-If there aren’t enough, I ask for more.
+If there aren't enough, I ask for more.
 
 For my daily hours, I utilize a 50-minute focus, 10-minute rest technique,
 averaging 10 to 12 hours a day at home with no distractions. I play basketball
@@ -371,7 +394,6 @@ individual practices in the morning, but that is where their legacy begins.
 June 2, 2024, 160 Claremont Ave, New York
 
 
-
 Thoughts on rejection
 ---------------------
 
@@ -383,7 +405,7 @@ paper was rejected by a journal, and my request for collaboration was declined.
 As I further advance my career in academia, I expect these intervals to
 decrease.
 
-I do not use the phrase "don’t take it personally." There is nothing more
+I do not use the phrase "don't take it personally." There is nothing more
 personal than spending one's invaluable and finite resource called time.
 
 Nonetheless, rejection is inevitable. We compete for finite resources provided
@@ -536,13 +558,13 @@ Fall 2021, EID 367, The Cooper Union
 
 .. _innovators-dilemma:
 
-The Innovator’s Dilemma: When New Technologies Cause Great Firms to Fail - Clayton M. Christensen
+The Innovator's Dilemma: When New Technologies Cause Great Firms to Fail - Clayton M. Christensen
 --------------------------------------------------------------------------------------------------
 
 Despite seemingly sound managerial practices, such as listening to existing
 customers and continued investment in technology, great companies are often
 displaced as market leaders. According to Clayton M. Christensen, in The
-Innovator’s Dilemma: When New Technologies Cause Great Firms to Fail, it is
+Innovator's Dilemma: When New Technologies Cause Great Firms to Fail, it is
 precisely due to these widely accepted practices of good management that leading
 firms are confronted with great profit loss and eventual bankruptcy. The fall of
 these incumbents begs the question, “Why do great companies fail?” In his book,
@@ -564,7 +586,7 @@ study, Christensen cites the architectural innovations of the 8-inch hard disk
 drive as disruptive technology, which introduced a new performance measure of
 small size demanded by desktop and mini-computer manufacturers such as
 Hewlett-Packard. Disruptive technology initially fails to meet the performance
-requirement of the incumbent companies’ customers and must find a new or niche
+requirement of the incumbent companies' customers and must find a new or niche
 market that values the newly introduced performance measure for survival. The
 8-inch drive with the storage capacity of 40 MB initially failed to meet the
 storage capacity demand of the mainframe manufacturers. Christensen's failure
@@ -573,7 +595,7 @@ technology eventually causes the failure of established companies. The failure
 framework consists of three principle components, technology maturation,
 performance oversupply, and resource dependence.
 
-Technology maturation, the first component in Christensen’s failure framework,
+Technology maturation, the first component in Christensen's failure framework,
 introduces a challenge for sustaining technology to maintain the rate of
 improvement in performance. Technology maturation occurs at the end of the
 Technology S-Curve. The Technology S-Curve is a graphical representation which
@@ -596,7 +618,7 @@ megabyte improvement, 13 percent higher than 1.42 USD of the 8-inch hard drive.
 The second component of the failure framework, performance oversupply, occurs as
 the rate of performance improvement exceeds the performance requirement. In
 continuing the disk drive case study, Christensen presents the storage capacity
-of 5.25-inch drives, which exceeded 300 percent of the desktop manufacturers’
+of 5.25-inch drives, which exceeded 300 percent of the desktop manufacturers'
 performance demand. Meanwhile, the 3.5-inch drives, which initially
 underperformed, ultimately satisfied the storage demand of the desktop
 manufacturers by maintaining the rate of storage improvement. Consequently, by
@@ -634,11 +656,11 @@ market grew to 700 million USD as new customers such as portable laptops
 manufacturers emerged, and simultaneously desktop manufacturers further migrated
 to the 3.5-inch disk drive during performance oversupply of the 5-inch drive.
 While Seagate eventually attempted to allocate resources for the 3.5-inch drive
-in 1988, Christensen cites that by 1991 none of Seagate’s 3.5-inch products had
+in 1988, Christensen cites that by 1991 none of Seagate's 3.5-inch products had
 been sold to portable/laptop/notebook computers. In 1997, Seagate reported a 550
 million net loss in sales.
 
-Why do great companies fail? Christensen’s failure framework illustrates the
+Why do great companies fail? Christensen's failure framework illustrates the
 process of how disruptive technology drives sustaining technology developed by
 incumbent firms in the mainstream market to fail. Sustaining technology
 incrementally improves upon the performance measure demanded by the existing
@@ -657,11 +679,11 @@ Fall 2021, EID 367, The Cooper Union
 The Two Cultures and the Scientific Revolution - C. P. Snow
 -----------------------------------------------------------
 
-Steve Jobs, co-founder of Apple Inc., stated, “It’s in Apple’s DNA that technology alone is not enough — it’s technology married with liberal arts, married with the humanities, that yields us the results that make our heart sing.” By recognizing the power of this union between the humanities and the sciences, Steve Jobs created numerous tools that improved the accessibility and user experience of personal computing devices, catapulting Apple Inc. into one of the most innovative companies in the world.
+Steve Jobs, co-founder of Apple Inc., stated, “It's in Apple's DNA that technology alone is not enough — it's technology married with liberal arts, married with the humanities, that yields us the results that make our heart sing.” By recognizing the power of this union between the humanities and the sciences, Steve Jobs created numerous tools that improved the accessibility and user experience of personal computing devices, catapulting Apple Inc. into one of the most innovative companies in the world.
 
 In his lecture at Cambridge University in 1957, later titled The *Two Cultures and the Scientific Revolution*, C. P. Snow, a British physicist and novelist, warned the British parliament of the widening separation between the two disciplinaries, the humanities and the sciences. Snow asserted that “the intellectual life of the whole of Western society is increasingly being split into two polar groups.” Political leaders who predominantly studied the humanities within the traditional British educational system were ill-equipped to lead the nation in the age of the scientific revolution. Snow argued that the elites often rejected the innovation of scientists, stating that while scientists had the “future in their bones,” the “traditional culture” or the elites responded “by wishing the future did not exist.” Having recognized the threat of this divide to national competition a decade after World War II, Snow demanded for a unification of the two disciplinaries with the final remark, “closing the gap between our cultures is a necessity in the most abstract intellectual sense, as well as in the most practical.”
 
-Steve Jobs’ success in applying his knowledge of calligraphy from the humanities to the development of personal computing devices illustrates the intrinsic role of interdisciplinary diversity in innovation. When the first Macintosh computer was released in 1984, for the first time in the history of machinery, Jobs provided users with a wide assortment of digital fonts and typeface designs such as Helvetica and Times New Roman. The ability to customize the font along with a human-centric user-interface improved the accessibility of personal computing devices. During Job’s commencement speech at Stanford University in 2015, he recalled his calligraphy experience at Reed College in the 1970’s as “…beautiful, historical, artistically subtle in a way that science cannot capture.” He further stated that, had he not studied calligraphy in his 20’s, “personal computers might not have the wonderful typography they do today.” His collective insight into the humanities and software technology changed how humans interacted with machines and demonstrated the significance of interdisciplinary diversity in technological innovation.
+Steve Jobs' success in applying his knowledge of calligraphy from the humanities to the development of personal computing devices illustrates the intrinsic role of interdisciplinary diversity in innovation. When the first Macintosh computer was released in 1984, for the first time in the history of machinery, Jobs provided users with a wide assortment of digital fonts and typeface designs such as Helvetica and Times New Roman. The ability to customize the font along with a human-centric user-interface improved the accessibility of personal computing devices. During Job's commencement speech at Stanford University in 2015, he recalled his calligraphy experience at Reed College in the 1970's as “…beautiful, historical, artistically subtle in a way that science cannot capture.” He further stated that, had he not studied calligraphy in his 20's, “personal computers might not have the wonderful typography they do today.” His collective insight into the humanities and software technology changed how humans interacted with machines and demonstrated the significance of interdisciplinary diversity in technological innovation.
 
 Steve Jobs, one of the most innovative entrepreneurs of the 21st century, by combining the knowledge of the humanities and the sciences, improved the accessibility of personal computing devices for users. Conversely, this innovation by Steve Jobs also precipitated the bankruptcies of numerous companies that failed to recognize the threat of interdisciplinary divide as previously warned by C.P. Snow. Therefore, technological leaders and entrepreneurs of today must recognize and embrace interdisciplinarity as an indispensable element of innovation.
 
@@ -689,7 +711,7 @@ to employ the tool for phase transitions and kinetics.
 With the two types of innovation discussed, we strive to measure performance
 with both objective and subjective measures. For the second type, this is
 difficult. Jensen Huang from Nvidia said, “I find KPIs hard to understand.”
-“What’s a good KPI?” “Gross margins, that’s not a KPI. That’s a result.” Nvidia
+“What's a good KPI?” “Gross margins, that's not a KPI. That's a result.” Nvidia
 is known for investing in new fields such as computational drug discovery and
 materials science, beyond its origins as a computer-graphics chip design firm.
 
